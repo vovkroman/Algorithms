@@ -9,33 +9,18 @@
 import XCTest
 @testable import Algorithms
 
-import Foundation
-import CoreFoundation
-
-public class ParkBenchTimer {
-
-    public let startTime:CFAbsoluteTime
-    public var endTime:CFAbsoluteTime?
-
-    public init() {
-        startTime = CFAbsoluteTimeGetCurrent()
-    }
-
-    public func stop() -> CFAbsoluteTime {
-        endTime = CFAbsoluteTimeGetCurrent()
-
-        return duration!
-    }
-
-    public var duration:CFAbsoluteTime? {
-        if let endTime = endTime {
-            return endTime - startTime
-        } else {
-            return nil
+extension Array where Element: Comparable {
+    
+    @discardableResult
+    func find(value searchValue: Element) -> Index? {
+        for (index, value) in self.enumerated() {
+            if value == searchValue {
+                return index
+            }
         }
+        return nil
     }
 }
-
 
 class ObjC {
     var priority: UInt32
@@ -65,37 +50,63 @@ class AlgorithmsTests: XCTestCase {
         var swift = PriorityQueue<ObjC>(sort: {$0.priority < $1.priority})
         //self.measure {
         let timer = ParkBenchTimer()
-            for _ in 0...500_000 {
-                let r = UInt32.random(in: 0...500_000)
-                let obj1 = ObjC(r)
-                swift.enqueue(obj1)
-            }
-            
-            while swift.count != 0 {
-                swift.dequeue()
-            }
-            
-            print("SwiftPriority timer \(timer.stop())")
-            // Put the code you want to measure the time of here.
+        for _ in 0...500_000 {
+            let r = UInt32.random(in: 0...500_000)
+            let obj1 = ObjC(r)
+            swift.enqueue(obj1)
+        }
+        
+        while swift.count != 0 {
+            swift.dequeue()
+        }
+        
+        print("SwiftPriority timer \(timer.stop())")
+        // Put the code you want to measure the time of here.
     }
     
     func testCppPriorityPerformanceExample() throws { //CppPriorityQueue timer 0.3891289234161377
         // This is an example of a performance test case.
         let pQ = CppPriorityQueue<ObjC>(.OrderedDescending)
         let timer = ParkBenchTimer()
-            for _ in 0...500_000 {
-                let r = UInt32.random(in: 0...500_000)
-                let obj1 = ObjC(r)
-                pQ.enqueue(obj1, value: r)
-            }
-            
-            while pQ.count() != 0 {
-                pQ.dequeue()
-            }
+        for _ in 0...500_000 {
+            let r = UInt32.random(in: 0...500_000)
+            let obj1 = ObjC(r)
+            pQ.enqueue(obj1, value: r)
+        }
+        
+        while pQ.count() != 0 {
+            pQ.dequeue()
+        }
         
         print("CppPriorityQueue timer \(timer.stop())")
-            // Put the code you want to measure the time of here.
-        //}
     }
     
+    func testOderedSetPriorityPerformanceExample() throws {
+        // This is an example of a performance test case.
+        var oderedArray = OrderedArray<Int>() 
+        var regularArray: [Int] = []
+        
+        for _ in 0...10_000 {
+            let i = Int.random(in: 0..<500_000)
+            oderedArray.insert(newElement: i)
+            regularArray.append(i)
+        }
+        
+        let timer1 = ParkBenchTimer()
+        for _ in 0...10_000 {
+            let g = Int.random(in: 0..<500_000)
+            oderedArray.lookUp(of: g)
+        }
+        //Swift OrderedArray timer 0.025035977363586426
+        print("Swift OrderedArray timer \(timer1.stop())")
+
+        let timer2 = ParkBenchTimer()
+        for _ in 0...10_000 {
+            let g = Int.random(in: 0..<500_000)
+            regularArray.find(value: g)
+        }
+        
+        //Array timer 44.04200994968414
+        print("Array timer \(timer2.stop())")
+    }
 }
