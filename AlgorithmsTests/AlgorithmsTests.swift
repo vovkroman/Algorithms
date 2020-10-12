@@ -30,6 +30,11 @@ class ObjC {
     }
 }
 
+
+extension ObjC: Keyable {
+    var key: UInt32 { return self.priority }
+}
+
 class AlgorithmsTests: XCTestCase {
     
     override func setUpWithError() throws {
@@ -108,5 +113,14 @@ class AlgorithmsTests: XCTestCase {
         
         //Array timer 44.04200994968414
         print("Array timer \(timer2.stop())")
+    }
+    
+    func testBinarySearchPerformanceExample() throws {
+        // This is an example of a performance test case.
+        var array: [ObjC] = [ObjC(10), ObjC(20), ObjC(5), ObjC(8), ObjC(2), ObjC(11)]
+        array.sort { (obj1, obj2) -> Bool in
+            return obj1.priority < obj2.priority
+        }
+        print(array.binarySearch(5))
     }
 }
