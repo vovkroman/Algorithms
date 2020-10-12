@@ -1,11 +1,17 @@
-/*
-  Segment tree
-
-  Performance:
-    building the tree is O(n)
-    query is O(log n)
-    replace item is O(log n)
-*/
+//
+//  Array+ArgMaxMin.swift
+//  Algorithms
+//
+//  Created by Roman Vovk on 12.10.2020.
+//  Copyright © 2020 Roman Vovk. All rights reserved.
+//
+//
+//  Segment tree
+//
+//  Performance:
+//    building the tree is O(n)
+//    query is O(log n)
+//    replace item is O(log n)
 
 public class SegmentTree<T> {
 

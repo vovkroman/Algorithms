@@ -49,6 +49,7 @@
 		6FFE7C8125344F160005477E /* SegmentTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentTree.swift; sourceTree = "<group>"; };
 		6FFE7C842534503D0005477E /* LazySegmentTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazySegmentTree.swift; sourceTree = "<group>"; };
 		6FFE7C88253461430005477E /* Array+ArgMaxMin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+ArgMaxMin.swift"; sourceTree = "<group>"; };
+		6FFE7C90253489B60005477E /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +92,7 @@
 		6F9ED149252DED0C0020D7C5 /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				6FFE7C8F253489A40005477E /* Graph */,
 				6FFE7C872534611C0005477E /* Array_Extensions */,
 				6FFE7C8025344E960005477E /* SegmentTree */,
 				6FE09A952530A49F00FD98C7 /* SortedArray */,
@@ -142,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				6FE09A9C2530AB3600FD98C7 /* OrderedArray.swift */,
-				6FFE7C842534503D0005477E /* LazySegmentTree.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -168,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				6FFE7C8125344F160005477E /* SegmentTree.swift */,
+				6FFE7C842534503D0005477E /* LazySegmentTree.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -178,6 +180,14 @@
 				6FFE7C88253461430005477E /* Array+ArgMaxMin.swift */,
 			);
 			path = Array_Extensions;
+			sourceTree = "<group>";
+		};
+		6FFE7C8F253489A40005477E /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				6FFE7C90253489B60005477E /* Graph.swift */,
+			);
+			path = Graph;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -20,22 +20,27 @@ public struct OrderedArray<T: Comparable> {
         self.array = ContiguousArray<T>(array.sorted(by: comparator))
     }
     
+    @inline(__always)
     public var isEmpty: Bool {
         return array.isEmpty
     }
     
+    @inline(__always)
     public var count: Int {
         return array.count
     }
     
+    @inline(__always)
     public subscript(index: Int) -> T {
         return array[index]
     }
     
+    @inline(__always)
     public mutating func removeAtIndex(index: Int) -> T {
         return array.remove(at: index)
     }
     
+    @inline(__always)
     public mutating func removeAll() {
         array.removeAll()
     }
@@ -87,12 +92,7 @@ public struct OrderedArray<T: Comparable> {
 extension OrderedArray: Sequence {
     
     public typealias Element = T
-    
-    @inline(__always)
-    public mutating func next() -> Element? {
-        return nil
-    }
-    
+
     @inline(__always)
     public func makeIterator() -> IndexingIterator<ContiguousArray<T>> {
         return array.makeIterator()
