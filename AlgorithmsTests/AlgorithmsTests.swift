@@ -35,6 +35,10 @@ extension ObjC: Keyable {
     var key: UInt32 { return self.priority }
 }
 
+extension Int: Keyable {
+    public var key: Int { return self }
+}
+
 class AlgorithmsTests: XCTestCase {
     
     override func setUpWithError() throws {
@@ -114,7 +118,7 @@ class AlgorithmsTests: XCTestCase {
         //Array timer 44.04200994968414
         print("Array timer \(timer2.stop())")
     }
-    
+
     
     func testBinarySearchPerformanceExample() throws {
         // This is an example of a performance test case.
@@ -123,5 +127,15 @@ class AlgorithmsTests: XCTestCase {
             return obj1.priority < obj2.priority
         }
         print(array.binarySearch(5))
+    }
+    
+    
+    func testMaxMinPerformanceExample() {
+        var arr: [Double] = .init(repeatElement(0.0, count: 1_000_000))
+        for i in 0...1_000 {
+            arr.insert(Double.random(in: 0...50_000), at: i)
+        }//non-Accelerated Executed 1 test, with 0 failures (0 unexpected) in 1.938 (1.941) seconds
+        let maxIndex = arr.argmax() //Executed 1 test, with 0 failures (0 unexpected) in 0.830 (0.833) seconds
+        let midIndex = arr.argmin()
     }
 }
