@@ -9,12 +9,12 @@
 import XCTest
 @testable import Algorithms
 
-extension Array where Element: Comparable {
+extension Array where Element: Keyable {
     
     @discardableResult
-    func find(value searchValue: Element) -> Index? {
+    func find<T: Comparable>(value searchValue: T) -> Index? where Element.KeyType == T{
         for (index, value) in self.enumerated() {
-            if value == searchValue {
+            if value.key == searchValue {
                 return index
             }
         }
@@ -88,18 +88,18 @@ class AlgorithmsTests: XCTestCase {
     
     func testOderedSetPriorityPerformanceExample() throws {
         // This is an example of a performance test case.
-        var oderedArray = OrderedArray<Int>() 
-        var regularArray: [Int] = []
+        var oderedArray = OrderedArray<ObjC>()
+        var regularArray: [ObjC] = []
         
         for _ in 0...10_000 {
-            let i = Int.random(in: 0..<500_000)
-            oderedArray.insert(newElement: i)
-            regularArray.append(i)
+            let i = UInt32.random(in: 0..<500_000)
+            oderedArray.insert(newElement: ObjC(i))
+            regularArray.append(ObjC(i))
         }
         
         let timer1 = ParkBenchTimer()
         for _ in 0...10_000 {
-            let g = Int.random(in: 0..<500_000)
+            let g = UInt32.random(in: 0..<500_000)
             oderedArray.lookUp(of: g)
         }
         //Swift OrderedArray timer 0.025035977363586426
@@ -107,13 +107,14 @@ class AlgorithmsTests: XCTestCase {
 
         let timer2 = ParkBenchTimer()
         for _ in 0...10_000 {
-            let g = Int.random(in: 0..<500_000)
+            let g = UInt32.random(in: 0..<500_000)
             regularArray.find(value: g)
         }
         
         //Array timer 44.04200994968414
         print("Array timer \(timer2.stop())")
     }
+    
     
     func testBinarySearchPerformanceExample() throws {
         // This is an example of a performance test case.

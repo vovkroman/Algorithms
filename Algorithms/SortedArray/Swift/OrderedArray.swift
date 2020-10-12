@@ -1,7 +1,7 @@
 /**
  * An ordered array represets wrapper arround array with unique element.
  * When you add a new item to this array, it is inserted in
- * sorted position.
+ * sorted position and checked if array contains such element by comparable key
  **/
 import Foundation
 
@@ -10,13 +10,13 @@ public enum Result {
     case failure // element doesn't contain in the array
 }
 
-public struct OrderedArray<T: Comparable> {
+public struct OrderedArray<T: Keyable> {
     
     public typealias ComparatorType = (T, T) -> Bool
     
     private var array: ContiguousArray<T> = []
     
-    public init(array: [T] = [], comparator:  ComparatorType = { $0 < $1 })  {
+    public init(array: [T] = [], comparator:  ComparatorType = { $0.key < $1.key })  {
         self.array = ContiguousArray<T>(array.sorted(by: comparator))
     }
     
@@ -51,17 +51,17 @@ public struct OrderedArray<T: Comparable> {
             array.append(newElement)
             return
         }
-        let index = findInsertionPoint(newElement)
-        if index >= 0, index < array.count, array[index] == newElement { return }
+        let index = findInsertionPoint(by: newElement.key)
+        if index >= 0, index < array.count, array[index].key == newElement.key { return }
         var insertIndex = index
-        if array[index] < newElement { insertIndex += 1 }
+        if array[index].key < newElement.key { insertIndex += 1 }
         array.insert(newElement, at: insertIndex)
     }
     
     @inline(__always)
-    public func lookUp(of element: T) -> Result {
-        let index = findInsertionPoint(element)
-        if index >= 0, index < array.count, array[index] == element {
+    public func lookUp<T: Comparable>(of key: T) -> Result where Element.KeyType == T {
+        let index = findInsertionPoint(by: key)
+        if index >= 0, index < array.count, array[index].key == key {
             return .success(index: index)
         } else {
             return .failure
@@ -71,15 +71,15 @@ public struct OrderedArray<T: Comparable> {
     /**
      *
      **/
-    private func findInsertionPoint(_ newElement: T) -> Int {
+    private func findInsertionPoint<T: Comparable>(by key: T) -> Int where Element.KeyType == T {
         var startIndex = 0
         var endIndex = array.count - 1
         
         while startIndex < endIndex {
             let midIndex = startIndex + (endIndex - startIndex) / 2
-            if array[midIndex] == newElement {
+            if array[midIndex].key == key {
                 return midIndex
-            } else if array[midIndex] < newElement {
+            } else if array[midIndex].key < key {
                 startIndex = midIndex + 1
             } else {
                 endIndex = midIndex
