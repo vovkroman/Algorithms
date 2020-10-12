@@ -11,10 +11,6 @@ import Foundation
 /**
  The iterative version of binary search.
  **/
-public protocol Keyable {
-    associatedtype KeyType: Comparable
-    var key: KeyType { get }
-}
 
 extension Array where Element: Keyable {
     public func binarySearch<T: Comparable>(_ key: T) -> Index? where Element.KeyType == T {
