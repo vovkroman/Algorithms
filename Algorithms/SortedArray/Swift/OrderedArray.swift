@@ -14,7 +14,7 @@ public struct OrderedArray<T: Keyable> {
     
     public typealias ComparatorType = (T, T) -> Bool
     
-    private var array: ContiguousArray<T> = []
+    private var array: ContiguousArray<T>
     
     public init(array: [T] = [], comparator:  ComparatorType = { $0.key < $1.key })  {
         self.array = ContiguousArray<T>(array.sorted(by: comparator))
@@ -102,33 +102,5 @@ extension OrderedArray: Sequence {
 extension OrderedArray: CustomStringConvertible {
     public var description: String {
         return array.description
-    }
-}
-
-#if os(iOS)
-import UIKit
-
-extension PlaygroundQuickLook {
-    public static func monospacedText(_ string: String) -> PlaygroundQuickLook {
-        let text = NSMutableAttributedString(string: string)
-        let range = NSRange(location: 0, length: text.length)
-        let style = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
-        style.lineSpacing = 0
-        style.alignment = .left
-        style.maximumLineHeight = 17
-        text.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "Menlo", size: 13)!, range: range)
-        text.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: range)
-        return PlaygroundQuickLook.attributedString(text)
-    }
-}
-#endif
-
-extension OrderedArray {
-    public var customPlaygroundQuickLook: PlaygroundQuickLook {
-        #if os(iOS)
-        return .monospacedText(String(describing: self))
-        #else
-        return .text(String(describing: self))
-        #endif
     }
 }
