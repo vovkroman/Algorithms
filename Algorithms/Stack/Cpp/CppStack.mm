@@ -12,26 +12,26 @@
 #include <vector>
 
 @implementation CppStack {
-    std::stack<id> stackContainer;
+    std::stack<id> _stackContainer;
 }
 
 - (BOOL)isEmpty {
-    return stackContainer.empty();
+    return _stackContainer.empty();
 }
 - (size_t)size {
-    return stackContainer.size();
+    return _stackContainer.size();
 }
 
 - (void)push:(id)obj {
-    stackContainer.push(obj);
+    _stackContainer.push(obj);
 }
 
 - (void)pop {
-    stackContainer.pop();
+    _stackContainer.pop();
 }
 
 - (nullable id)top {
-    let object = stackContainer.top();
+    let object = _stackContainer.top();
     return object;
 }
 
