@@ -1,11 +1,3 @@
-//
-//  PriorityQueue.m
-//  Algorithms
-//
-//  Created by Roman Vovk on 30.09.2020.
-//  Copyright © 2020 Roman Vovk. All rights reserved.
-//
-
 #import "CppPriorityQueue.h"
 #include <algorithm>
 #include <vector>

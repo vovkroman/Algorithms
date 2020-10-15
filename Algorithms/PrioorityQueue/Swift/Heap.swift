@@ -1,8 +1,3 @@
-//
-//  Heap.swift
-//  Written for the Swift Algorithm Club by Kevin Randrup and Matthijs Hollemans
-//
-
 public struct Heap<T> {
   
   /** The array that stores the heap's nodes. */

@@ -1,11 +1,3 @@
-//
-//  Defines.h
-//  Algorithms
-//
-//  Created by Roman Vovk on 08.10.2020.
-//  Copyright © 2020 Roman Vovk. All rights reserved.
-//
-
 #ifndef Defines_h
 #define Defines_h
 
