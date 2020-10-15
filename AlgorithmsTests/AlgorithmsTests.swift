@@ -30,6 +30,14 @@ class ObjC {
     }
 }
 
+class Obj1 {
+    var priority: Int
+    
+    init(_ p: Int) {
+        self.priority = p
+    }
+}
+
 
 extension ObjC: Keyable {
     var key: UInt32 { return self.priority }
@@ -40,14 +48,6 @@ extension Int: Keyable {
 }
 
 class AlgorithmsTests: XCTestCase {
-    
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
     
     func testExample() throws {
         // This is an example of a functional test case.
@@ -137,5 +137,31 @@ class AlgorithmsTests: XCTestCase {
         }//non-Accelerated Executed 1 test, with 0 failures (0 unexpected) in 1.938 (1.941) seconds
         let maxIndex = arr.argmax() //Executed 1 test, with 0 failures (0 unexpected) in 0.830 (0.833) seconds
         let midIndex = arr.argmin()
+    }
+    
+    func testStackPerformanceExample() {
+        let stack1 = CppStack<Obj1>()
+        
+        let timer = ParkBenchTimer()
+        for i in 0...1_000_000 {
+            stack1.push(Obj1(i))
+        }
+        
+        while !stack1.isEmpty() {
+            stack1.top()
+        }
+        print("Stack C++ timer \(timer.stop())")
+        
+        var stack2 = Stack<Obj1>()
+        
+        let timer1 = ParkBenchTimer()
+        for i in 0...1_000_000 {
+            stack2.push(Obj1(i))
+        }
+        
+        while !stack2.isEmpty {
+            stack2.pop()
+        }
+        print("Stack Swift timer \(timer.stop())")
     }
 }

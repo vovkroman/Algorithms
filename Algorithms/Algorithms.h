@@ -15,4 +15,4 @@ FOUNDATION_EXPORT const unsigned char AlgorithmsVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Algorithms/PublicHeader.h>
 #import <Algorithms/CppPriorityQueue.h>
-
+#import <Algorithms/CppStack.h>
