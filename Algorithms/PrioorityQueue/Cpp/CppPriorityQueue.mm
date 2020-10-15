@@ -73,7 +73,7 @@ CF_INLINE bool nodeMoreThan(const CBOQNode &n1, const CBOQNode &n2){
  * This fucntion enqueues
  *  object with specific unsigned priority
  **/
-- (void)enqueue:(nullable id)obj value:(unsigned)val {
+- (void)enqueue:(id)obj value:(unsigned)val {
     let node = CBOQNode(obj, val);
     
     mObjs.push_back(node);

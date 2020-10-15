@@ -7,7 +7,9 @@ NS_ASSUME_NONNULL_BEGIN
 * Use 'OrderedDescending' for a max-heap or 'OrderedAscending' for a min-heap,
 */
 typedef NS_CLOSED_ENUM(NSInteger, ComparisonResult) {
+    /// The left operand is smaller than the right operand.
     OrderedAscending = -1L,
+    /// The left operand is greater than the right operand.
     OrderedDescending
 };
 
@@ -27,7 +29,7 @@ typedef NS_CLOSED_ENUM(NSInteger, ComparisonResult) {
 @interface CppPriorityQueue<__covariant ObjectType> : NSObject
 
 - (size_t)count;
-- (void)enqueue:(nullable id)obj value:(unsigned)val;
+- (void)enqueue:(ObjectType)obj value:(unsigned)val;
 - (nullable ObjectType)dequeue; 
 - (BOOL)isEmpty;
 
