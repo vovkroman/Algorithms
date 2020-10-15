@@ -14,54 +14,54 @@ public struct OrderedArray<T: Keyable> {
     
     public typealias ComparatorType = (T, T) -> Bool
     
-    private var array: ContiguousArray<T>
+    private var _storage: ContiguousArray<T>
     
     public init(array: [T] = [], comparator:  ComparatorType = { $0.key < $1.key })  {
-        self.array = ContiguousArray<T>(array.sorted(by: comparator))
+        self._storage = ContiguousArray<T>(array.sorted(by: comparator))
     }
     
     @inline(__always)
     public var isEmpty: Bool {
-        return array.isEmpty
+        return _storage.isEmpty
     }
     
     @inline(__always)
     public var count: Int {
-        return array.count
+        return _storage.count
     }
     
     @inline(__always)
     public subscript(index: Int) -> T {
-        return array[index]
+        return _storage[index]
     }
     
     @inline(__always)
     public mutating func removeAtIndex(index: Int) -> T {
-        return array.remove(at: index)
+        return _storage.remove(at: index)
     }
     
     @inline(__always)
     public mutating func removeAll() {
-        array.removeAll()
+        _storage.removeAll()
     }
     
     @inline(__always)
     public mutating func insert(newElement: T) {
-        if array.isEmpty {
-            array.append(newElement)
+        if _storage.isEmpty {
+            _storage.append(newElement)
             return
         }
         let index = findInsertionPoint(by: newElement.key)
-        if index >= 0, index < array.count, array[index].key == newElement.key { return }
+        if index >= 0, index < _storage.count, _storage[index].key == newElement.key { return }
         var insertIndex = index
-        if array[index].key < newElement.key { insertIndex += 1 }
-        array.insert(newElement, at: insertIndex)
+        if _storage[index].key < newElement.key { insertIndex += 1 }
+        _storage.insert(newElement, at: insertIndex)
     }
     
     @inline(__always)
     public func lookUp<T: Comparable>(of key: T) -> Result where Element.KeyType == T {
         let index = findInsertionPoint(by: key)
-        if index >= 0, index < array.count, array[index].key == key {
+        if index >= 0, index < _storage.count, _storage[index].key == key {
             return .success(index: index)
         } else {
             return .failure
@@ -73,13 +73,13 @@ public struct OrderedArray<T: Keyable> {
      **/
     private func findInsertionPoint<T: Comparable>(by key: T) -> Int where Element.KeyType == T {
         var startIndex = 0
-        var endIndex = array.count - 1
+        var endIndex = _storage.count - 1
         
         while startIndex < endIndex {
             let midIndex = startIndex + (endIndex - startIndex) / 2
-            if array[midIndex].key == key {
+            if _storage[midIndex].key == key {
                 return midIndex
-            } else if array[midIndex].key < key {
+            } else if _storage[midIndex].key < key {
                 startIndex = midIndex + 1
             } else {
                 endIndex = midIndex
@@ -95,12 +95,12 @@ extension OrderedArray: Sequence {
 
     @inline(__always)
     public func makeIterator() -> IndexingIterator<ContiguousArray<T>> {
-        return array.makeIterator()
+        return _storage.makeIterator()
     }
 }
 
 extension OrderedArray: CustomStringConvertible {
     public var description: String {
-        return array.description
+        return _storage.description
     }
 }
