@@ -12,6 +12,9 @@
 		6F5D4B3825377CB100C692A9 /* CppStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F5D4B3625377CB100C692A9 /* CppStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F5D4B3925377CB100C692A9 /* CppStack.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4B3725377CB100C692A9 /* CppStack.mm */; };
 		6F5D4B3A25377D2F00C692A9 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE7C90253489B60005477E /* Graph.swift */; };
+		6F9D5C602539C43900CC3CE6 /* ObjCPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9D5C5E2539C43900CC3CE6 /* ObjCPriorityQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6F9D5C612539C43900CC3CE6 /* ObjCPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D5C5F2539C43900CC3CE6 /* ObjCPriorityQueue.m */; };
+		6F9D5C652539CD9600CC3CE6 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D5C642539CD9600CC3CE6 /* Task.m */; };
 		6F9ED151252DED0C0020D7C5 /* Algorithms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9ED147252DED0C0020D7C5 /* Algorithms.framework */; };
 		6F9ED156252DED0C0020D7C5 /* AlgorithmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9ED155252DED0C0020D7C5 /* AlgorithmsTests.swift */; };
 		6F9ED158252DED0C0020D7C5 /* Algorithms.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9ED14A252DED0C0020D7C5 /* Algorithms.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,6 +49,11 @@
 		6F5D4B332537790700C692A9 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		6F5D4B3625377CB100C692A9 /* CppStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CppStack.h; sourceTree = "<group>"; };
 		6F5D4B3725377CB100C692A9 /* CppStack.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CppStack.mm; sourceTree = "<group>"; };
+		6F9D5C5E2539C43900CC3CE6 /* ObjCPriorityQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCPriorityQueue.h; sourceTree = "<group>"; };
+		6F9D5C5F2539C43900CC3CE6 /* ObjCPriorityQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCPriorityQueue.m; sourceTree = "<group>"; };
+		6F9D5C622539CD9500CC3CE6 /* AlgorithmsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlgorithmsTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		6F9D5C632539CD9600CC3CE6 /* Task.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		6F9D5C642539CD9600CC3CE6 /* Task.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		6F9ED147252DED0C0020D7C5 /* Algorithms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Algorithms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9ED14A252DED0C0020D7C5 /* Algorithms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Algorithms.h; sourceTree = "<group>"; };
 		6F9ED14B252DED0C0020D7C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,6 +138,24 @@
 			path = Cpp;
 			sourceTree = "<group>";
 		};
+		6F9D5C5D2539C40600CC3CE6 /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				6F9D5C5E2539C43900CC3CE6 /* ObjCPriorityQueue.h */,
+				6F9D5C5F2539C43900CC3CE6 /* ObjCPriorityQueue.m */,
+			);
+			path = ObjC;
+			sourceTree = "<group>";
+		};
+		6F9D5C662539D2D500CC3CE6 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				6F9D5C632539CD9600CC3CE6 /* Task.h */,
+				6F9D5C642539CD9600CC3CE6 /* Task.m */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
 		6F9ED13D252DED0C0020D7C5 = {
 			isa = PBXGroup;
 			children = (
@@ -169,9 +195,11 @@
 		6F9ED154252DED0C0020D7C5 /* AlgorithmsTests */ = {
 			isa = PBXGroup;
 			children = (
+				6F9D5C662539D2D500CC3CE6 /* Task */,
 				6FFE7C7E253448B50005477E /* ParkBenchTimer.swift */,
 				6F9ED155252DED0C0020D7C5 /* AlgorithmsTests.swift */,
 				6F9ED157252DED0C0020D7C5 /* Info.plist */,
+				6F9D5C622539CD9500CC3CE6 /* AlgorithmsTests-Bridging-Header.h */,
 			);
 			path = AlgorithmsTests;
 			sourceTree = "<group>";
@@ -179,6 +207,7 @@
 		6F9ED161252DED130020D7C5 /* PrioorityQueue */ = {
 			isa = PBXGroup;
 			children = (
+				6F9D5C5D2539C40600CC3CE6 /* ObjC */,
 				6FEC573C252F147500DE5AB3 /* Swift */,
 				6F9ED167252DEFC70020D7C5 /* Cpp */,
 			);
@@ -272,6 +301,7 @@
 			files = (
 				6F9ED158252DED0C0020D7C5 /* Algorithms.h in Headers */,
 				6F9ED164252DED650020D7C5 /* CppPriorityQueue.h in Headers */,
+				6F9D5C602539C43900CC3CE6 /* ObjCPriorityQueue.h in Headers */,
 				6F5D4B3825377CB100C692A9 /* CppStack.h in Headers */,
 				6FEC5749252F7A7300DE5AB3 /* Defines.h in Headers */,
 			);
@@ -332,6 +362,7 @@
 					};
 					6F9ED14F252DED0C0020D7C5 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -379,6 +410,7 @@
 				6FFE7C9A2534B9A40005477E /* Array+OptimizedArgMaxMin.swift in Sources */,
 				6F5D4B342537790700C692A9 /* Stack.swift in Sources */,
 				6FFE7C932534A9870005477E /* Array+BinarySearch.swift in Sources */,
+				6F9D5C612539C43900CC3CE6 /* ObjCPriorityQueue.m in Sources */,
 				6F9ED165252DED650020D7C5 /* CppPriorityQueue.mm in Sources */,
 				6FFE7C89253461430005477E /* Array+ArgMaxMin.swift in Sources */,
 				6FFE7C852534503D0005477E /* LazySegmentTree.swift in Sources */,
@@ -399,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FFE7C7F253448B50005477E /* ParkBenchTimer.swift in Sources */,
+				6F9D5C652539CD9600CC3CE6 /* Task.m in Sources */,
 				6F9ED156252DED0C0020D7C5 /* AlgorithmsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,6 +622,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 949EPRTE2W;
 				INFOPLIST_FILE = AlgorithmsTests/Info.plist;
@@ -599,6 +633,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gloabllogic.AlgorithmsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AlgorithmsTests/AlgorithmsTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -608,6 +644,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 949EPRTE2W;
 				INFOPLIST_FILE = AlgorithmsTests/Info.plist;
@@ -618,6 +655,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gloabllogic.AlgorithmsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AlgorithmsTests/AlgorithmsTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -73,22 +73,22 @@ class AlgorithmsTests: XCTestCase {
         // Put the code you want to measure the time of here.
     }
     
-    func testCppPriorityPerformanceExample() throws { //CppPriorityQueue timer 0.3891289234161377
-        // This is an example of a performance test case.
-        let pQ = CppPriorityQueue<ObjC>(.OrderedDescending)
-        let timer = ParkBenchTimer()
-        for _ in 0...500_000 {
-            let r = UInt32.random(in: 0...500_000)
-            let obj1 = ObjC(r)
-            pQ.enqueue(obj1, value: r)
-        }
-        
-        while pQ.count() != 0 {
-            pQ.dequeue()
-        }
-        
-        print("CppPriorityQueue timer \(timer.stop())")
-    }
+//    func testCppPriorityPerformanceExample() throws { //CppPriorityQueue timer 0.3891289234161377
+//        // This is an example of a performance test case.
+//        let pQ = CppPriorityQueue<ObjC>(.OrderedDescending)
+//        let timer = ParkBenchTimer()
+//        for _ in 0...500_000 {
+//            let r = UInt32.random(in: 0...500_000)
+//            let obj1 = ObjC(r)
+//            pQ.enqueue(obj1, value: r)
+//        }
+//        
+//        while pQ.count() != 0 {
+//            pQ.dequeue()
+//        }
+//        
+//        print("CppPriorityQueue timer \(timer.stop())")
+//    }
     
     func testOderedSetPriorityPerformanceExample() throws {
         // This is an example of a performance test case.
@@ -163,5 +163,22 @@ class AlgorithmsTests: XCTestCase {
             stack2.pop()
         }
         print("Stack Swift timer \(timer.stop())")
+    }
+    
+    func testPerformanceOjcPriorityQueue() {
+        let pq = ObjCPriorityQueue<Task>()
+        pq.enqueue(Task(priority: 2, andName: "2"))
+        pq.enqueue(Task(priority: 4, andName: "4"))
+        pq.enqueue(Task(priority: 10, andName: "10"))
+        pq.enqueue(Task(priority: 3, andName: "3"))
+        pq.enqueue(Task(priority: 8, andName: "8"))
+        pq.enqueue(Task(priority: 5, andName: "5"))
+        pq.enqueue(Task(priority: 11, andName: "11"))
+        
+        for i in 0...10 {
+            print(pq.dequeue())
+        }
+        
+        print(pq.contains(Task(priority: 12, andName: "4")))
     }
 }
