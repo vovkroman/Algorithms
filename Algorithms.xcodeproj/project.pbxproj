@@ -22,6 +22,7 @@
 		6FC8F25B253E027C0099F2D8 /* CppStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F5D4B3625377CB100C692A9 /* CppStack.h */; };
 		6FC8F25C253E027F0099F2D8 /* CppStack.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4B3725377CB100C692A9 /* CppStack.mm */; };
 		6FC8F25F253E03CD0099F2D8 /* SynchronizedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC8F25E253E03CD0099F2D8 /* SynchronizedArray.swift */; };
+		6FC8F262253E05780099F2D8 /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC8F261253E05780099F2D8 /* Trie.swift */; };
 		6FE09A9D2530AB3600FD98C7 /* OrderedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE09A9C2530AB3600FD98C7 /* OrderedArray.swift */; };
 		6FEC573E252F149900DE5AB3 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC573D252F149900DE5AB3 /* Heap.swift */; };
 		6FEC5740252F14B700DE5AB3 /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC573F252F14B600DE5AB3 /* PriorityQueue.swift */; };
@@ -66,6 +67,7 @@
 		6F9ED163252DED650020D7C5 /* CppPriorityQueue.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CppPriorityQueue.mm; sourceTree = "<group>"; };
 		6FC8F259253DFD930099F2D8 /* Array+kStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+kStatistics.swift"; sourceTree = "<group>"; };
 		6FC8F25E253E03CD0099F2D8 /* SynchronizedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedArray.swift; sourceTree = "<group>"; };
+		6FC8F261253E05780099F2D8 /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
 		6FE09A9C2530AB3600FD98C7 /* OrderedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedArray.swift; sourceTree = "<group>"; };
 		6FEC573D252F149900DE5AB3 /* Heap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		6FEC573F252F14B600DE5AB3 /* PriorityQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
@@ -181,8 +183,9 @@
 		6F9ED149252DED0C0020D7C5 /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
-				6FC8F25D253E038A0099F2D8 /* SynchrinizedArray */,
 				6FFE7C942534B0BF0005477E /* Shared */,
+				6FC8F260253E056A0099F2D8 /* Trie */,
+				6FC8F25D253E038A0099F2D8 /* SynchrinizedArray */,
 				6F5D4B31253778D300C692A9 /* Stack */,
 				6F5D4B2D2537787500C692A9 /* Queue */,
 				6FFE7C8F253489A40005477E /* Graph */,
@@ -234,6 +237,14 @@
 				6FC8F25E253E03CD0099F2D8 /* SynchronizedArray.swift */,
 			);
 			path = SynchrinizedArray;
+			sourceTree = "<group>";
+		};
+		6FC8F260253E056A0099F2D8 /* Trie */ = {
+			isa = PBXGroup;
+			children = (
+				6FC8F261253E05780099F2D8 /* Trie.swift */,
+			);
+			path = Trie;
 			sourceTree = "<group>";
 		};
 		6FE09A952530A49F00FD98C7 /* SortedArray */ = {
@@ -431,6 +442,7 @@
 				6FFE7C89253461430005477E /* Array+ArgMaxMin.swift in Sources */,
 				6FFE7C852534503D0005477E /* LazySegmentTree.swift in Sources */,
 				6FE09A9D2530AB3600FD98C7 /* OrderedArray.swift in Sources */,
+				6FC8F262253E05780099F2D8 /* Trie.swift in Sources */,
 				6FFE7C982534B6560005477E /* Array+Sort.swift in Sources */,
 				6F5D4B30253778A300C692A9 /* Queue.swift in Sources */,
 				6F5D4B3A25377D2F00C692A9 /* Graph.swift in Sources */,
