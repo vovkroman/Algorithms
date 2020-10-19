@@ -20,32 +20,26 @@ public struct OrderedArray<T: Keyable> {
         self._storage = ContiguousArray<T>(array.sorted(by: comparator))
     }
     
-    @inline(__always)
     public var isEmpty: Bool {
         return _storage.isEmpty
     }
     
-    @inline(__always)
     public var count: Int {
         return _storage.count
     }
     
-    @inline(__always)
     public subscript(index: Int) -> T {
         return _storage[index]
     }
     
-    @inline(__always)
     public mutating func removeAtIndex(index: Int) -> T {
         return _storage.remove(at: index)
     }
     
-    @inline(__always)
     public mutating func removeAll() {
         _storage.removeAll()
     }
     
-    @inline(__always)
     public mutating func insert(newElement: T) {
         if _storage.isEmpty {
             _storage.append(newElement)
@@ -58,7 +52,6 @@ public struct OrderedArray<T: Keyable> {
         _storage.insert(newElement, at: insertIndex)
     }
     
-    @inline(__always)
     public func lookUp<T: Comparable>(of key: T) -> Result where Element.KeyType == T {
         let index = findInsertionPoint(by: key)
         if index >= 0, index < _storage.count, _storage[index].key == key {
@@ -93,7 +86,6 @@ extension OrderedArray: Sequence {
     
     public typealias Element = T
 
-    @inline(__always)
     public func makeIterator() -> IndexingIterator<ContiguousArray<T>> {
         return _storage.makeIterator()
     }
