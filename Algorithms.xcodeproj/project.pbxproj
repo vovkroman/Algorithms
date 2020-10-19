@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		6F5D4B30253778A300C692A9 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4B2F253778A300C692A9 /* Queue.swift */; };
 		6F5D4B342537790700C692A9 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4B332537790700C692A9 /* Stack.swift */; };
-		6F5D4B3825377CB100C692A9 /* CppStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F5D4B3625377CB100C692A9 /* CppStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6F5D4B3925377CB100C692A9 /* CppStack.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4B3725377CB100C692A9 /* CppStack.mm */; };
 		6F5D4B3A25377D2F00C692A9 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE7C90253489B60005477E /* Graph.swift */; };
 		6F9D5C602539C43900CC3CE6 /* ObjCPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9D5C5E2539C43900CC3CE6 /* ObjCPriorityQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F9D5C612539C43900CC3CE6 /* ObjCPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D5C5F2539C43900CC3CE6 /* ObjCPriorityQueue.m */; };
@@ -21,6 +19,9 @@
 		6F9ED164252DED650020D7C5 /* CppPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9ED162252DED650020D7C5 /* CppPriorityQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F9ED165252DED650020D7C5 /* CppPriorityQueue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F9ED163252DED650020D7C5 /* CppPriorityQueue.mm */; };
 		6FC8F25A253DFD930099F2D8 /* Array+kStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC8F259253DFD930099F2D8 /* Array+kStatistics.swift */; };
+		6FC8F25B253E027C0099F2D8 /* CppStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F5D4B3625377CB100C692A9 /* CppStack.h */; };
+		6FC8F25C253E027F0099F2D8 /* CppStack.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4B3725377CB100C692A9 /* CppStack.mm */; };
+		6FC8F25F253E03CD0099F2D8 /* SynchronizedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC8F25E253E03CD0099F2D8 /* SynchronizedArray.swift */; };
 		6FE09A9D2530AB3600FD98C7 /* OrderedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE09A9C2530AB3600FD98C7 /* OrderedArray.swift */; };
 		6FEC573E252F149900DE5AB3 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC573D252F149900DE5AB3 /* Heap.swift */; };
 		6FEC5740252F14B700DE5AB3 /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC573F252F14B600DE5AB3 /* PriorityQueue.swift */; };
@@ -64,6 +65,7 @@
 		6F9ED162252DED650020D7C5 /* CppPriorityQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CppPriorityQueue.h; sourceTree = "<group>"; };
 		6F9ED163252DED650020D7C5 /* CppPriorityQueue.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CppPriorityQueue.mm; sourceTree = "<group>"; };
 		6FC8F259253DFD930099F2D8 /* Array+kStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+kStatistics.swift"; sourceTree = "<group>"; };
+		6FC8F25E253E03CD0099F2D8 /* SynchronizedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedArray.swift; sourceTree = "<group>"; };
 		6FE09A9C2530AB3600FD98C7 /* OrderedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedArray.swift; sourceTree = "<group>"; };
 		6FEC573D252F149900DE5AB3 /* Heap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		6FEC573F252F14B600DE5AB3 /* PriorityQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		6F9ED149252DED0C0020D7C5 /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				6FC8F25D253E038A0099F2D8 /* SynchrinizedArray */,
 				6FFE7C942534B0BF0005477E /* Shared */,
 				6F5D4B31253778D300C692A9 /* Stack */,
 				6F5D4B2D2537787500C692A9 /* Queue */,
@@ -223,6 +226,14 @@
 				6F9ED163252DED650020D7C5 /* CppPriorityQueue.mm */,
 			);
 			path = Cpp;
+			sourceTree = "<group>";
+		};
+		6FC8F25D253E038A0099F2D8 /* SynchrinizedArray */ = {
+			isa = PBXGroup;
+			children = (
+				6FC8F25E253E03CD0099F2D8 /* SynchronizedArray.swift */,
+			);
+			path = SynchrinizedArray;
 			sourceTree = "<group>";
 		};
 		6FE09A952530A49F00FD98C7 /* SortedArray */ = {
@@ -303,9 +314,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F9ED158252DED0C0020D7C5 /* Algorithms.h in Headers */,
+				6FC8F25B253E027C0099F2D8 /* CppStack.h in Headers */,
 				6F9ED164252DED650020D7C5 /* CppPriorityQueue.h in Headers */,
 				6F9D5C602539C43900CC3CE6 /* ObjCPriorityQueue.h in Headers */,
-				6F5D4B3825377CB100C692A9 /* CppStack.h in Headers */,
 				6FEC5749252F7A7300DE5AB3 /* Defines.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +421,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FC8F25C253E027F0099F2D8 /* CppStack.mm in Sources */,
+				6FC8F25F253E03CD0099F2D8 /* SynchronizedArray.swift in Sources */,
 				6FFE7C9A2534B9A40005477E /* Array+OptimizedArgMaxMin.swift in Sources */,
 				6F5D4B342537790700C692A9 /* Stack.swift in Sources */,
 				6FFE7C932534A9870005477E /* Array+BinarySearch.swift in Sources */,
@@ -422,7 +435,6 @@
 				6F5D4B30253778A300C692A9 /* Queue.swift in Sources */,
 				6F5D4B3A25377D2F00C692A9 /* Graph.swift in Sources */,
 				6FEC573E252F149900DE5AB3 /* Heap.swift in Sources */,
-				6F5D4B3925377CB100C692A9 /* CppStack.mm in Sources */,
 				6FFE7C962534B0D20005477E /* Shared.swift in Sources */,
 				6FEC5740252F14B700DE5AB3 /* PriorityQueue.swift in Sources */,
 				6FFE7C8225344F160005477E /* SegmentTree.swift in Sources */,
