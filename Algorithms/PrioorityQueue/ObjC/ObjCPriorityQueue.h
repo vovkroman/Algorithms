@@ -10,12 +10,23 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ObjCPriorityQueue<__covariant ObjectType> : NSObject
+@protocol ObjCComparableProtocol <NSObject>
+
+- (CFComparisonResult)compare:(id)otherObject;
+
+@end
+
+
+@interface ObjCPriorityQueue<__covariant ObjectType: id<ObjCComparableProtocol>> : NSObject
+
+typedef void (^ApplyBlock)(ObjectType object);
 
 - (void)enqueue:(ObjectType)object;
 - (nullable ObjectType)dequeue;
-- (CFIndex)count;
+- (NSUInteger)count;
+- (NSUInteger)countOfObject:(ObjectType)object;
 - (BOOL)contains:(ObjectType)object;
+- (void)enumerateObjectsUsingBlock:(ApplyBlock)block;
 
 #pragma mark - Initialization
 - (instancetype)init;

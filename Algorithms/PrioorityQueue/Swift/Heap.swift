@@ -54,7 +54,7 @@ public struct Heap<T> {
    * Returns the index of the parent of the element at index i.
    * The element at index 0 is the root of the tree and has no parent.
    */
-   func parentIndex(ofIndex i: Int) -> Int {
+  private func parentIndex(ofIndex i: Int) -> Int {
     return (i - 1) / 2
   }
   
@@ -63,7 +63,7 @@ public struct Heap<T> {
    * Note that this index can be greater than the heap size, in which case
    * there is no left child.
    */
-  func leftChildIndex(ofIndex i: Int) -> Int {
+  private func leftChildIndex(ofIndex i: Int) -> Int {
     return 2*i + 1
   }
   
@@ -72,7 +72,7 @@ public struct Heap<T> {
    * Note that this index can be greater than the heap size, in which case
    * there is no right child.
    */
-  func rightChildIndex(ofIndex i: Int) -> Int {
+  private func rightChildIndex(ofIndex i: Int) -> Int {
     return 2*i + 2
   }
   
