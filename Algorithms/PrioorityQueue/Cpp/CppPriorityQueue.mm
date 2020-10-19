@@ -30,7 +30,7 @@ CF_INLINE bool nodeMoreThan(const CBOQNode &n1, const CBOQNode &n2){
 }
 
 @implementation CppPriorityQueue {
-    std::vector<CBOQNode> mObjs;
+    std::vector<CBOQNode> _mObjs;
     BOOL mHeapified;
     bool (*sortFunc)(const CBOQNode &, const CBOQNode &);
 }
@@ -55,18 +55,18 @@ CF_INLINE bool nodeMoreThan(const CBOQNode &n1, const CBOQNode &n2){
 
 /*This function is used to convert a range in a container to a heap.*/
 - (void)buildheap {
-    std::make_heap(mObjs.begin(), mObjs.end(), sortFunc);
+    std::make_heap(_mObjs.begin(), _mObjs.end(), sortFunc);
     mHeapified = YES;
 }
 
 #pragma mark -
 
 - (size_t)count {
-    return mObjs.size();
+    return _mObjs.size();
 }
 
 - (BOOL)isEmpty {
-    return mObjs.empty();
+    return _mObjs.empty();
 }
 
 /**
@@ -76,18 +76,18 @@ CF_INLINE bool nodeMoreThan(const CBOQNode &n1, const CBOQNode &n2){
 - (void)enqueue:(id)obj value:(unsigned)val {
     let node = CBOQNode(obj, val);
     
-    mObjs.push_back(node);
+    _mObjs.push_back(node);
     
-    if (mHeapified) std::push_heap(mObjs.begin(), mObjs.end(), sortFunc);
+    if (mHeapified) std::push_heap(_mObjs.begin(), _mObjs.end(), sortFunc);
 }
 
 - (nullable id)dequeue; {
     if(!mHeapified) {
         [self buildheap];
     }
-    std::pop_heap(mObjs.begin(), mObjs.end(), sortFunc);
-    let obj = mObjs.front().getObj();
-    mObjs.pop_back();
+    std::pop_heap(_mObjs.begin(), _mObjs.end(), sortFunc);
+    let obj = _mObjs.front().getObj();
+    _mObjs.pop_back();
     
     return obj;
 }
