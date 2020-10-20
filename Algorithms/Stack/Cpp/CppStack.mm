@@ -1,11 +1,3 @@
-//
-//  CppStack.m
-//  Algorithms
-//
-//  Created by Roman Vovk on 14.10.2020.
-//  Copyright © 2020 Roman Vovk. All rights reserved.
-//
-
 #import "CppStack.h"
 #import "Defines.h"
 #include <stack>
