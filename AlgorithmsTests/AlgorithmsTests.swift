@@ -12,7 +12,7 @@ import XCTest
 extension Array where Element: Keyable {
     
     @discardableResult
-    func find<T: Comparable>(value searchValue: T) -> Index? where Element.KeyType == T{
+    func find<T: Comparable>(value searchValue: T) -> Index? where Element.KeyType == T {
         for (index, value) in self.enumerated() {
             if value.key == searchValue {
                 return index
@@ -166,19 +166,19 @@ class AlgorithmsTests: XCTestCase {
     }
     
     func testPerformanceOjcPriorityQueue() {
-        let pq = ObjCPriorityQueue<Task>()
-        pq.enqueue(Task(priority: 2, andName: "2"))
-        pq.enqueue(Task(priority: 4, andName: "4"))
-        pq.enqueue(Task(priority: 10, andName: "10"))
-        pq.enqueue(Task(priority: 3, andName: "3"))
-        pq.enqueue(Task(priority: 8, andName: "8"))
-        pq.enqueue(Task(priority: 5, andName: "5"))
-        pq.enqueue(Task(priority: 11, andName: "11"))
-        
-        for i in 0...10 {
-            print(pq.dequeue())
-        }
-        
-        print(pq.contains(Task(priority: 12, andName: "4")))
+//        let pq = ObjCPriorityQueue<Task>()
+//        pq.enqueue(Task(priority: 2, andName: "2"))
+//        pq.enqueue(Task(priority: 4, andName: "4"))
+//        pq.enqueue(Task(priority: 10, andName: "10"))
+//        pq.enqueue(Task(priority: 3, andName: "3"))
+//        pq.enqueue(Task(priority: 8, andName: "8"))
+//        pq.enqueue(Task(priority: 5, andName: "5"))
+//        pq.enqueue(Task(priority: 11, andName: "11"))
+//        
+//        for i in 0...10 {
+//            print(pq.dequeue())
+//        }
+//        
+//        print(pq.contains(Task(priority: 12, andName: "4")))
     }
 }

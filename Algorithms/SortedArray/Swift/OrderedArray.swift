@@ -1,10 +1,19 @@
+/// Description
 /**
- * An ordered array represets wrapper arround array with unique element.
- * When you add a new item to this array, it is inserted in
- * sorted position and checked if array contains such element by comparable key
- **/
+* An ordered array represets wrapper arround array with unique element.
+* When you add a new item to this array, it is inserted in
+* sorted position and checked if array contains such element by comparable key
+**/
 import Foundation
 
+/**
+ Description: *Result* represents result
+ on searching element in odered array
+ 
+ Available cases:
+ - **success(index:**: element contains in odered array by index
+ - **failure**: element dones't contain in odered array
+ */
 public enum Result {
     case success(index: Int) // element does contain in the array
     case failure // element doesn't contain in the array
@@ -16,6 +25,12 @@ public struct OrderedArray<T: Keyable> {
     
     private var _storage: ContiguousArray<T>
     
+    /**
+     Description: *Intialization*
+     
+     - parameter array:      initialize with array (Default: [])
+     - parameter comparator: Defines the signature how comparison operations is used. (Default: { $0.key < $1.key })
+     */
     public init(array: [T] = [], comparator:  ComparatorType = { $0.key < $1.key })  {
         self._storage = ContiguousArray<T>(array.sorted(by: comparator))
     }
@@ -40,6 +55,12 @@ public struct OrderedArray<T: Keyable> {
         _storage.removeAll()
     }
     
+    /**
+     Description: *Insertion*: find index of element, where element might be inserted and insert it, otherwise
+     ignore element if there is such elelemt (performed by O(**log(n)**), but since used array under the hood, array can be reallocate additional capasity, and so summarize operation is performed by O(**n**)
+     
+     - parameter newElement: new element of array
+     */
     public mutating func insert(newElement: T) {
         if _storage.isEmpty {
             _storage.append(newElement)
@@ -52,6 +73,13 @@ public struct OrderedArray<T: Keyable> {
         _storage.insert(newElement, at: insertIndex)
     }
     
+    /**
+     Description: *Seacrhing eleemnt by *key*
+     
+     - parameter key:
+     
+     - returns: see **Result**
+     */
     public func lookUp<T: Comparable>(of key: T) -> Result where Element.KeyType == T {
         let index = findInsertionPoint(by: key)
         if index >= 0, index < _storage.count, _storage[index].key == key {
@@ -64,6 +92,14 @@ public struct OrderedArray<T: Keyable> {
     /**
      *
      **/
+    /**
+     Description: Find convinient index of element by key,
+     *     if element doesn't contains return startIndex or endIndex
+     
+     - parameter key: key
+     
+     - returns: index of element by key
+     */
     private func findInsertionPoint<T: Comparable>(by key: T) -> Int where Element.KeyType == T {
         var startIndex = 0
         var endIndex = _storage.count - 1
