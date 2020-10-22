@@ -7,7 +7,7 @@ import Foundation
  **/
 
 public struct OrderedSet<T: Comparable & Hashable> {
-    private let _storage: NSMutableOrderedSet
+    let _storage: NSMutableOrderedSet
     
     // MARK: - Initialziation
     
@@ -34,8 +34,12 @@ public struct OrderedSet<T: Comparable & Hashable> {
         _storage = NSMutableOrderedSet(objects: objects)
     }
     
+    public var count: Int {
+        return _storage.count
+    }
+    
     /**
-     Description: *Intialization with set of objects*
+     Description: *Apply body closure to all objects*
      
      - parameter body: apply body closure to all element in collection as if run over loop for
      */
@@ -73,14 +77,18 @@ extension OrderedSet {
 // MARK: - Insertion elements
 
 extension OrderedSet {
+    
+    private func index(for value: T) -> Int {
+        return _storage.index(of: value,
+                              inSortedRange: NSRange(0 ..< _storage.count),
+                              options: .insertionIndex,
+                              usingComparator: OrderedSet.compare)
+    }
+    
     public func insert(_ newElement: T) {
-        let result = lookUp(of: newElement)
-        switch result {
-        case .success:
-            return
-        case .failure:
-            _storage.add(newElement)
-        }
+        let index = self.index(for: newElement)
+        if index < _storage.count, _storage[index] as! T == newElement { return }
+        _storage.insert(newElement, at: index)
     }
 }
 
@@ -97,8 +105,6 @@ extension OrderedSet {
 }
 
 extension OrderedSet: Sequence {
-    
-    public typealias Element = Any
     
     public func makeIterator() -> NSFastEnumerationIterator {
         return _storage.makeIterator()

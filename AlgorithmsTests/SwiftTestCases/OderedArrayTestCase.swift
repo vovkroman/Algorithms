@@ -20,6 +20,28 @@ extension Int: Keyable {
     public var key: Int { return self }
 }
 
+struct Test: Comparable, Hashable {
+    var hashValue: Int { return i }
+    
+    static func == (lhs: Test, rhs: Test) -> Bool {
+        return lhs.i == rhs.i
+    }
+    static func < (lhs: Test, rhs: Test) -> Bool {
+        return lhs.i < rhs.i
+    }
+    
+    typealias KeyType = Int
+    
+    public var key: Int { return i }
+    
+    
+    let i: Int
+    
+    init(_ i: Int) {
+        self.i = i
+    }
+}
+
 class OderedArrayTestCase: XCTestCase {
 
     func testInit() {
@@ -101,29 +123,28 @@ class OderedArrayTestCase: XCTestCase {
     }
     
     
-    func testOderedSet() {
-        var oderedArray = OrderedArray<Int>()
-        var oderedSet = OrderedSet<Int>()
-        
-        for i in 0...1_000_000 {
-            let g = Int.random(in: 0...10_000_000)
-            oderedSet.insert(g)
-            oderedArray.insert(newElement: g)
-        }
-        
-        let measure_oderedSet = ParkBenchTimer()
-        for i in 0...1_000_000 {
-            let g = Int.random(in: 0...10_000_000)
-            oderedSet.lookUp(of: g)
-        }
-        print("OrderedSet timer finished test for \(measure_oderedSet.stop())")
-        
-        
-        let measure_array = ParkBenchTimer()
-        for i in 0...1_000_000 {
-            let g = Int.random(in: 0...10_000_000)
-            oderedArray.lookUp(of: g)
-        }
-        print("OrderedArray timer finished test for \(measure_array.stop())")
-    }
+//    func testOderedSet() {
+//        var oderedArray = OrderedArray<Int>()
+//        let oderedSet = OrderedSet<Int>()
+//
+//        for _ in 0...100_000 {
+//            let g = Int.random(in: 0...10_000)
+//            oderedSet.insert(g)
+//            oderedArray.insert(newElement: g)
+//        }
+//
+//        let measure_array = ParkBenchTimer()
+//               for i in 0...100_000 {
+//                   let g = Int.random(in: 0...1_000_000)
+//                   oderedArray.lookUp(of: g)
+//               }
+//               print("OrderedArray timer finished test for \(measure_array.stop())")
+//
+//        let measure_oderedSet = ParkBenchTimer()
+//        for _ in 0...100_000 {
+//            let g = Int.random(in: 0...1_000_000)
+//            oderedSet.lookUp(by: g)
+//        }
+//        print("OrderedSet timer finished test for \(measure_oderedSet.stop())")
+//    }
 }
