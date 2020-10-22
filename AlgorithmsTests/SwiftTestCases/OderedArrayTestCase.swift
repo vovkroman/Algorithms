@@ -99,4 +99,31 @@ class OderedArrayTestCase: XCTestCase {
         print("Array timer finished test for \(measure_array.stop())")
         //Array timer finished test for **0.28222596645355225**
     }
+    
+    
+    func testOderedSet() {
+        var oderedArray = OrderedArray<Int>()
+        var oderedSet = OrderedSet<Int>()
+        
+        for i in 0...1_000_000 {
+            let g = Int.random(in: 0...10_000_000)
+            oderedSet.insert(g)
+            oderedArray.insert(newElement: g)
+        }
+        
+        let measure_oderedSet = ParkBenchTimer()
+        for i in 0...1_000_000 {
+            let g = Int.random(in: 0...10_000_000)
+            oderedSet.lookUp(of: g)
+        }
+        print("OrderedSet timer finished test for \(measure_oderedSet.stop())")
+        
+        
+        let measure_array = ParkBenchTimer()
+        for i in 0...1_000_000 {
+            let g = Int.random(in: 0...10_000_000)
+            oderedArray.lookUp(of: g)
+        }
+        print("OrderedArray timer finished test for \(measure_array.stop())")
+    }
 }

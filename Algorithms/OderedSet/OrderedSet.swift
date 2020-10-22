@@ -1,18 +1,106 @@
 import Foundation
+/**
+ * OderedSet represent warpper around Obj-C NSMutableOrderedSet.
+ *
+ *
+ * NSMutableOrderedSet objects are not like C arrays. That is, even though you may specify a size when you create a mutable ordered set, the specified size is regarded as a “hint”; the actual size of the set is still 0. This means that you cannot insert an object at an index greater than the current count of an set. For example, if a set contains two objects, its size is 2, so you can add objects at indices 0, 1, or 2. Index 3 is illegal and out of bounds; if you try to add an object at index 3 (when the size of the array is 2), NSMutableOrderedSet raises an exception.,
+ **/
 
-class OrderedSet<T: Hashable>: Sequence {
-    private let _set = NSMutableOrderedSet()
-    init() {}
-
-    func makeIterator() -> NSFastEnumerationIterator {
-        return _set.makeIterator()
+public struct OrderedSet<T: Comparable & Hashable> {
+    private let _storage: NSMutableOrderedSet
+    
+    // MARK: - Initialziation
+    
+    /**
+     Description: *Intialization*
+        init as empty OrderedSet
+     */
+    public init() {
+        _storage = NSMutableOrderedSet()
     }
-
-    func add(_ element: T) {
-        _set.add(element)
+    /**
+     Description: *Intialization with capacity*
+     - parameter capacity: capacity of element, that need to be allocated under NSMutableOrderedSet
+     */
+    public init(capacity: Int) {
+        _storage = NSMutableOrderedSet(capacity: capacity)
     }
+    
+    /**
+     Description: *Intialization with set of objects*
+     - parameter objects: some container of items
+     */
+    public init(objects: T...) {
+        _storage = NSMutableOrderedSet(objects: objects)
+    }
+    
+    /**
+     Description: *Intialization with set of objects*
+     
+     - parameter body: apply body closure to all element in collection as if run over loop for
+     */
+    public func forEach(_ body: (T) -> Void) {
+        _storage.forEach { body($0 as! T) }
+    }
+    
+    public func contains(_ element: T) -> Bool {
+        return _storage.contains(element)
+    }
+    
+    private static func compare(_ a: Any, _ b: Any) -> ComparisonResult {
+        let a = a as! T, b = b as! T
+        if a < b { return .orderedAscending }
+        if a > b { return .orderedDescending }
+        return .orderedSame
+    }
+}
 
-    func remove(_ element: T) {
-        _set.remove(element)
+// MARK: - LOOKUP ELEMENT
+
+extension OrderedSet {
+    public func lookUp(of element: T) -> Result {
+        let index = _storage.index(of: element,
+                                   inSortedRange: NSRange(0 ..< _storage.count),
+                                   usingComparator: OrderedSet.compare)
+        if index == NSNotFound {
+            return .failure
+        } else {
+            return .success(index: index)
+        }
+    }
+}
+
+// MARK: - Insertion elements
+
+extension OrderedSet {
+    public func insert(_ newElement: T) {
+        let result = lookUp(of: newElement)
+        switch result {
+        case .success:
+            return
+        case .failure:
+            _storage.add(newElement)
+        }
+    }
+}
+
+// MARK: - Removing element
+
+extension OrderedSet {
+    public mutating func removeAtIndex(index: Int) {
+        _storage.remove(index)
+    }
+    
+    public mutating func removeAll() {
+        _storage.removeAllObjects()
+    }
+}
+
+extension OrderedSet: Sequence {
+    
+    public typealias Element = Any
+    
+    public func makeIterator() -> NSFastEnumerationIterator {
+        return _storage.makeIterator()
     }
 }

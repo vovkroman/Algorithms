@@ -16,7 +16,6 @@
 		6F9D5C602539C43900CC3CE6 /* ObjCPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9D5C5E2539C43900CC3CE6 /* ObjCPriorityQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F9D5C612539C43900CC3CE6 /* ObjCPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D5C5F2539C43900CC3CE6 /* ObjCPriorityQueue.m */; };
 		6F9ED151252DED0C0020D7C5 /* Algorithms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9ED147252DED0C0020D7C5 /* Algorithms.framework */; };
-		6F9ED156252DED0C0020D7C5 /* AlgorithmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9ED155252DED0C0020D7C5 /* AlgorithmsTests.swift */; };
 		6F9ED158252DED0C0020D7C5 /* Algorithms.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9ED14A252DED0C0020D7C5 /* Algorithms.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC8F25A253DFD930099F2D8 /* Array+kStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC8F259253DFD930099F2D8 /* Array+kStatistics.swift */; };
 		6FC8F25B253E027C0099F2D8 /* CppStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F5D4B3625377CB100C692A9 /* CppStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -221,7 +220,6 @@
 				6F9ED155252DED0C0020D7C5 /* AlgorithmsTests.swift */,
 				6F9ED157252DED0C0020D7C5 /* Info.plist */,
 				6F9D5C622539CD9500CC3CE6 /* AlgorithmsTests-Bridging-Header.h */,
-				6F7103D3253F59EA009848C0 /* OderedArrayTestCase.swift */,
 			);
 			path = AlgorithmsTests;
 			sourceTree = "<group>";
@@ -278,6 +276,7 @@
 		6FEA9520254174520018ADA2 /* SwiftTestCases */ = {
 			isa = PBXGroup;
 			children = (
+				6F7103D3253F59EA009848C0 /* OderedArrayTestCase.swift */,
 			);
 			path = SwiftTestCases;
 			sourceTree = "<group>";
@@ -479,7 +478,6 @@
 				6F7103D4253F59EA009848C0 /* OderedArrayTestCase.swift in Sources */,
 				6F7103CD253F4BEF009848C0 /* TestTask.m in Sources */,
 				6FFE7C7F253448B50005477E /* ParkBenchTimer.swift in Sources */,
-				6F9ED156252DED0C0020D7C5 /* AlgorithmsTests.swift in Sources */,
 				6F7103D1253F5182009848C0 /* ObjCPriorityQueueTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
