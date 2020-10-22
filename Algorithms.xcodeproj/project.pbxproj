@@ -146,13 +146,14 @@
 			path = Cpp;
 			sourceTree = "<group>";
 		};
-		6F7103CA253F4823009848C0 /* ObjCTests */ = {
+		6F7103CA253F4823009848C0 /* ObjCTestCases */ = {
 			isa = PBXGroup;
 			children = (
+				6F7103D0253F5182009848C0 /* ObjCPriorityQueueTestCase.swift */,
 				6F7103CB253F4BEF009848C0 /* TestTask.h */,
 				6F7103CC253F4BEF009848C0 /* TestTask.m */,
 			);
-			path = ObjCTests;
+			path = ObjCTestCases;
 			sourceTree = "<group>";
 		};
 		6F7103D2253F581A009848C0 /* Additionals */ = {
@@ -203,7 +204,7 @@
 				6FFE7C872534611C0005477E /* Array_Extensions */,
 				6FFE7C8025344E960005477E /* SegmentTree */,
 				6FE09A952530A49F00FD98C7 /* SortedArray */,
-				6F9ED161252DED130020D7C5 /* PrioorityQueue */,
+				6F9ED161252DED130020D7C5 /* PriorityQueue */,
 				6F9ED14A252DED0C0020D7C5 /* Algorithms.h */,
 				6FEC5748252F7A7300DE5AB3 /* Defines.h */,
 				6F9ED14B252DED0C0020D7C5 /* Info.plist */,
@@ -214,9 +215,9 @@
 		6F9ED154252DED0C0020D7C5 /* AlgorithmsTests */ = {
 			isa = PBXGroup;
 			children = (
+				6F7103CA253F4823009848C0 /* ObjCTestCases */,
+				6FEA9520254174520018ADA2 /* SwiftTestCases */,
 				6F7103D2253F581A009848C0 /* Additionals */,
-				6F7103CA253F4823009848C0 /* ObjCTests */,
-				6F7103D0253F5182009848C0 /* ObjCPriorityQueueTestCase.swift */,
 				6F9ED155252DED0C0020D7C5 /* AlgorithmsTests.swift */,
 				6F9ED157252DED0C0020D7C5 /* Info.plist */,
 				6F9D5C622539CD9500CC3CE6 /* AlgorithmsTests-Bridging-Header.h */,
@@ -225,13 +226,13 @@
 			path = AlgorithmsTests;
 			sourceTree = "<group>";
 		};
-		6F9ED161252DED130020D7C5 /* PrioorityQueue */ = {
+		6F9ED161252DED130020D7C5 /* PriorityQueue */ = {
 			isa = PBXGroup;
 			children = (
 				6F9D5C5D2539C40600CC3CE6 /* ObjC */,
 				6FEC573C252F147500DE5AB3 /* Swift */,
 			);
-			path = PrioorityQueue;
+			path = PriorityQueue;
 			sourceTree = "<group>";
 		};
 		6FC8F25D253E038A0099F2D8 /* SynchrinizedArray */ = {
@@ -272,6 +273,13 @@
 				6FEA951E254171710018ADA2 /* OrderedSet.swift */,
 			);
 			path = OderedSet;
+			sourceTree = "<group>";
+		};
+		6FEA9520254174520018ADA2 /* SwiftTestCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SwiftTestCases;
 			sourceTree = "<group>";
 		};
 		6FEC573C252F147500DE5AB3 /* Swift */ = {

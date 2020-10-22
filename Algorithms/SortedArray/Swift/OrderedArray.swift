@@ -19,6 +19,18 @@ public enum Result {
     case failure // element doesn't contain in the array
 }
 
+extension Result: Equatable {}
+public func ==(lhs: Result, rhs: Result) -> Bool {
+    switch (lhs, rhs) {
+    case (.success(let lhs), .success(let rhs)):
+        return lhs == rhs
+    case (.success(_), .failure), (.failure, .success(_)):
+        return false
+    case (.failure, .failure):
+        return true
+    }
+}
+
 public struct OrderedArray<T: Keyable> {
     
     public typealias ComparatorType = (T, T) -> Bool
@@ -47,6 +59,7 @@ public struct OrderedArray<T: Keyable> {
         return _storage[index]
     }
     
+    @discardableResult
     public mutating func removeAtIndex(index: Int) -> T {
         return _storage.remove(at: index)
     }

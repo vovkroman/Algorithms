@@ -43,10 +43,6 @@ extension ObjC: Keyable {
     var key: UInt32 { return self.priority }
 }
 
-extension Int: Keyable {
-    public var key: Int { return self }
-}
-
 class AlgorithmsTests: XCTestCase {
     
     func testExample() throws {
@@ -90,34 +86,34 @@ class AlgorithmsTests: XCTestCase {
 //        print("CppPriorityQueue timer \(timer.stop())")
 //    }
     
-    func testOderedSetPriorityPerformanceExample() throws {
-        // This is an example of a performance test case.
-        var oderedArray = OrderedArray<ObjC>()
-        var regularArray: [ObjC] = []
-        
-        for _ in 0...10_000 {
-            let i = UInt32.random(in: 0..<500_000)
-            oderedArray.insert(newElement: ObjC(i))
-            regularArray.append(ObjC(i))
-        }
-        
-        let timer1 = ParkBenchTimer()
-        for _ in 0...10_000 {
-            let g = UInt32.random(in: 0..<500_000)
-            oderedArray.lookUp(of: g)
-        }
-        //Swift OrderedArray timer 0.025035977363586426
-        print("Swift OrderedArray timer \(timer1.stop())")
-
-        let timer2 = ParkBenchTimer()
-        for _ in 0...10_000 {
-            let g = UInt32.random(in: 0..<500_000)
-            regularArray.find(value: g)
-        }
-        
-        //Array timer 44.04200994968414
-        print("Array timer \(timer2.stop())")
-    }
+//    func testOderedSetPriorityPerformanceExample() throws {
+//        // This is an example of a performance test case.
+//        var oderedArray = OrderedArray<ObjC>()
+//        var regularArray: [ObjC] = []
+//
+//        for _ in 0...10_000 {
+//            let i = UInt32.random(in: 0..<500_000)
+//            oderedArray.insert(newElement: ObjC(i))
+//            regularArray.append(ObjC(i))
+//        }
+//
+//        let timer1 = ParkBenchTimer()
+//        for _ in 0...10_000 {
+//            let g = UInt32.random(in: 0..<500_000)
+//            oderedArray.lookUp(of: g)
+//        }
+//        //Swift OrderedArray timer 0.025035977363586426
+//        print("Swift OrderedArray timer \(timer1.stop())")
+//
+//        let timer2 = ParkBenchTimer()
+//        for _ in 0...10_000 {
+//            let g = UInt32.random(in: 0..<500_000)
+//            regularArray.find(value: g)
+//        }
+//
+//        //Array timer 44.04200994968414
+//        print("Array timer \(timer2.stop())")
+//    }
 
     
     func testBinarySearchPerformanceExample() throws {
