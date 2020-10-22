@@ -90,9 +90,6 @@ public struct OrderedArray<T: Keyable> {
     }
     
     /**
-     *
-     **/
-    /**
      Description: Find convinient index of element by key,
      *     if element doesn't contains return startIndex or endIndex
      
