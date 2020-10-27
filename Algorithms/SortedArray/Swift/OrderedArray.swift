@@ -1,6 +1,6 @@
 /// Description
 /**
-* An ordered array represets wrapper arround array with unique element.
+* An ordered array represents wrapper around array with unique element.
 * When you add a new item to this array, it is inserted in
 * sorted position and checked if array contains such element by comparable key
 **/
@@ -8,11 +8,11 @@ import Foundation
 
 /**
  Description: *Result* represents result
- on searching element in odered array
+ on searching element in ordered array
  
  Available cases:
- - **success(index:**: element contains in odered array by index
- - **failure**: element dones't contain in odered array
+ - **success(index:**: element contains in ordered array by index
+ - **failure**: element doesn't contain in ordered array
  */
 public enum Result {
     case success(index: Int) // element does contain in the array
@@ -38,7 +38,7 @@ public struct OrderedArray<T: Keyable> {
     private var _storage: ContiguousArray<T>
     
     /**
-     Description: *Intialization*
+     Description: *Initialization*
      
      - parameter array:      initialize with array (Default: [])
      - parameter comparator: Defines the signature how comparison operations is used. (Default: { $0.key < $1.key })
@@ -70,7 +70,7 @@ public struct OrderedArray<T: Keyable> {
     
     /**
      Description: *Insertion*: find index of element, where element might be inserted and insert it, otherwise
-     ignore element if there is such elelemt (performed by O(**log(n)**), but since used array under the hood, array can be reallocate additional capasity, and so summarize operation is performed by O(**n**)
+     ignore element if there is such element (performed by O(**log(n)**), but since used array under the hood, array can be reallocate additional capacity, and so summarize operation is performed by O(**n**)
      
      - parameter newElement: new element of array
      */
@@ -87,7 +87,7 @@ public struct OrderedArray<T: Keyable> {
     }
     
     /**
-     Description: *Seacrhing eleemnt by *key*
+     Description: *Searching element by *key*
      
      - parameter key:
      
@@ -103,7 +103,7 @@ public struct OrderedArray<T: Keyable> {
     }
     
     /**
-     Description: Find convinient index of element by key,
+     Description: Find convenient index of element by key,
      *     if element doesn't contains return startIndex or endIndex
      
      - parameter key: key

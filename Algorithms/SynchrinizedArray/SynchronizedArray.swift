@@ -2,7 +2,7 @@ import Foundation
 
 /// A thread-safe array.
 public class SynchronizedArray<Element> {
-    private let queue = DispatchQueue(label: "io.roman.vovk.Algorithms.SynchronizedArray", attributes: .concurrent)
+    private let queue = DispatchQueue(label: "io.algorithms.syncArray", attributes: .concurrent)
     private var array = [Element]()
     
     public init() { }
