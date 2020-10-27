@@ -5,7 +5,7 @@
  The heap is a natural data structure for a priority queue, so this object
  simply wraps the Heap struct.
  
- All operations are O(lg n).
+ All operations are O(log(*n*)).
  
  Just like a heap can be a max-heap or min-heap, the queue can be a max-priority
  queue (largest element first) or a min-priority queue (smallest element first).

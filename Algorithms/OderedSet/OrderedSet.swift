@@ -7,7 +7,7 @@ import Foundation
  **/
 
 public struct OrderedSet<T: Comparable & Hashable> {
-    let _storage: NSMutableOrderedSet
+    private let _storage: NSMutableOrderedSet
     
     // MARK: - Initialization
     
@@ -27,11 +27,12 @@ public struct OrderedSet<T: Comparable & Hashable> {
     }
     
     /**
-     Description: *Initialization with set of objects*
-     - parameter objects: some container of items
+     Description: *Initialization with any Container conforming Collection protocol*
+     - parameter collection: some container of items
      */
-    public init(objects: T...) {
-        _storage = NSMutableOrderedSet(objects: objects)
+    public init<CollectionType: Collection>(collection: CollectionType) where CollectionType.Element == T {
+        self.init(capacity: collection.count)
+        insert(collection)
     }
     
     public var count: Int {
@@ -56,6 +57,15 @@ public struct OrderedSet<T: Comparable & Hashable> {
         return _storage.contains(element)
     }
     
+    public subscript(index: Int) -> T {
+        get {
+            return _storage[index] as! T
+        }
+        set(newValue) {
+            insert(newValue)
+        }
+    }
+    
     /**
      Description: *Defines the order of NSMutableOrderedSet to be added*
      */
@@ -64,6 +74,16 @@ public struct OrderedSet<T: Comparable & Hashable> {
         if a < b { return .orderedAscending }
         if a > b { return .orderedDescending }
         return .orderedSame
+    }
+    
+    /**
+     Description: *Insert item from any Collection
+     - parameter collection: any container. conformed Collection protocol (Set, Array)
+     */
+    private func insert<CollectionType: Collection>(_ collection: CollectionType) where CollectionType.Element == T {
+        for element in collection {
+            insert(element)
+        }
     }
 }
 
@@ -118,8 +138,8 @@ extension OrderedSet {
 // MARK: - REMOVE ELEMENT
 
 extension OrderedSet {
-    public mutating func removeAtIndex(index: Int) {
-        _storage.remove(index)
+    public mutating func remove(obj: T) {
+        _storage.remove(obj)
     }
     
     public mutating func removeAll() {
