@@ -230,7 +230,7 @@
 				6F5D4B31253778D300C692A9 /* Stack */,
 				6F5D4B2D2537787500C692A9 /* Queue */,
 				6FFE7C8F253489A40005477E /* Graph */,
-				6FFE7C872534611C0005477E /* Array_Extensions */,
+				6FFE7C872534611C0005477E /* Extensions */,
 				6FFE7C8025344E960005477E /* SegmentTree */,
 				6FE09A952530A49F00FD98C7 /* SortedArray */,
 				6F9ED161252DED130020D7C5 /* PriorityQueue */,
@@ -340,7 +340,7 @@
 			path = Swift;
 			sourceTree = "<group>";
 		};
-		6FFE7C872534611C0005477E /* Array_Extensions */ = {
+		6FFE7C872534611C0005477E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				6FFE7C88253461430005477E /* Array+ArgMaxMin.swift */,
@@ -349,7 +349,7 @@
 				6FC8F259253DFD930099F2D8 /* Array+kStatistics.swift */,
 				6FFE7C972534B6560005477E /* Array+Sort.swift */,
 			);
-			path = Array_Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		6FFE7C8F253489A40005477E /* Graph */ = {
