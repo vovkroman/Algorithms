@@ -6,7 +6,7 @@ import Foundation
  * NSMutableOrderedSet objects are not like C arrays. That is, even though you may specify a size when you create a mutable ordered set, the specified size is regarded as a “hint”; the actual size of the set is still 0. This means that you cannot insert an object at an index greater than the current count of an set. For example, if a set contains two objects, its size is 2, so you can add objects at indices 0, 1, or 2. Index 3 is illegal and out of bounds; if you try to add an object at index 3 (when the size of the array is 2), NSMutableOrderedSet raises an exception.,
  **/
 
-public struct OrderedSet<T: Comparable & Hashable> {
+public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
     private let _storage: NSMutableOrderedSet
     
     // MARK: - Initialization
@@ -33,6 +33,15 @@ public struct OrderedSet<T: Comparable & Hashable> {
     public init<CollectionType: Collection>(collection: CollectionType) where CollectionType.Element == T {
         self.init(capacity: collection.count)
         insert(collection)
+    }
+    
+    
+    /**
+     Description: *Creates an instance initialized with the given elements*
+     - parameter elements: given elements
+     */
+    public init(arrayLiteral elements: T...) {
+        self.init(collection: elements)
     }
     
     public var count: Int {

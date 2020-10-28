@@ -34,7 +34,7 @@ class OrderedSetTestCase: XCTestCase {
     }
     
     func testInsertExistingValue() {
-        let orderedSet = OrderedSet<Int>(collection: [2, 1, 8, 6, 5, 9])
+        let orderedSet: OrderedSet<Int> = [2, 1, 8, 6, 5, 9]
         let insertValue = 8
         let result: Result = orderedSet.lookUp(of: insertValue)
         XCTAssertTrue(result == .success(index: 4))
