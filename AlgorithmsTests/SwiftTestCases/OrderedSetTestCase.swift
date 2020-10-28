@@ -1,11 +1,3 @@
-//
-//  OrderedSetTestCase.swift
-//  AlgorithmsTests
-//
-//  Created by Roman Vovk on 27.10.2020.
-//  Copyright © 2020 Roman Vovk. All rights reserved.
-//
-
 import XCTest
 @testable import Algorithms
 
