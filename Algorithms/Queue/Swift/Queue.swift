@@ -27,3 +27,9 @@ public struct Queue<T> {
         return _storage.first
     }
 }
+
+extension Queue: Sequence {
+    public func makeIterator() -> IndexingIterator<ContiguousArray<T>> {
+        return _storage.makeIterator()
+    }
+}

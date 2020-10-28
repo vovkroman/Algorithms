@@ -13,34 +13,38 @@
 
 public struct PriorityQueue<T> {
     
-    private var _heap: Heap<T>
+    private var _heap: Box<Heap<T>>
     
     /*
      To create a max-priority queue, supply a > sort function. For a min-priority
      queue, use <.
      */
     public init(sort: @escaping (T, T) -> Bool) {
-        _heap = Heap(sort: sort)
+        _heap = Box(value: Heap(sort: sort))
+    }
+    
+    public init(array: [T], sort: @escaping (T, T) -> Bool) {
+        _heap = Box(value: Heap(array: array, sort: sort))
     }
     
     public var isEmpty: Bool {
-        return _heap.isEmpty
+        return _heap.value.isEmpty
     }
     
     public var count: Int {
-        return _heap.count
+        return _heap.value.count
     }
     
     public func peek() -> T? {
-        return _heap.peek()
+        return _heap.value.peek()
     }
     
     public mutating func enqueue(_ element: T) {
-        _heap.insert(element)
+        _heap.value.insert(element)
     }
     
     public mutating func dequeue() -> T? {
-        return _heap.remove()
+        return _heap.value.remove()
     }
     
     /*
@@ -49,12 +53,20 @@ public struct PriorityQueue<T> {
      it should be smaller.
      */
     public mutating func changePriority(index i: Int, value: T) {
-        return _heap.replace(index: i, value: value)
+        return _heap.value.replace(index: i, value: value)
+    }
+}
+
+extension PriorityQueue: Sequence {
+    public typealias Element = T
+
+    public func makeIterator() -> IndexingIterator<ContiguousArray<T>> {
+        return _heap.value.nodes.makeIterator()
     }
 }
 
 extension PriorityQueue where T: Equatable {
     public func index(of element: T) -> Int? {
-        return _heap.index(of: element)
+        return _heap.value.index(of: element)
     }
 }

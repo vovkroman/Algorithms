@@ -28,7 +28,7 @@ extension LinkedList: ExpressibleByArrayLiteral {
      Description: *Initialization with any Container conforming Collection protocol*
      - parameter collection: some container of items
      */
-    public init<CollectionType: Collection>(_ collection: CollectionType) where CollectionType.Element == Element {
+    public init<S: Sequence>(_ collection: S) where S.Element == Element {
         var list: LinkedList = .end
         for element in collection {
             list = list.cons(element)

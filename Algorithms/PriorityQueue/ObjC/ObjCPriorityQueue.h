@@ -9,7 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface ObjCPriorityQueue<__covariant ObjectType: id<ObjCComparableProtocol>> : NSObject
+@interface ObjCPriorityQueue<__covariant ObjectType: id<ObjCComparableProtocol>>: NSObject
 
 typedef void (^ApplyBlock)(ObjectType object);
 

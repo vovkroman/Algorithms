@@ -35,7 +35,6 @@ public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
         insert(collection)
     }
     
-    
     /**
      Description: *Creates an instance initialized with the given elements*
      - parameter elements: given elements
@@ -89,8 +88,8 @@ public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
      Description: *Insert item from any Collection
      - parameter collection: any container. conformed Collection protocol (Set, Array)
      */
-    private func insert<CollectionType: Collection>(_ collection: CollectionType) where CollectionType.Element == T {
-        for element in collection {
+    private func insert<S: Sequence>(_ seq: S) where S.Element == T {
+        for element in seq {
             insert(element)
         }
     }
