@@ -13,38 +13,46 @@
 
 public struct PriorityQueue<T> {
     
-    private var _heap: Box<Heap<T>>
+    @usableFromInline
+    internal var _heap: Heap<T>
     
     /*
      To create a max-priority queue, supply a > sort function. For a min-priority
      queue, use <.
      */
+    @inlinable
     public init(sort: @escaping (T, T) -> Bool) {
-        _heap = Box(value: Heap(sort: sort))
+        _heap = Heap(sort: sort)
     }
     
+    @inlinable
     public init(array: [T], sort: @escaping (T, T) -> Bool) {
-        _heap = Box(value: Heap(array: array, sort: sort))
+        _heap = Heap(array: array, sort: sort)
     }
     
+    @inlinable
     public var isEmpty: Bool {
-        return _heap.value.isEmpty
+        return _heap.isEmpty
     }
     
+    @inlinable
     public var count: Int {
-        return _heap.value.count
+        return _heap.count
     }
     
+    @inlinable
     public func peek() -> T? {
-        return _heap.value.peek()
+        return _heap.peek()
     }
     
+    @inlinable
     public mutating func enqueue(_ element: T) {
-        _heap.value.insert(element)
+        _heap.insert(element)
     }
     
+    @inlinable
     public mutating func dequeue() -> T? {
-        return _heap.value.remove()
+        return _heap.remove()
     }
     
     /*
@@ -52,8 +60,9 @@ public struct PriorityQueue<T> {
      the new priority should be larger than the old one; in a min-priority queue
      it should be smaller.
      */
+    @inlinable
     public mutating func changePriority(index i: Int, value: T) {
-        return _heap.value.replace(index: i, value: value)
+        return _heap.replace(index: i, value: value)
     }
 }
 
@@ -61,12 +70,13 @@ extension PriorityQueue: Sequence {
     public typealias Element = T
 
     public func makeIterator() -> IndexingIterator<ContiguousArray<T>> {
-        return _heap.value.nodes.makeIterator()
+        return _heap.nodes.makeIterator()
     }
 }
 
 extension PriorityQueue where T: Equatable {
+    @inlinable
     public func index(of element: T) -> Int? {
-        return _heap.value.index(of: element)
+        return _heap.index(of: element)
     }
 }

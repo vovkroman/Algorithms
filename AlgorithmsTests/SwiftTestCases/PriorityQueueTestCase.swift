@@ -62,7 +62,7 @@ class PriorityQueueTestCase: XCTestCase {
         }
         
         print("PriorityQueue(Objective-C) timer finished test for \(measure_objC.stop())")
-        //PriorityQueue(Objective-C) timer finished test for 0.07058608531951904
+        //PriorityQueue(Objective-C) timer finished test for 0.05833399295806885
         let measure_swift = ParkBenchTimer()
         for i in 0...10_000 {
             let priority = UInt.random(in: 0...100_000)
@@ -70,6 +70,6 @@ class PriorityQueueTestCase: XCTestCase {
             swiftPriorityQueue.enqueue(task)
         }
         print("PriorityQueue(Swift) timer finished test for \(measure_swift.stop())")
-        //PriorityQueue(Swift) timer finished test for 0.9946720600128174
+        //PriorityQueue(Swift) timer finished test for 0.06147909164428711
     }
 }

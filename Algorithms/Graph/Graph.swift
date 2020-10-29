@@ -4,7 +4,7 @@ import Foundation
 /// connected at both ends to the same vertex) and no more than one edge
 /// in the same direction between any two different vertices.
 /// All vertices in the graph are unique. Edges are not allowed to be generic types.
-/// The preferred way to acess and insert vertices or edges is using subscript notation. Example:
+/// The preferred way to access and insert vertices or edges is using subscript notation. Example:
 /// `graph["NY", "Boston"] = distance`
 ///
 /// Conforms to `Sequence`.
