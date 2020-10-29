@@ -1,7 +1,8 @@
 import Foundation
 
-// COW presents some routines for working with COW semantic
-
+/** **COW** file contains some routines
+ * for working with COW semantic optimization technics
+ **/
 public final class Ref<T> {
     public var value: T
     

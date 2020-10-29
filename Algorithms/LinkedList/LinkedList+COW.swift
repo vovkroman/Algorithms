@@ -1,7 +1,6 @@
 import Foundation
 
-/*** SingleLinkedList is wrapper around LinkedList,
- * and contains COW (Copy-on-write) semantic
+/*** SingleLinkedList is wrapper LinkedList adding COW (Copy-on-write) semantic optimization technic
  **/
 public struct SingleLinkedList<Element> {
     @usableFromInline

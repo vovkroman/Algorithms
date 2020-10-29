@@ -68,8 +68,8 @@ extension LinkedList: IteratorProtocol, Sequence {
 extension LinkedList: CustomStringConvertible {
     
     private func diagram() -> String {
-        let list = reduce("end") { $0 + "<-\($1)" }
-        return list
+        let list: [String] = compactMap{ "\($0)" }
+        return list.reversed().joined(separator: "->")
     }
     
     public var description: String {
