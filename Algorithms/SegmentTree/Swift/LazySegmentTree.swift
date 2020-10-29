@@ -1,5 +1,5 @@
 import Foundation
-
+// Demo, how lazy propagation optimization can be applied
 public class LazySegmentTree {
     
     private var value: Int

@@ -1,20 +1,46 @@
-//  Segment tree
-//
-//  Performance:
-//    building the tree is O(n)
-//    query is O(log n)
-//    replace item is O(log n)
 
+/** **Segment tree**: is a tree data structure used for storing information about intervals,
+ * or segments. It allows querying which of the stored segments contain a given point.
+ * It is, in principle, a static structure; that is,
+ * it's a structure that cannot be modified once it's built.
+ *
+ ***Requirements**
+ *- function should be associative (**associative rule**: (x ∗ y) ∗ z = x ∗ (y ∗ z)).
+ *For example, the function can be sum, multiplication, min, max, gcd, and so on.
+ 
+  ***Application**
+ *  Can be efficient on RMQ problem
+ 
+ ***Performance**:
+ * - building the tree is O(n)
+ * - query is O(log n)
+ * - replace item is O(log n)
+ *
+ * **Drawback**:
+ * - Memory is 4*n for array of n
+ **/
 public class SegmentTree<T> {
 
-    private var value: T
-    private var function: (T, T) -> T
-    private var leftBound: Int
-    private var rightBound: Int
-    private var leftChild: SegmentTree<T>?
-    private var rightChild: SegmentTree<T>?
+    @usableFromInline
+    internal var value: T
+    
+    @usableFromInline
+    internal var function: (T, T) -> T
+    
+    @usableFromInline
+    internal var leftBound: Int
+    
+    @usableFromInline
+    internal var rightBound: Int
+    
+    @usableFromInline
+    internal var leftChild: SegmentTree<T>?
+    
+    @usableFromInline
+    internal var rightChild: SegmentTree<T>?
 
-    public init(array: [T], leftBound: Int, rightBound: Int, function: @escaping (T, T) -> T) {
+    @usableFromInline
+    internal init(array: [T], leftBound: Int, rightBound: Int, function: @escaping (T, T) -> T) {
         self.leftBound = leftBound
         self.rightBound = rightBound
         self.function = function
@@ -29,10 +55,26 @@ public class SegmentTree<T> {
         }
     }
 
+    /**
+     Description: Initialize *Segment Tree* with array and some associative function *f* (s. Descritpion)
+     Complexity: O(*n*)
+     - parameter array:    array
+     - parameter function: operation that should be applied to all elements of array
+     */
+    @inlinable
     public convenience init(array: [T], function: @escaping (T, T) -> T) {
         self.init(array: array, leftBound: 0, rightBound: array.count-1, function: function)
     }
 
+    /**
+     Description: Perform query, for common interval, that defines with leftBound, rightBound.
+     Complexity: O(log(*n*))
+     - parameter leftBound:  left
+     - parameter rightBound: right
+     
+     - returns: returned value that defines func operation. (ex. for max operation returns max value on the interval)
+     */
+    @inlinable
     public func query(leftBound: Int, rightBound: Int) -> T {
         if self.leftBound == leftBound && self.rightBound == rightBound {
             return self.value
@@ -52,6 +94,13 @@ public class SegmentTree<T> {
         }
     }
 
+    @inlinable
+    /**
+     Description: Perform replacing item at index (perform replacing and recalculate all affected items)
+     Complexity: O(log(*n*))
+     - parameter index: index
+     - parameter item:  element of array
+     */
     public func replaceItem(at index: Int, withItem item: T) {
         if leftBound == rightBound {
             value = item
