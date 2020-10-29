@@ -3,6 +3,8 @@ import Foundation
 // MARK: SQUARE SORTS
 
 extension Array where Element: Equatable & Comparable {
+    
+    @inlinable
     public func selectionSort(comparison: (Element, Element) -> Bool) -> [Element] {
         guard count > 1 else { return self }
         var a = self
@@ -13,7 +15,6 @@ extension Array where Element: Equatable & Comparable {
                     lowest = y
                 }
             }
-            
             if x != lowest {
                 a.swapAt(x, lowest)
             }
@@ -27,13 +28,15 @@ extension Array where Element: Equatable & Comparable {
 
 extension Array where Element: Equatable & Comparable {
     
+    @inlinable
     public func quicksort(comparison: ((Element, Element) -> Bool)) -> [Element] {
         var copy = self
         copy.quick(0, count - 1, comparison: comparison)
         return copy
     }
     
-    mutating private func quick(_ i: Int, _ j: Int, comparison: ((Element, Element) -> Bool)) {
+    @usableFromInline
+    internal mutating func quick(_ i: Int, _ j: Int, comparison: ((Element, Element) -> Bool)) {
         guard i < j else {
             return
         }
@@ -42,7 +45,8 @@ extension Array where Element: Equatable & Comparable {
         quick(pivot + 1, j, comparison: comparison)
     }
     
-    mutating private func partition(_ i: Int, _ j: Int, comparison: ((Element, Element) -> Bool)) -> Int {
+    @usableFromInline
+    internal mutating func partition(_ i: Int, _ j: Int, comparison: ((Element, Element) -> Bool)) -> Int {
         let pivotElement = self[j]
         var indexToAdd = i - 1
         for k in i..<j {
@@ -57,11 +61,13 @@ extension Array where Element: Equatable & Comparable {
 }
 
 extension Array where Element: Equatable & Comparable {
+    @inlinable
     public func mergesort(comparison: ((Element, Element) -> Bool)) -> [Element] {
         return merge(0, count - 1, comparison: comparison)
     }
 
-    private func merge(_ i: Int, _ j: Int, comparison: ((Element, Element) -> Bool)) -> [Element] {
+    @usableFromInline
+    internal func merge(_ i: Int, _ j: Int, comparison: ((Element, Element) -> Bool)) -> [Element] {
         guard i <= j else {
             return []
         }
