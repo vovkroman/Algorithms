@@ -20,6 +20,8 @@ public enum Result {
 }
 
 extension Result: Equatable {}
+
+@inlinable
 public func ==(lhs: Result, rhs: Result) -> Bool {
     switch (lhs, rhs) {
     case (.success(let lhs), .success(let rhs)):
@@ -35,7 +37,8 @@ public struct OrderedArray<T: Keyable> {
     
     public typealias ComparatorType = (T, T) -> Bool
     
-    private var _storage: ContiguousArray<T>
+    @usableFromInline
+    internal var _storage: ContiguousArray<T>
     
     /**
      Description: *Initialization*
@@ -43,27 +46,33 @@ public struct OrderedArray<T: Keyable> {
      - parameter array:      initialize with array (Default: [])
      - parameter comparator: Defines the signature how comparison operations is used. (Default: { $0.key < $1.key })
      */
+    @inlinable
     public init(array: [T] = [], comparator:  ComparatorType = { $0.key < $1.key })  {
         self._storage = ContiguousArray<T>(array.sorted(by: comparator))
     }
     
+    @inlinable
     public var isEmpty: Bool {
         return _storage.isEmpty
     }
     
+    @inlinable
     public var count: Int {
         return _storage.count
     }
     
+    @inlinable
     public subscript(index: Int) -> T {
         return _storage[index]
     }
     
+    @inlinable
     @discardableResult
     public mutating func removeAtIndex(index: Int) -> T {
         return _storage.remove(at: index)
     }
     
+    @inlinable
     public mutating func removeAll() {
         _storage.removeAll()
     }
@@ -74,6 +83,7 @@ public struct OrderedArray<T: Keyable> {
      
      - parameter newElement: new element of array
      */
+    @inlinable
     public mutating func insert(newElement: T) {
         if _storage.isEmpty {
             _storage.append(newElement)
@@ -93,6 +103,7 @@ public struct OrderedArray<T: Keyable> {
      
      - returns: see **Result**
      */
+    @inlinable
     public func lookUp<T: Comparable>(of key: T) -> Result where Element.KeyType == T {
         let index = findInsertionPoint(by: key)
         if index >= 0, index < _storage.count, _storage[index].key == key {
@@ -110,7 +121,8 @@ public struct OrderedArray<T: Keyable> {
      
      - returns: index of element by key
      */
-    private func findInsertionPoint<T: Comparable>(by key: T) -> Int where Element.KeyType == T {
+    @usableFromInline
+    internal func findInsertionPoint<T: Comparable>(by key: T) -> Int where Element.KeyType == T {
         var startIndex = 0
         var endIndex = _storage.count - 1
         

@@ -9,7 +9,7 @@
 import XCTest
 @testable import Algorithms
 
-fileprivate extension Array where Element: Keyable & Equatable {
+fileprivate extension ContiguousArray where Element: Keyable & Equatable {
     @discardableResult
     func find<T: Comparable>(value searchValue: T) -> Index? where Element.KeyType == T {
         return firstIndex { $0.key == searchValue }
@@ -99,7 +99,7 @@ class OrderedArrayTestCase: XCTestCase {
      **/
     func testPerformanceExample() throws {
         var orderedArray = OrderedArray<Int>()
-        var regularArray: [Int] = []
+        var regularArray: ContiguousArray<Int> = []
         
         for _ in 0...1_000 {
             let i = Int.random(in: 0..<500_000)
