@@ -1,6 +1,6 @@
 import Foundation
 
-// COW file presents some routines for working around COW semantic
+// COW presents some routines for working with COW semantic
 
 public final class Ref<T> {
     public var value: T

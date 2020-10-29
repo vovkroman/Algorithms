@@ -1,5 +1,8 @@
 import Foundation
-// Demo, how lazy propagation optimization can be applied
+/***Lazy Propagation** – an optimization technic to make range updates faster
+ * (When there are many updates and updates are done on a range,
+ * we can postpone some updates (avoid recursive calls in update) and do those updates only when required.).
+**/
 public class LazySegmentTree {
     
     private var value: Int

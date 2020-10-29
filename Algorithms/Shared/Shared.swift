@@ -1,5 +1,18 @@
 import Foundation
 
+/**
+ Description: *Result* represents result
+ on searching element in ordered array
+ 
+ Available cases:
+ - **success(index:**: element contains in ordered array by index
+ - **failure**: element doesn't contain in ordered array
+ */
+public enum Result {
+    case success(index: Int) // element does contain in the array
+    case failure // element doesn't contain in the array
+}
+
 public protocol Keyable {
     associatedtype KeyType: Comparable
     var key: KeyType { get }
