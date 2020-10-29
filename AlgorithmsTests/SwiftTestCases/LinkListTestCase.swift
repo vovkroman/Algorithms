@@ -5,7 +5,6 @@ class LinkListTestCase: XCTestCase {
 
     func testInitLinkedList() {
         var linkedList: LinkedList = [1, 6, 7, 8]
-        print(linkedList)
         XCTAssertTrue(linkedList.pop() == Optional(8))
         XCTAssertTrue(linkedList.pop() == Optional(7))
         XCTAssertTrue(linkedList.pop() == Optional(6))

@@ -7,7 +7,8 @@ import Foundation
  **/
 
 public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
-    private let _storage: NSMutableOrderedSet
+    @usableFromInline
+    internal let _storage: NSMutableOrderedSet
     
     // MARK: - Initialization
     
@@ -15,6 +16,7 @@ public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
      Description: *Initialization*
         init as empty OrderedSet
      */
+    @inlinable
     public init() {
         _storage = NSMutableOrderedSet()
     }
@@ -22,6 +24,7 @@ public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
      Description: *Initialization with capacity*
      - parameter capacity: capacity of element, that need to be allocated under NSMutableOrderedSet
      */
+    @inlinable
     public init(capacity: Int) {
         _storage = NSMutableOrderedSet(capacity: capacity)
     }
@@ -30,6 +33,7 @@ public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
      Description: *Initialization with any Container conforming Collection protocol*
      - parameter collection: some container of items
      */
+    @inlinable
     public init<CollectionType: Collection>(collection: CollectionType) where CollectionType.Element == T {
         self.init(capacity: collection.count)
         insert(collection)
@@ -39,10 +43,12 @@ public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
      Description: *Creates an instance initialized with the given elements*
      - parameter elements: given elements
      */
+    @inlinable
     public init(arrayLiteral elements: T...) {
         self.init(collection: elements)
     }
     
+    @inlinable
     public var count: Int {
         return _storage.count
     }
@@ -52,6 +58,7 @@ public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
      
      - parameter body: apply body closure to all element in collection as if run over loop for
      */
+    @inlinable
     public func forEach(_ body: (T) -> Void) {
         _storage.forEach { body($0 as! T) }
     }
@@ -61,10 +68,12 @@ public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
      - parameter element: element of the NSMutableOrderedSet
      - returns: true if current item is contained in the _storage, false otherwise
      */
+    @inlinable
     public func contains(_ element: T) -> Bool {
         return _storage.contains(element)
     }
     
+    @inlinable
     public subscript(index: Int) -> T {
         get {
             return _storage[index] as! T
@@ -77,7 +86,8 @@ public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
     /**
      Description: *Defines the order of NSMutableOrderedSet to be added*
      */
-    private static func compare(_ a: Any, _ b: Any) -> ComparisonResult {
+    @usableFromInline
+    internal static func compare(_ a: Any, _ b: Any) -> ComparisonResult {
         let a = a as! T, b = b as! T
         if a < b { return .orderedAscending }
         if a > b { return .orderedDescending }
@@ -88,7 +98,8 @@ public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
      Description: *Insert item from any Collection
      - parameter collection: any container. conformed Collection protocol (Set, Array)
      */
-    private func insert<S: Sequence>(_ seq: S) where S.Element == T {
+    @usableFromInline
+    internal func insert<S: Sequence>(_ seq: S) where S.Element == T {
         for element in seq {
             insert(element)
         }
@@ -103,6 +114,7 @@ extension OrderedSet {
      - parameter element
      - returns: see **Result**
      **/
+    @inlinable
     public func lookUp(of element: T) -> Result {
         let index = _storage.index(of: element,
                                    inSortedRange: NSRange(0 ..< _storage.count),
@@ -123,7 +135,8 @@ extension OrderedSet {
      - parameter value: element to be added
      - returns: appropriate index of value to be added to keep ordered order
      */
-    private func index(for value: T) -> Int {
+    @usableFromInline
+    internal func index(for value: T) -> Int {
         return _storage.index(of: value,
                               inSortedRange: NSRange(0 ..< _storage.count),
                               options: .insertionIndex,
@@ -136,6 +149,7 @@ extension OrderedSet {
        
        - parameter newElement: new element of NSMutableOrderedSet
        */
+    @inlinable
     public func insert(_ newElement: T) {
         let index = self.index(for: newElement)
         if index < _storage.count, _storage[index] as! T == newElement { return }
@@ -146,17 +160,19 @@ extension OrderedSet {
 // MARK: - REMOVE ELEMENT
 
 extension OrderedSet {
+    @inlinable
     public mutating func remove(obj: T) {
         _storage.remove(obj)
     }
     
+    @inlinable
     public mutating func removeAll() {
         _storage.removeAllObjects()
     }
 }
 
 extension OrderedSet: Sequence {
-    
+    @inlinable
     public func makeIterator() -> NSFastEnumerationIterator {
         return _storage.makeIterator()
     }
