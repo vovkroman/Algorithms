@@ -73,12 +73,23 @@ class OrderedSetTestCase: XCTestCase {
     func testPerformanceExample() throws {
         var orderedArray = OrderedArray<Int>()
         let orderedSet = OrderedSet<Int>()
+        var set = Set<Int>()
         
         for _ in 0...10_000 {
             let i = Int.random(in: 0..<500_000)
             orderedArray.insert(newElement: i)
             orderedSet.insert(i)
+            set.insert(i)
         }
+        
+        let measure_set = ParkBenchTimer()
+        for _ in 0...10_000 {
+            let searchValue = Int.random(in: 0..<500_000)
+            set.lookUp(of: searchValue)
+            
+        }
+        print("Set timer finished test for \(measure_set.stop())")
+        // **Set** timer finished test for 0.01764702796936035
         
         let measure_orderedArray = ParkBenchTimer()
         for _ in 0...10_000 {
@@ -87,7 +98,7 @@ class OrderedSetTestCase: XCTestCase {
         }
         print("OrderedArray timer finished test for \(measure_orderedArray.stop())")
         // **OrderedArray** timer finished test for 0.026673078536987305
-        
+
         let measure_orderedSet = ParkBenchTimer()
         for _ in 0...10_000 {
             let searchValue = Int.random(in: 0..<500_000)
