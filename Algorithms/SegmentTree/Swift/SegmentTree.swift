@@ -9,7 +9,7 @@ import Foundation
  *For example, the function can be sum, multiplication, min, max, gcd, and so on.
  
   ***Application**
- *  Can be efficient on RMQ problem
+ * - Can be efficient on RMQ problem
  
  ***Performance**:
  * - building the tree is O(n)
@@ -93,14 +93,13 @@ public class SegmentTree<T> {
             return function(leftResult, rightResult)
         }
     }
-
-    @inlinable
     /**
      Description: Perform replacing item at index (perform replacing and recalculate all affected items)
      Complexity: O(log(*n*))
      - parameter index: index
      - parameter item:  element of array
      */
+    @inlinable
     public func replaceItem(at index: Int, withItem item: T) {
         if leftBound == rightBound {
             value = item

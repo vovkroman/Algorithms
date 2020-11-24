@@ -1,9 +1,19 @@
 import Foundation
 /**
- * OrderedSet represents wrapper over Obj-C NSMutableOrderedSet.
+ * ***OrderedSet*** represents wrapper over Obj-C NSMutableOrderedSet.
+ * *
+ * NSMutableOrderedSet objects are not like C arrays. That is, even though you may specify a size when you create a mutable ordered set, the specified size is regarded as a “hint”; the actual size of the set is still 0. This means that you cannot insert an object at an index greater than the current count of an set. For example, if a set contains two objects, its size is 2, so you can add objects at indices 0, 1, or 2. Index 3 is illegal and out of bounds; if you try to add an object at index 3 (when the size of the array is 2), NSMutableOrderedSet raises an exception.
  *
+ ** ***Application**:
+ * - Search can be efficiently performed
+  
+ * ***Performance**:
+ * - building the Ordered array is O(n)
+ * - inserting is O(n)
+ * - searching item is O(log n)
  *
- * NSMutableOrderedSet objects are not like C arrays. That is, even though you may specify a size when you create a mutable ordered set, the specified size is regarded as a “hint”; the actual size of the set is still 0. This means that you cannot insert an object at an index greater than the current count of an set. For example, if a set contains two objects, its size is 2, so you can add objects at indices 0, 1, or 2. Index 3 is illegal and out of bounds; if you try to add an object at index 3 (when the size of the array is 2), NSMutableOrderedSet raises an exception.,
+ * **Drawback**:
+ * - Since using dynamic array under the hood, contains all drawbacks of the dynamic array
  **/
 
 public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
@@ -115,7 +125,7 @@ extension OrderedSet {
      - returns: see **Result**
      **/
     @inlinable
-    public func lookUp(of element: T) -> Result {
+    public func lookUp(of element: T) -> Result<Int> {
         let index = _storage.index(of: element,
                                    inSortedRange: NSRange(0 ..< _storage.count),
                                    usingComparator: OrderedSet.compare)

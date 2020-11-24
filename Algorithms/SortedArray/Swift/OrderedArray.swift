@@ -1,15 +1,25 @@
 /// Description
 /**
-* An ordered array represents wrapper around array with unique element.
+* ***Ordered array*** represents wrapper around array with unique element.
 * When you add a new item to this array, it is inserted in
 * sorted position and checked if array contains such element by comparable key
+* ***Application**:
+* - Search can be efficiently performed
+ 
+* ***Performance**:
+* - building the Ordered array is O(n)
+* - inserting is O(n)
+* - searching item is O(log n)
+*
+* **Drawback**:
+* - Since using dynamic array under the hood, contains all drawbacks of the dynamic array
 **/
 import Foundation
 
-extension Result: Equatable {}
+extension Result: Equatable where T == Int {}
 
 @inlinable
-public func ==(lhs: Result, rhs: Result) -> Bool {
+public func ==(lhs: Result<Int>, rhs: Result<Int>) -> Bool {
     switch (lhs, rhs) {
     case (.success(let lhs), .success(let rhs)):
         return lhs == rhs
@@ -66,7 +76,7 @@ public struct OrderedArray<T: Keyable> {
     
     /**
      Description: *Insertion*: find index of element, where element might be inserted and insert it, otherwise
-     ignore element if there is such element (performed by O(**log(n)**), but since used array under the hood, array can be reallocate additional capacity, and so summarize operation is performed by O(**n**)
+     ignore element if there is such element (performed by O(**log(n)**), but since used array under the hood, array can be reallocate additional capacity, and so summarized operation is performed by O(**n**)
      
      - parameter newElement: new element of array
      */
@@ -91,7 +101,7 @@ public struct OrderedArray<T: Keyable> {
      - returns: see **Result**
      */
     @inlinable
-    public func lookUp<T: Comparable>(of key: T) -> Result where Element.KeyType == T {
+    public func lookUp<T: Comparable>(of key: T) -> Result<Int> where Element.KeyType == T {
         let index = findInsertionPoint(by: key)
         if index >= 0, index < _storage.count, _storage[index].key == key {
             return .success(index: index)
@@ -105,7 +115,6 @@ public struct OrderedArray<T: Keyable> {
      *     if element doesn't contains return startIndex or endIndex
      
      - parameter key: key
-     
      - returns: index of element by key
      */
     @usableFromInline
