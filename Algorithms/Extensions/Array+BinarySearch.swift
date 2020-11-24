@@ -1,6 +1,3 @@
-//
-//  Array+BinarySearch.swift
-//  Algorithms
 import Foundation
 
 /**
@@ -8,6 +5,8 @@ import Foundation
  **/
 
 extension Array where Element: Keyable {
+    
+    @inlinable
     public func binarySearch<T: Comparable>(_ key: T) -> Index? where Element.KeyType == T {
         var lowerBound = 0
         var upperBound = count

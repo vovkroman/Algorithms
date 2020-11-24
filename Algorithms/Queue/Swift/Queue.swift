@@ -1,20 +1,26 @@
 import Foundation
 
 public struct Queue<T> {
-    private var _storage: ContiguousArray<T> = []
     
+    @usableFromInline
+    internal var _storage: ContiguousArray<T> = []
+    
+    @inlinable
     public var count: Int {
         return _storage.count
     }
     
+    @inlinable
     public var isEmpty: Bool {
         return _storage.isEmpty
     }
     
+    @inlinable
     public mutating func enqueue(_ element: T) {
         _storage.append(element)
     }
     
+    @inlinable
     public mutating func dequeue() -> T? {
         if isEmpty {
             return nil
@@ -23,12 +29,14 @@ public struct Queue<T> {
         }
     }
     
+    @inlinable
     public var front: T? {
         return _storage.first
     }
 }
 
 extension Queue: Sequence {
+    @inlinable
     public func makeIterator() -> IndexingIterator<ContiguousArray<T>> {
         return _storage.makeIterator()
     }
