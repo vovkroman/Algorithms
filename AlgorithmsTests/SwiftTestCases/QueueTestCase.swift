@@ -39,7 +39,7 @@ class QueueTestCase: XCTestCase {
         /**
         * Queue should return item at the front, (2, currently), since it is not removed after being returned
         */
-        for item in items {
+        for _ in items {
             XCTAssertTrue(queue.front == .some(2))
         }
         

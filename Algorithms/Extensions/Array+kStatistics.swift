@@ -1,5 +1,6 @@
 import Foundation
 
+@inlinable
 public func findStatistics<T: Comparable>(_ array: [T], order k: Int) -> T? {
     guard k >= array.startIndex, k < array.endIndex, !array.isEmpty else { return nil }
     var a = array

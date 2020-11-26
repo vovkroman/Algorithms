@@ -10,7 +10,7 @@ class TrieNode<T: Hashable> {
         return children.count == 0
     }
     
-    /// Initializes a node.
+    /// Initialize a node.
     ///
     /// - Parameters:
     ///   - value: The value that goes into the node
