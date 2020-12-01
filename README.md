@@ -4,7 +4,7 @@
 
 *Algorithms is an framework inlcuding all algorithms and data structure + some extensions to embeded Swift Collection (see. below) that commonly used for iOS/Mac/tvOS development*. 
 
-Besides that in scope of some algorithm investigation, performance tests have been measured (See. Benchmarks).
+Besides that in scope of some algorithm investigation, performance tests have been measured (See. [Benchmarks]).
 
 ### Requirements (Programming language)
 
