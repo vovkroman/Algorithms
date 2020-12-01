@@ -26,6 +26,8 @@ Swift 5.2 & Objective-C 2.0
 ### Benchmarks
 
 Figure below compares searching operation among [Ordered Array](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/SortedArray/Swift/OrderedArray.swift), [Ordered Set](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/OderedSet/OrderedSet.swift), and searching extension of Swift [Set](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/Extensions/Set%2BSearching.swift).
-
 ![](Images/searching_plot.png)
 
+*There are 2 remarkable aspects*: 
+1) **Ordered Set** has the same asymptotic plot **Ordered Array** (but with different constant value {x3 more}). It means, [NSMutableOrderdSet](https://developer.apple.com/documentation/foundation/nsmutableorderedset) works as Sorted Array under the hood.
+2) Searching [Set](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/Extensions/Set%2BSearching.swift) extension behaves itself as **Ordered Array** does.
