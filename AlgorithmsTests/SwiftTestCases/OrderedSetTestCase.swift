@@ -107,4 +107,37 @@ class OrderedSetTestCase: XCTestCase {
         print("OrderedSet timer finished test for \(measure_orderedSet.stop())")
         // **OrderedSet** timer finished test for 0.09929001331329346
     }
+    
+//    func getDocumentsDirectory() -> URL {
+//        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        return paths[0]
+//    }
+//
+//    func testPerformanceMesureExample() throws {
+//        var orderedArray = Set<Int>()
+//        var i = 2
+//        var str = ""
+//        while i < 2_500_000 {
+//            for _ in 0...i {
+//                let j = Int.random(in: 0..<500_000)
+//                orderedArray.insert(i)
+//            }
+//
+//            let measure_orderedSet = ParkBenchTimer()
+//            for _ in 0...i {
+//                let j = Int.random(in: 0..<500_000)
+//                orderedArray.lookUp(of: j)
+//            }
+//            let current = "\n\(i)                    \(measure_orderedSet.stop())"
+//            str.append(current)
+//            i *= 2
+//        }
+//
+//        let filename = getDocumentsDirectory().appendingPathComponent("Set.txt")
+//        print(filename)
+//        do {
+//            try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+//        } catch {
+//        }
+//    }
 }

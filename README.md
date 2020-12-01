@@ -26,8 +26,9 @@ Swift 5.2 & Objective-C 2.0
 	- Max/min: extension of Swift Array to find [index of max/min](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/Extensions/Array%2BArgMaxMin.swift) value in unsorted array; 
 	- Max/min: high-performance extension for array of Double elements to find [index of max/min](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/Extensions/Array%2BOptimizedArgMaxMin.swift) element, that based on Apple's [Accelerate](https://developer.apple.com/documentation/accelerate);
 	- Sorting: implementation of sorting algorithms in Swift;
+	- [Order statistics](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/Extensions/Array%2BkStatistics.swift): extension to find K’th smallest/largest element in Unsorted Array;
 - [x] **LRUCache** - Least recently used ([LRU](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU))) cache implementation (inspired by [SwiftlyLRU](https://github.com/justinmfischer/SwiftlyLRU))
-- [x] [**Bit Vector**](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/BitVector/BitVector.swift) - implementation of bit array wrapped Apple's [CFMutableBitVector](https://developer.apple.com/documentation/corefoundation/cfmutablebitvector-rqf) 
+- [x] [**Bit Vector**](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/BitVector/BitVector.swift) - implementation of bit array wrapped Apple's [CFMutableBitVector](https://developer.apple.com/documentation/corefoundation/cfmutablebitvector-rqf).
 - [x] **Extra** - additional routines to deal with [COW](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/Shared/COW.swift) (Copy-on-write) semantic.
 
 ### Benchmarks
