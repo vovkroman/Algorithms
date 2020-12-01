@@ -33,6 +33,6 @@ extension Array where Element: Comparable {
         while i < (to - from) && self[i] <= key { //when array[i] crosses the key element
             i *= 2 //i will increase as power of 2
         }
-        return binarySearch(key, from: i / 2, to: i) //search item in the smaller range
+        return binarySearch(key, from: i / 2, to: Swift.min(i, count - 1)) //search item in the smaller range
     }
 }

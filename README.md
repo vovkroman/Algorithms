@@ -4,7 +4,7 @@
 
 *Algorithms is an framework inlcuding all algorithms and data structure + some extensions to embeded Swift Collection (see. below) that commonly used for iOS/Mac/tvOS development*. 
 
-Besides that in scope of some algorithm investigation, performance tests have been measured (See. [Benchmarks]).
+Besides that in scope of some algorithm investigation, performance tests have been measured (See. [Benchmarks](https://github.com/RoMaN16102012/Algorithms/tree/master#benchmarks)).
 
 ### Requirements (Programming language)
 
@@ -25,9 +25,19 @@ Swift 5.2 & Objective-C 2.0
 
 ### Benchmarks
 
+## Searching Collections
+
 Figure below compares searching operation among [Ordered Array](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/SortedArray/Swift/OrderedArray.swift), [Ordered Set](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/OderedSet/OrderedSet.swift), and searching extension of Swift [Set](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/Extensions/Set%2BSearching.swift).
 ![](Images/searching_plot.png)
 
 *There are 2 remarkable aspects*: 
 1) **Ordered Set** has the same asymptotic plot **Ordered Array** (but with different constant value {x3 more}). It means, [NSMutableOrderdSet](https://developer.apple.com/documentation/foundation/nsmutableorderedset) works as Sorted Array under the hood.
-2) Searching [Set](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/Extensions/Set%2BSearching.swift) extension behaves itself as **Ordered Array** does.
+2) Searching [Set](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/Extensions/Set%2BSearching.swift) extension behaves itself as **Ordered Array** does. 
+
+## Searching algorithms
+
+| Count         | Binary Search | Interpolation Search  | Expotensial Search |
+| ------------- |:-------------:|:---------------------:|:------------------:|
+| 10 000        |    2.9e-06    |      2.6e-06          |       4.7e-06      |
+| 1 000 000     | 	 3.9e-06    |      2.8e-06 			|       4.8e-06      |
+| 10 000 000    |    2.0e-05    |      1.9e-05 			|       8.1e-06     |
