@@ -11,6 +11,7 @@
 		6F021E9725499D33006CE98F /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F021E9625499D33006CE98F /* LinkedList.swift */; };
 		6F021E9925499FAC006CE98F /* LinkListTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F021E9825499FAC006CE98F /* LinkListTestCase.swift */; };
 		6F021E9B2549B49A006CE98F /* COW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F021E9A2549B49A006CE98F /* COW.swift */; };
+		6F07073025769DDA001991C8 /* SingleLinkedListTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07072F25769DDA001991C8 /* SingleLinkedListTestCase.swift */; };
 		6F111EED25481738008DEDEF /* OrderedSetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F111EEC25481738008DEDEF /* OrderedSetTestCase.swift */; };
 		6F111EEF25488C22008DEDEF /* PriorityQueueTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F111EEE25488C22008DEDEF /* PriorityQueueTestCase.swift */; };
 		6F5D4B30253778A300C692A9 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4B2F253778A300C692A9 /* Queue.swift */; };
@@ -68,6 +69,7 @@
 		6F021E9625499D33006CE98F /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		6F021E9825499FAC006CE98F /* LinkListTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkListTestCase.swift; sourceTree = "<group>"; };
 		6F021E9A2549B49A006CE98F /* COW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COW.swift; sourceTree = "<group>"; };
+		6F07072F25769DDA001991C8 /* SingleLinkedListTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLinkedListTestCase.swift; sourceTree = "<group>"; };
 		6F111EEC25481738008DEDEF /* OrderedSetTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedSetTestCase.swift; sourceTree = "<group>"; };
 		6F111EEE25488C22008DEDEF /* PriorityQueueTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueueTestCase.swift; sourceTree = "<group>"; };
 		6F5D4B2F253778A300C692A9 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				6FB7937B256D087B0029BAAF /* QueueTestCase.swift */,
 				6FB7937D256D10D50029BAAF /* StackTestCase.swift */,
 				6FB79383256D34330029BAAF /* SearchArrayTestCase.swift */,
+				6F07072F25769DDA001991C8 /* SingleLinkedListTestCase.swift */,
 			);
 			path = SwiftTestCases;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				6F111EEF25488C22008DEDEF /* PriorityQueueTestCase.swift in Sources */,
 				6FFE7C7F253448B50005477E /* ParkBenchTimer.swift in Sources */,
 				6FB7937E256D10D50029BAAF /* StackTestCase.swift in Sources */,
+				6F07073025769DDA001991C8 /* SingleLinkedListTestCase.swift in Sources */,
 				6F7103D1253F5182009848C0 /* ObjCPriorityQueueTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
