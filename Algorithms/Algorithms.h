@@ -5,5 +5,5 @@ FOUNDATION_EXPORT double AlgorithmsVersionNumber;
 //! Project version string for Algorithms.
 FOUNDATION_EXPORT const unsigned char AlgorithmsVersionString[];
 
-#import <Algorithms/ObjCPriorityQueue.h>
+#import <Algorithms/CFPriorityQueue.h>
 #import <Algorithms/CppStack.h>

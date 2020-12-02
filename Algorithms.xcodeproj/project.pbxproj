@@ -20,10 +20,11 @@
 		6F7103CD253F4BEF009848C0 /* TestTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7103CC253F4BEF009848C0 /* TestTask.m */; };
 		6F7103D1253F5182009848C0 /* ObjCPriorityQueueTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7103D0253F5182009848C0 /* ObjCPriorityQueueTestCase.swift */; };
 		6F7103D4253F59EA009848C0 /* OrderedArrayTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7103D3253F59EA009848C0 /* OrderedArrayTestCase.swift */; };
-		6F9D5C602539C43900CC3CE6 /* ObjCPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9D5C5E2539C43900CC3CE6 /* ObjCPriorityQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6F9D5C612539C43900CC3CE6 /* ObjCPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D5C5F2539C43900CC3CE6 /* ObjCPriorityQueue.m */; };
+		6F9D5C602539C43900CC3CE6 /* CFPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9D5C5E2539C43900CC3CE6 /* CFPriorityQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6F9D5C612539C43900CC3CE6 /* CFPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D5C5F2539C43900CC3CE6 /* CFPriorityQueue.m */; };
 		6F9ED151252DED0C0020D7C5 /* Algorithms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9ED147252DED0C0020D7C5 /* Algorithms.framework */; };
 		6F9ED158252DED0C0020D7C5 /* Algorithms.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9ED14A252DED0C0020D7C5 /* Algorithms.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FA6A24C25778A5600EB9528 /* CFPriorityQueue+Redefining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA6A24B25778A5600EB9528 /* CFPriorityQueue+Redefining.swift */; };
 		6FB6430025658D0F00DC6ECE /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB642FF25658D0F00DC6ECE /* LRUCache.swift */; };
 		6FB6430225658DED00DC6ECE /* LRU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB6430125658DED00DC6ECE /* LRU.swift */; };
 		6FB79376256CF8280029BAAF /* Set+Searching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79375256CF8280029BAAF /* Set+Searching.swift */; };
@@ -80,8 +81,8 @@
 		6F7103CC253F4BEF009848C0 /* TestTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTask.m; sourceTree = "<group>"; };
 		6F7103D0253F5182009848C0 /* ObjCPriorityQueueTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjCPriorityQueueTestCase.swift; sourceTree = "<group>"; };
 		6F7103D3253F59EA009848C0 /* OrderedArrayTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedArrayTestCase.swift; sourceTree = "<group>"; };
-		6F9D5C5E2539C43900CC3CE6 /* ObjCPriorityQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCPriorityQueue.h; sourceTree = "<group>"; };
-		6F9D5C5F2539C43900CC3CE6 /* ObjCPriorityQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCPriorityQueue.m; sourceTree = "<group>"; };
+		6F9D5C5E2539C43900CC3CE6 /* CFPriorityQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFPriorityQueue.h; sourceTree = "<group>"; };
+		6F9D5C5F2539C43900CC3CE6 /* CFPriorityQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CFPriorityQueue.m; sourceTree = "<group>"; };
 		6F9D5C622539CD9500CC3CE6 /* AlgorithmsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlgorithmsTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		6F9ED147252DED0C0020D7C5 /* Algorithms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Algorithms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9ED14A252DED0C0020D7C5 /* Algorithms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Algorithms.h; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		6F9ED150252DED0C0020D7C5 /* AlgorithmsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgorithmsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9ED155252DED0C0020D7C5 /* AlgorithmsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmsTests.swift; sourceTree = "<group>"; };
 		6F9ED157252DED0C0020D7C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FA6A24B25778A5600EB9528 /* CFPriorityQueue+Redefining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CFPriorityQueue+Redefining.swift"; sourceTree = "<group>"; };
 		6FB642FF25658D0F00DC6ECE /* LRUCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCache.swift; sourceTree = "<group>"; };
 		6FB6430125658DED00DC6ECE /* LRU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRU.swift; sourceTree = "<group>"; };
 		6FB79375256CF8280029BAAF /* Set+Searching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+Searching.swift"; sourceTree = "<group>"; };
@@ -217,8 +219,8 @@
 		6F9D5C5D2539C40600CC3CE6 /* ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				6F9D5C5E2539C43900CC3CE6 /* ObjCPriorityQueue.h */,
-				6F9D5C5F2539C43900CC3CE6 /* ObjCPriorityQueue.m */,
+				6F9D5C5E2539C43900CC3CE6 /* CFPriorityQueue.h */,
+				6F9D5C5F2539C43900CC3CE6 /* CFPriorityQueue.m */,
 			);
 			path = ObjC;
 			sourceTree = "<group>";
@@ -397,6 +399,7 @@
 				6FC8F259253DFD930099F2D8 /* Array+kStatistics.swift */,
 				6FFE7C972534B6560005477E /* Array+Sort.swift */,
 				6FB79375256CF8280029BAAF /* Set+Searching.swift */,
+				6FA6A24B25778A5600EB9528 /* CFPriorityQueue+Redefining.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -427,7 +430,7 @@
 			files = (
 				6F9ED158252DED0C0020D7C5 /* Algorithms.h in Headers */,
 				6FC8F25B253E027C0099F2D8 /* CppStack.h in Headers */,
-				6F9D5C602539C43900CC3CE6 /* ObjCPriorityQueue.h in Headers */,
+				6F9D5C602539C43900CC3CE6 /* CFPriorityQueue.h in Headers */,
 				6FEC5749252F7A7300DE5AB3 /* Defines.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,13 +536,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FB6430025658D0F00DC6ECE /* LRUCache.swift in Sources */,
+				6FA6A24C25778A5600EB9528 /* CFPriorityQueue+Redefining.swift in Sources */,
 				6FC8F25C253E027F0099F2D8 /* CppStack.mm in Sources */,
 				6FC8F25F253E03CD0099F2D8 /* SynchronizedArray.swift in Sources */,
 				6FFE7C9A2534B9A40005477E /* Array+OptimizedArgMaxMin.swift in Sources */,
 				6F5D4B342537790700C692A9 /* Stack.swift in Sources */,
 				6FF3C3E6254AC84C00CCDCEC /* LinkedList+COW.swift in Sources */,
 				6FFE7C932534A9870005477E /* Array+BinarySearch.swift in Sources */,
-				6F9D5C612539C43900CC3CE6 /* ObjCPriorityQueue.m in Sources */,
+				6F9D5C612539C43900CC3CE6 /* CFPriorityQueue.m in Sources */,
 				6FB79382256D2E230029BAAF /* Array+InterpolationSearch.swift in Sources */,
 				6F021E9725499D33006CE98F /* LinkedList.swift in Sources */,
 				6F021E9B2549B49A006CE98F /* COW.swift in Sources */,

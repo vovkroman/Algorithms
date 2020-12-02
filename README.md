@@ -2,7 +2,7 @@
 
 ### Description
 
-*Algorithms is an framework inlcuding all algorithms and data structure + some extensions to embeded Swift Collection (see. below) that commonly used for iOS/Mac/tvOS development*. 
+*Algorithms is a framework inlcuding all algorithms and data structures + some extensions for embedded Swift Collection (see. below) that commonly used for iOS/Mac/tvOS development.*. 
 
 Besides that in scope of some algorithm investigation, performance tests have been measured (See. [Benchmarks](https://github.com/RoMaN16102012/Algorithms/tree/master#benchmarks)).
 
@@ -14,7 +14,7 @@ Swift 5.2 & Objective-C 2.0
 
 - [x] [**Queue**](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/Queue/Swift/Queue.swift) - [Queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) data structure.
 - [x] [**Stack**](https://github.com/RoMaN16102012/Algorithms/tree/master/Algorithms/Stack/Swift) - [Stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) data structure.
-- [x] **Priority Queue** - framework contains Swift implemenation of [Priority Queue](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/PriorityQueue/Swift/PriorityQueue.swift), based on own [Heap](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Heap) implementation, and wrapper around Apple's [CFBinaryHeap](https://developer.apple.com/documentation/corefoundation/cfbinaryheap).
+- [x] **Priority Queue** - framework contains Swift implemenation of [Priority Queue](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/PriorityQueue/Swift/PriorityQueue.swift), based on own [Heap](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Heap) implementation, and wrapper around Apple's [CFBinaryHeap](https://developer.apple.com/documentation/corefoundation/cfbinaryheap) and it has been adjusted to Swift API.
 - [x] **Ordered Set** - framework contains own implementation of [Ordered Array](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/SortedArray/Swift/OrderedArray.swift), and [Ordered Set](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/OderedSet/OrderedSet.swift) wrapper arround [NSMutableOrderdSet](https://developer.apple.com/documentation/foundation/nsmutableorderedset).
 - [x] [**Segment Tree**](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/SegmentTree/Swift/SegmentTree.swift) - implemenation of Segment Tree, based on own implementation of [Segment Tree](https://github.com/raywenderlich/swift-algorithm-club/tree/master/Segment%20Treet). Besides contains [*Segment Tree*] using [lazy propagation](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Segment%20Tree/LazyPropagation/README.markdown) technic.
 - [x] [**LinkedList**](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/LinkedList/LinkedList.swift) - [Single Linked List](https://en.wikipedia.org/wiki/Linked_list) data structure, and optimizied [Single Linked List](https://github.com/RoMaN16102012/Algorithms/blob/master/Algorithms/LinkedList/LinkedList%2BCOW.swift) with [Copy-On-Write](https://medium.com/@lucianoalmeida1/understanding-swift-copy-on-write-mechanisms-52ac31d68f2f) semantic.
@@ -49,3 +49,5 @@ Figure below compares searching operation among [Ordered Array](https://github.c
 | 10 000        |    2.9e-06    |      2.6e-06          |       4.7e-06      |
 | 1 000 000     | 	 3.9e-06    |      3.0e-06 			|       4.8e-06      |
 | 10 000 000    |    2.0e-05    |      1.9e-05 			|       8.1e-06     |
+
+* Please notice: [**Interpolation Search**](https://en.wikipedia.org/wiki/Interpolation_search) shows the best time complexity (*O(log(log(n)))*) provided that the elements are uniformly distributed.

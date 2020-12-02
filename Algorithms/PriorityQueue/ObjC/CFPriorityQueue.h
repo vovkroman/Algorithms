@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 /**
-* **ObjCPriorityQueue**: is a data structure similar to a regular queue data structure in which each
+* **CFPriorityQueue**: is a data structure similar to a regular queue data structure in which each
 * element additionally has a "priority" associated with it.
 * In a priority queue, an element with high priority (max heap) is served before an element with low priority (min heap).
 *
@@ -9,14 +9,14 @@
 **/
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol ObjCComparableProtocol <NSObject>
+@protocol CFComparableProtocol <NSObject>
 
-- (CFComparisonResult)compare:(id)otherObject;
+- (CFComparisonResult)compare:(id)otherObject NS_REFINED_FOR_SWIFT;
 
 @end
 
 
-@interface ObjCPriorityQueue<__covariant ObjectType: id<ObjCComparableProtocol>>: NSObject
+@interface CFPriorityQueue<__covariant ObjectType: id<CFComparableProtocol>>: NSObject
 
 typedef void (^ApplyBlock)(ObjectType object);
 

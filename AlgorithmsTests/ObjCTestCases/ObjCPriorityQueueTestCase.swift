@@ -2,7 +2,7 @@ import XCTest
 
 class ObjCPriorityQueueTestCase: XCTestCase {
 
-    typealias PriorityQueue<T: ObjCComparableProtocol> = ObjCPriorityQueue<T>
+    typealias PriorityQueue<T: CFComparableProtocol> = CFPriorityQueue<T>
     
     func testEnqueueDeque() throws {
         let priorityQueue = PriorityQueue<TestTask>()

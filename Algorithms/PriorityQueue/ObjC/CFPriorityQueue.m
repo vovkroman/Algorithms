@@ -1,4 +1,4 @@
-#import "ObjCPriorityQueue.h"
+#import "CFPriorityQueue.h"
 #import "Defines.h"
 
 static const void *heap_retain(CFAllocatorRef allocator, const void *ptr) {
@@ -10,7 +10,7 @@ static void heap_release(CFAllocatorRef allocator, const void *ptr) {
 }
 
 static CFComparisonResult heap_compare(const void *ptr1, const void *ptr2, void *unused) {
-    return (CFComparisonResult)[(__bridge id<ObjCComparableProtocol>)ptr1 compare:(__bridge id<ObjCComparableProtocol>)ptr2];
+    return (CFComparisonResult)[(__bridge id<CFComparableProtocol>)ptr1 compare:(__bridge id<CFComparableProtocol>)ptr2];
 }
 
 static void heap_apply(const void *val, void *context) {
@@ -20,7 +20,7 @@ static void heap_apply(const void *val, void *context) {
     }
 }
 
-@implementation ObjCPriorityQueue {
+@implementation CFPriorityQueue {
     CFBinaryHeapRef _heap;
 }
 

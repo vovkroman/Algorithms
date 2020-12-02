@@ -51,7 +51,7 @@ class PriorityQueueTestCase: XCTestCase {
      * {(*PriorityQueue(Swift)* vs *ObjCPriorityQueue(Objective-C)*)}
      */
     func testBenchmark() {
-        let objPriorityQueue = ObjCPriorityQueue<TestTask>()
+        let objPriorityQueue = CFPriorityQueue<TestTask>()
         var swiftPriorityQueue = PriorityQueue<TestTask>() { $0 < $1 }
         
         let measure_objC = ParkBenchTimer()
