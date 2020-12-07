@@ -1,19 +1,3 @@
-/// Description
-/**
-* ***Ordered array*** represents wrapper around array with unique element.
-* When you add a new item to this array, it is inserted in
-* sorted position and checked if array contains such element by comparable key
-* ***Application**:
-* - Search can be efficiently performed
- 
-* ***Performance**:
-* - building the Ordered array is O(n)
-* - inserting is O(n)
-* - searching item is O(log n)
-*
-* **Drawback**:
-* - Since using dynamic array under the hood, contains all drawbacks of the dynamic array
-**/
 import Foundation
 
 extension Result: Equatable where T == Int {}
@@ -30,6 +14,20 @@ public func ==(lhs: Result<Int>, rhs: Result<Int>) -> Bool {
     }
 }
 
+/****Ordered array** represents wrapper around array with unique element.
+
+When you add a new item to this array, it is inserted in sorted position and checked if array contains such element by comparable key
+
+**Application**:
+ - Search can be efficiently performed
+ 
+**Performance**:
+- building the Ordered array is O(n)
+- inserting is O(n)
+- searching item is O(log n)
+ 
+**Drawback**:
+- Since using dynamic array under the hood, contains all drawbacks of the dynamic array; */
 public struct OrderedArray<T: Keyable> {
     
     public typealias ComparatorType = (T, T) -> Bool
@@ -37,12 +35,10 @@ public struct OrderedArray<T: Keyable> {
     @usableFromInline
     internal var _storage: ContiguousArray<T>
     
-    /**
-     Description: *Initialization*
-     
-     - parameter array:      initialize with array (Default: [])
-     - parameter comparator: Defines the signature how comparison operations is used. (Default: { $0.key < $1.key })
-     */
+    /// Description: Initialization with array
+    /// - Parameters:
+    ///   - array: array (Default: [])
+    ///   - comparator: Defines the signature how comparison operations is used. (Default: { $0.key < $1.key })
     @inlinable
     public init(array: [T] = [], comparator:  ComparatorType = { $0.key < $1.key })  {
         self._storage = ContiguousArray<T>(array.sorted(by: comparator))
@@ -63,6 +59,8 @@ public struct OrderedArray<T: Keyable> {
         return _storage[index]
     }
     
+    /// Description: removes element at specific index
+    /// - Parameter index: index of element to remove
     @inlinable
     @discardableResult
     public mutating func removeAtIndex(index: Int) -> T {
@@ -74,12 +72,10 @@ public struct OrderedArray<T: Keyable> {
         _storage.removeAll()
     }
     
-    /**
-     Description: *Insertion*: find index of element, where element might be inserted and insert it, otherwise
-     ignore element if there is such element (performed by O(**log(n)**), but since used array under the hood, array can be reallocate additional capacity, and so summarized operation is performed by O(**n**)
-     
-     - parameter newElement: new element of array
-     */
+    /// Description: find index of element, where element might be inserted and insert it, otherwise
+    /// ignore element if there is such element (performed by O(**log(n)**), but since used array under the hood,
+    /// array can be reallocate additional capacity, and so summarized operation is performed by O(**n**)
+    /// - Parameter newElement: new element to insert
     @inlinable
     public mutating func insert(newElement: T) {
         if _storage.isEmpty {
@@ -93,13 +89,8 @@ public struct OrderedArray<T: Keyable> {
         _storage.insert(newElement, at: insertIndex)
     }
     
-    /**
-     Description: *Searching element by *key*
-     
-     - parameter key:
-     
-     - returns: see **Result**
-     */
+    /// Description: searching element by *key* and returns see. *Result*.
+    /// - Parameter key: key to search element
     @inlinable
     public func lookUp<T: Comparable>(of key: T) -> Result<Int> where Element.KeyType == T {
         let index = findInsertionPoint(by: key)
@@ -110,13 +101,10 @@ public struct OrderedArray<T: Keyable> {
         }
     }
     
-    /**
-     Description: Find convenient index of element by key,
-     *     if element doesn't contains return startIndex or endIndex
-     
-     - parameter key: key
-     - returns: index of element by key
-     */
+    /// Description: Find convenient index of element by key,
+    /// see [Binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm).
+    ///
+    /// - Parameter key (identifire of the element).
     @usableFromInline
     internal func findInsertionPoint<T: Comparable>(by key: T) -> Int where Element.KeyType == T {
         var startIndex = 0

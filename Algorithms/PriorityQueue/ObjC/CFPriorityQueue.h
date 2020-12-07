@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol CFComparableProtocol <NSObject>
 
-- (CFComparisonResult)compare:(id)otherObject NS_REFINED_FOR_SWIFT;
+- (CFComparisonResult)compare:(id)otherObject;
 
 @end
 

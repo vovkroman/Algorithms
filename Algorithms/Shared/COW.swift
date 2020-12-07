@@ -1,8 +1,7 @@
 import Foundation
 
 /** **COW** file contains some routines
- * to work with COW (Copy-on-write) semantic optimization technics
- **/
+to work with COW (Copy-on-write) semantic optimization technics */
 public final class Ref<T> {
     public var value: T
     

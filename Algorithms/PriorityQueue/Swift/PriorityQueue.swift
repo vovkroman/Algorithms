@@ -1,11 +1,11 @@
 /****Priority Queue**: is a queue where the most "important" items are at the front of the queue. Just like a heap can be a max-heap or min-heap, the queue can be a max-priority queue (largest element first) or a min-priority queue (smallest element first).
 
- * Current implementation is wrapper around [Heap](https://en.wikipedia.org/wiki/Heap_(data_structure))
+* Current implementation is wrapper around [Heap](https://en.wikipedia.org/wiki/Heap_(data_structure))
  
- **Application**:
+**Application**:
  - Can be efficient on dynamically sorted problems
  
- **Performance**:
+**Performance**:
  -  All operations are O(log(*n*)).
  */
 
