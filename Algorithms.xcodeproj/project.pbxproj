@@ -16,7 +16,6 @@
 		6F111EEF25488C22008DEDEF /* PriorityQueueTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F111EEE25488C22008DEDEF /* PriorityQueueTestCase.swift */; };
 		6F5D4B30253778A300C692A9 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4B2F253778A300C692A9 /* Queue.swift */; };
 		6F5D4B342537790700C692A9 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4B332537790700C692A9 /* Stack.swift */; };
-		6F5D4B3A25377D2F00C692A9 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFE7C90253489B60005477E /* Graph.swift */; };
 		6F7103CD253F4BEF009848C0 /* TestTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7103CC253F4BEF009848C0 /* TestTask.m */; };
 		6F7103D1253F5182009848C0 /* ObjCPriorityQueueTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7103D0253F5182009848C0 /* ObjCPriorityQueueTestCase.swift */; };
 		6F7103D4253F59EA009848C0 /* OrderedArrayTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7103D3253F59EA009848C0 /* OrderedArrayTestCase.swift */; };
@@ -34,8 +33,6 @@
 		6FB79382256D2E230029BAAF /* Array+InterpolationSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79381256D2E230029BAAF /* Array+InterpolationSearch.swift */; };
 		6FB79384256D34330029BAAF /* SearchArrayTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79383256D34330029BAAF /* SearchArrayTestCase.swift */; };
 		6FC8F25A253DFD930099F2D8 /* Array+kStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC8F259253DFD930099F2D8 /* Array+kStatistics.swift */; };
-		6FC8F25B253E027C0099F2D8 /* CppStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F5D4B3625377CB100C692A9 /* CppStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6FC8F25C253E027F0099F2D8 /* CppStack.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4B3725377CB100C692A9 /* CppStack.mm */; };
 		6FC8F25F253E03CD0099F2D8 /* SynchronizedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC8F25E253E03CD0099F2D8 /* SynchronizedArray.swift */; };
 		6FC8F262253E05780099F2D8 /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC8F261253E05780099F2D8 /* Trie.swift */; };
 		6FE09A9D2530AB3600FD98C7 /* OrderedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE09A9C2530AB3600FD98C7 /* OrderedArray.swift */; };
@@ -75,8 +72,6 @@
 		6F111EEE25488C22008DEDEF /* PriorityQueueTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueueTestCase.swift; sourceTree = "<group>"; };
 		6F5D4B2F253778A300C692A9 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		6F5D4B332537790700C692A9 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
-		6F5D4B3625377CB100C692A9 /* CppStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CppStack.h; sourceTree = "<group>"; };
-		6F5D4B3725377CB100C692A9 /* CppStack.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CppStack.mm; sourceTree = "<group>"; };
 		6F7103CB253F4BEF009848C0 /* TestTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTask.h; sourceTree = "<group>"; };
 		6F7103CC253F4BEF009848C0 /* TestTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTask.m; sourceTree = "<group>"; };
 		6F7103D0253F5182009848C0 /* ObjCPriorityQueueTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjCPriorityQueueTestCase.swift; sourceTree = "<group>"; };
@@ -113,7 +108,6 @@
 		6FFE7C8125344F160005477E /* SegmentTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentTree.swift; sourceTree = "<group>"; };
 		6FFE7C842534503D0005477E /* LazySegmentTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazySegmentTree.swift; sourceTree = "<group>"; };
 		6FFE7C88253461430005477E /* Array+ArgMaxMin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+ArgMaxMin.swift"; sourceTree = "<group>"; };
-		6FFE7C90253489B60005477E /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		6FFE7C922534A9870005477E /* Array+BinarySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+BinarySearch.swift"; sourceTree = "<group>"; };
 		6FFE7C952534B0D20005477E /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		6FFE7C972534B6560005477E /* Array+Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Sort.swift"; sourceTree = "<group>"; };
@@ -175,7 +169,6 @@
 		6F5D4B31253778D300C692A9 /* Stack */ = {
 			isa = PBXGroup;
 			children = (
-				6F5D4B3525377C7F00C692A9 /* Cpp */,
 				6F5D4B32253778DA00C692A9 /* Swift */,
 			);
 			path = Stack;
@@ -187,15 +180,6 @@
 				6F5D4B332537790700C692A9 /* Stack.swift */,
 			);
 			path = Swift;
-			sourceTree = "<group>";
-		};
-		6F5D4B3525377C7F00C692A9 /* Cpp */ = {
-			isa = PBXGroup;
-			children = (
-				6F5D4B3625377CB100C692A9 /* CppStack.h */,
-				6F5D4B3725377CB100C692A9 /* CppStack.mm */,
-			);
-			path = Cpp;
 			sourceTree = "<group>";
 		};
 		6F7103CA253F4823009848C0 /* ObjCTestCases */ = {
@@ -255,7 +239,6 @@
 				6FC8F25D253E038A0099F2D8 /* SynchrinizedArray */,
 				6F5D4B31253778D300C692A9 /* Stack */,
 				6F5D4B2D2537787500C692A9 /* Queue */,
-				6FFE7C8F253489A40005477E /* Graph */,
 				6FFE7C872534611C0005477E /* Extensions */,
 				6FFE7C8025344E960005477E /* SegmentTree */,
 				6FE09A952530A49F00FD98C7 /* SortedArray */,
@@ -404,14 +387,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		6FFE7C8F253489A40005477E /* Graph */ = {
-			isa = PBXGroup;
-			children = (
-				6FFE7C90253489B60005477E /* Graph.swift */,
-			);
-			path = Graph;
-			sourceTree = "<group>";
-		};
 		6FFE7C942534B0BF0005477E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,7 +404,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F9ED158252DED0C0020D7C5 /* Algorithms.h in Headers */,
-				6FC8F25B253E027C0099F2D8 /* CppStack.h in Headers */,
 				6F9D5C602539C43900CC3CE6 /* CFPriorityQueue.h in Headers */,
 				6FEC5749252F7A7300DE5AB3 /* Defines.h in Headers */,
 			);
@@ -537,7 +511,6 @@
 			files = (
 				6FB6430025658D0F00DC6ECE /* LRUCache.swift in Sources */,
 				6FA6A24C25778A5600EB9528 /* CFPriorityQueue+Redefining.swift in Sources */,
-				6FC8F25C253E027F0099F2D8 /* CppStack.mm in Sources */,
 				6FC8F25F253E03CD0099F2D8 /* SynchronizedArray.swift in Sources */,
 				6FFE7C9A2534B9A40005477E /* Array+OptimizedArgMaxMin.swift in Sources */,
 				6F5D4B342537790700C692A9 /* Stack.swift in Sources */,
@@ -556,7 +529,6 @@
 				6FC8F262253E05780099F2D8 /* Trie.swift in Sources */,
 				6FFE7C982534B6560005477E /* Array+Sort.swift in Sources */,
 				6F5D4B30253778A300C692A9 /* Queue.swift in Sources */,
-				6F5D4B3A25377D2F00C692A9 /* Graph.swift in Sources */,
 				6F021E8125495EF3006CE98F /* RedBlackTree.swift in Sources */,
 				6FEC573E252F149900DE5AB3 /* Heap.swift in Sources */,
 				6FFE7C962534B0D20005477E /* Shared.swift in Sources */,
