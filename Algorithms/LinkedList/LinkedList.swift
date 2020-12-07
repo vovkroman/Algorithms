@@ -62,10 +62,10 @@ extension LinkedList: ExpressibleByArrayLiteral {
 
 extension LinkedList {
     
-    @inlinable
     /// Description: make self to point to front of list (head)
     ///
     /// - Parameter x: new raw element
+    @inlinable
     public mutating func push(_ x: Element) {
         self = self.cons(x)
     }
@@ -85,9 +85,9 @@ extension LinkedList {
 
 extension LinkedList: IteratorProtocol, Sequence {
     
-    @inlinable
     /// Description: iterate over the list by popping element from the list
     /// - Returns: return raw element
+    @inlinable
     public mutating func next() -> Element? {
         return pop()
     }
