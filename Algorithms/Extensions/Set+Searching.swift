@@ -2,12 +2,9 @@ import Foundation
 
 extension Set {
     
-    /**
-     Searching element in set
-     - parameter element: element
-     - returns: **Result** (see: Result)
-     - Complexity: O(1)
-     */
+    /// Description: Searching element in set
+    /// - Parameter element: element to be searched
+    /// - Complexity: O(1);
     @inlinable
     public func lookUp(of element: Element) -> Result<Set<Element>.Index> {
         guard let index = firstIndex(of: element) else {

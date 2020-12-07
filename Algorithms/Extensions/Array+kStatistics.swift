@@ -1,5 +1,10 @@
 import Foundation
 
+/// Description: [Order statistics](https://en.wikipedia.org/wiki/Order_statistic) algorithm to find K’th smallest/largest element in Unsorted Array;
+/// - Parameters:
+///   - array: array to found
+///   - k: index of element to be found
+///   - Complexity: current implemenation works  O(n), since pivote is selected randomly
 @inlinable
 public func findStatistics<T: Comparable>(_ array: [T], order k: Int) -> T? {
     guard k >= array.startIndex, k < array.endIndex, !array.isEmpty else { return nil }

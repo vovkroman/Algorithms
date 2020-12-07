@@ -1,26 +1,26 @@
 import Foundation
 
-/** **Interpolation search**: is an algorithm for searching for a key in an array
- * that has been ordered by numerical values assigned to the keys (key values)..
- * Current implementation is iterative implementation.
-*
-***Requirements**
-*- Element of sorted array should be Comparable. and Array should be sorted. Could be very efficient if the elements are uniformly distributed.
-
- ***Application**
-* - efficiently solves searching problem.
-* On average the interpolation search makes about log(log(n)) comparisons (if the elements are uniformly distributed)
-
-***Performance**:
-* - *worst* complexity: O(n)
-* - *average* complexity: O(log(log(*n*)))
-* - *best* complexity: O(1)
-
-* - *space* complexity: O(1)
-**/
-
 extension Array where Element == Int {
 
+/** **Interpolation search**: is an algorithm for searching for a key in an array
+that has been ordered by numerical values assigned to the keys (key values)..
+
+Current implementation is iterative implementation.
+
+**Requirements**
+- Element of sorted array should be Comparable. and Array should be sorted. Could be very efficient if the elements are uniformly distributed.
+
+**Application**
+- efficiently solves searching problem.
+
+On average the interpolation search makes about log(log(n)) comparisons (if the elements are uniformly distributed)
+
+**Performance**:
+- *worst* complexity: O(n)
+- *average* complexity: O(log(log(*n*)))
+- *best* complexity: O(1)
+
+- *space* complexity: O(1)*/
     @inlinable
     public func interpolationSearch(_ key: Element, from: Index, to: Index) -> Index? {
         var low = from

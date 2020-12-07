@@ -1,25 +1,23 @@
 import Foundation
 
-/** **Exponential  search**: is a search algorithm that finds the position of a target value within a sorted array.
- * Exponential  search is trying to decrease range of element position, by multiply low bound by 2. After call binary search (*See** Binary Search ).
- * Current implementation is iterative implementation.
-*
-***Requirements**
-*- Element of sorted array should be Comparable. and Array should be sorted
-
- ***Application**
-* - efficiently solves searching problem
-
-***Performance**:
-* - *worst* complexity: O(log n)
-* - *average* complexity: O(log n)
-* - *best* complexity: O(1)
-
-* - *space* complexity: O(1)
-**/
-
 extension Array where Element: Comparable {
     
+/** **Exponential  search**: is a search algorithm that finds the position of a target value within a sorted array.
+Exponential  search is trying to decrease range of element position, by multiply low bound by 2. After call binary search (*See** Binary Search ).
+Current implementation is iterative implementation.
+    
+**Requirements**
+- Element of sorted array should be Comparable. and Array should be sorted
+
+**Application**
+- efficiently solves searching problem
+
+**Performance**:
+- *worst* complexity: O(log n)
+- *average* complexity: O(log n)
+- *best* complexity: O(1)
+
+- *space* complexity: O(1)*/
     @inlinable
     public func exponentialSearch(_ key: Element, from: Index, to: Index) -> Index? {
         if from == to {

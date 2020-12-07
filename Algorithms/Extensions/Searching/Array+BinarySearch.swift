@@ -1,25 +1,23 @@
 import Foundation
 
-/** **Binary search**: is a search algorithm that finds the position of a target value within a sorted array.
- * Binary search compares the target value to the middle element of the array.
- * Current implementation is iterative implementation.
-*
-***Requirements**
-*- Element of sorted array should be Comparable. and Array should be sorted
-
- ***Application**
-* - efficiently solves searching problem
-
-***Performance**:
-* - *worst* complexity: O(log n)
-* - *average* complexity: O(log n)
-* - *best* complexity: O(1)
-
-* - *space* complexity: O(1)
-**/
-
 extension Array where Element: Comparable {
+
+/** **Binary search**: is a search algorithm that finds the position of a target value within a sorted array.
+Binary search compares the target value to the middle element of the array.
+Current implementation is iterative implementation.
     
+**Requirements**
+- Element of sorted array should be Comparable. and Array should be sorted
+
+**Application**
+- efficiently solves searching problem
+
+**Performance**:
+- *worst* complexity: O(log n)
+- *average* complexity: O(log n)
+- *best* complexity: O(1)
+
+- *space* complexity: O(1)*/
     @inlinable
     public func binarySearch(_ key: Element, from: Index, to: Index) -> Index? {
         var lowerBound = from
