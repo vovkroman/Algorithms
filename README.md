@@ -51,3 +51,8 @@ Figure below compares searching operation among [Ordered Array](https://github.c
 | 10 000 000    |    2.0e-05    |      1.9e-05 			|       8.1e-06     |
 
 *Please notice: [**Interpolation Search**](https://en.wikipedia.org/wiki/Interpolation_search) shows the best time complexity (*O(log(log(n)))*) provided that the elements are uniformly distributed, otherwise it will show the worst time complexity (*O(n)*). So the measurement has been performed on uniformly distributed items.*
+
+### Distribution
+
+* It's available as .xcframework (built via 'Aggregator' scheme);
+* It's available through CocoaPods for iOS and macOS;
