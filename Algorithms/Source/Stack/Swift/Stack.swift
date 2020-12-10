@@ -3,7 +3,7 @@ import Foundation
 public struct Stack<T> {
     
     @usableFromInline
-    internal var _storage: ContiguousArray<T> = []
+    internal var _storage: ContiguousArray<T>
     
     @inlinable
     public var isEmpty: Bool {
@@ -28,5 +28,9 @@ public struct Stack<T> {
     @inlinable
     public var top: T? {
         return _storage.last
+    }
+    
+    public init() {
+        _storage = []
     }
 }

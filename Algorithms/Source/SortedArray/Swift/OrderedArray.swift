@@ -28,7 +28,7 @@ When you add a new item to this array, it is inserted in sorted position and che
  
 **Drawback**:
 - Since using dynamic array under the hood, contains all drawbacks of the dynamic array; */
-public struct OrderedArray<T: Keyable> {
+public struct OrderedArray<T: Comparable> {
     
     public typealias ComparatorType = (T, T) -> Bool
     
@@ -39,7 +39,7 @@ public struct OrderedArray<T: Keyable> {
     /// - Parameters:
     ///   - array: array (Default: [])
     ///   - comparator: Defines the signature how comparison operations is used. (Default: { $0.key < $1.key })
-    public init(array: [T] = [], comparator:  ComparatorType = { $0.key < $1.key })  {
+    public init(array: [T] = [], comparator:  ComparatorType = { $0 < $1 })  {
         _storage = ContiguousArray<T>(array.sorted(by: comparator))
     }
     
@@ -81,19 +81,19 @@ public struct OrderedArray<T: Keyable> {
             _storage.append(newElement)
             return
         }
-        let index = findInsertionPoint(by: newElement.key)
-        if index >= 0, index < _storage.count, _storage[index].key == newElement.key { return }
+        let index = findInsertionPoint(for: newElement)
+        if index >= 0, index < _storage.count, _storage[index] == newElement { return }
         var insertIndex = index
-        if _storage[index].key < newElement.key { insertIndex += 1 }
+        if _storage[index] < newElement { insertIndex += 1 }
         _storage.insert(newElement, at: insertIndex)
     }
     
     /// Description: searching element by *key* and returns see. *Result*.
     /// - Parameter key: key to search element
     @inlinable
-    public func lookUp<T: Comparable>(of key: T) -> Result<Int> where Element.KeyType == T {
-        let index = findInsertionPoint(by: key)
-        if index >= 0, index < _storage.count, _storage[index].key == key {
+    public func lookUp(of element: T) -> Result<Int> {
+        let index = findInsertionPoint(for: element)
+        if index >= 0, index < _storage.count, _storage[index] == element {
             return .success(index: index)
         } else {
             return .failure
@@ -105,15 +105,15 @@ public struct OrderedArray<T: Keyable> {
     ///
     /// - Parameter key (identifire of the element).
     @usableFromInline
-    internal func findInsertionPoint<T: Comparable>(by key: T) -> Int where Element.KeyType == T {
+    internal func findInsertionPoint(for element: T) -> Int {
         var startIndex = 0
         var endIndex = _storage.count - 1
         
         while startIndex < endIndex {
             let midIndex = startIndex + (endIndex - startIndex) / 2
-            if _storage[midIndex].key == key {
+            if _storage[midIndex] == element {
                 return midIndex
-            } else if _storage[midIndex].key < key {
+            } else if _storage[midIndex] < element {
                 startIndex = midIndex + 1
             } else {
                 endIndex = midIndex

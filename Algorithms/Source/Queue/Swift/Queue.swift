@@ -3,7 +3,7 @@ import Foundation
 public struct Queue<T> {
     
     @usableFromInline
-    internal var _storage: ContiguousArray<T> = []
+    internal var _storage: ContiguousArray<T>
     
     @inlinable
     public var count: Int {
@@ -32,6 +32,10 @@ public struct Queue<T> {
     @inlinable
     public var front: T? {
         return _storage.first
+    }
+    
+    public init() {
+        _storage = []
     }
 }
 
