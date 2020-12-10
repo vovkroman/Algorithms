@@ -1,19 +1,21 @@
 import Foundation
 
 
-class BitVector {
+public class BitVector {
 
+    @usableFromInline
     let bitVector: CFMutableBitVector
     
-    init(capacity: Int) {
+    public init(capacity: Int) {
         self.bitVector = CFBitVectorCreateMutable(nil, CFIndex(capacity))
     }
 
-    var count: Int {
+    public var count: Int {
         return CFBitVectorGetCount(self.bitVector)
     }
 
-    func append(bits: [Bool]) {
+    @inlinable
+    public func append(bits: [Bool]) {
         let count = CFBitVectorGetCount(self.bitVector)
         CFBitVectorSetCount(self.bitVector, count + bits.count)
         for index in 0 ..< bits.count {
@@ -21,7 +23,8 @@ class BitVector {
         }
     }
 
-    subscript(index: Int) -> Bool {
+    @inlinable
+    public subscript(index: Int) -> Bool {
         get {
             assert(index >= 0 && index < CFBitVectorGetCount(self.bitVector))
             let bitValue = CFBitVectorGetBitAtIndex(bitVector, index)
@@ -35,7 +38,8 @@ class BitVector {
         }
     }
 
-    subscript(range: NSRange) -> [Bool] {
+    @inlinable
+    public subscript(range: NSRange) -> [Bool] {
         get {
             var bitValues = [Bool]()
             for index in range.location ..< NSMaxRange(range) {
@@ -46,7 +50,8 @@ class BitVector {
         }
     }
 
-    func setBitsAtIndex(index: Int, bits: [Bool]) {
+    @inlinable
+    public func setBitsAtIndex(index: Int, bits: [Bool]) {
         let count = CFBitVectorGetCount(self.bitVector)
         if index + bits.count > count {
             CFBitVectorSetCount(self.bitVector, index + bits.count)
@@ -57,7 +62,8 @@ class BitVector {
         }
     }
 
-    func data() -> NSData {
+    @inlinable
+    public func data() -> NSData {
         let counts = Int(CFBitVectorGetCount(self.bitVector))
         assert(CFBitVectorGetCount(self.bitVector) > 0)
         let bytes = Int(ceil((Double(counts) / 8.0)))
@@ -71,27 +77,32 @@ class BitVector {
         return data
     }
     
-    func containsBit(range: NSRange, value: Bool) -> Bool {
+    @inlinable
+    public func containsBit(range: NSRange, value: Bool) -> Bool {
         return CFBitVectorContainsBit(self.bitVector, CFRange(range), CFBit(value))
     }
     
-    func flipBitAtIndex(index: Int) {
+    @inlinable
+    public func flipBitAtIndex(index: Int) {
         CFBitVectorFlipBitAtIndex(self.bitVector, index)
     }
 
-    func setAllBits(value: Bool) {
+    @inlinable
+    public func setAllBits(value: Bool) {
         CFBitVectorSetAllBits(self.bitVector, CFBit(value))
     }
 
 }
 
 extension CFRange {
+    @usableFromInline
     init(_ range: NSRange) {
         self = CFRangeMake(range.location, range.length)
     }
 }
 
 extension CFBit {
+    @usableFromInline
     init(_ bool: Bool) {
         self = CFBit(bool ? 1 : 0)
     }
