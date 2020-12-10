@@ -244,19 +244,7 @@
 		6F9ED149252DED0C0020D7C5 /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
-				6FB642FE25658CF600DC6ECE /* LRUCache */,
-				6FFE7C942534B0BF0005477E /* Shared */,
-				6F021E9525499D1A006CE98F /* LinkedList */,
-				6F021E7F25495EDB006CE98F /* Trees */,
-				6FEA951D2541714D0018ADA2 /* OderedSet */,
-				6FC8F260253E056A0099F2D8 /* Trie */,
-				6FC8F25D253E038A0099F2D8 /* SynchrinizedArray */,
-				6F5D4B31253778D300C692A9 /* Stack */,
-				6F5D4B2D2537787500C692A9 /* Queue */,
-				6FFE7C872534611C0005477E /* Extensions */,
-				6FFE7C8025344E960005477E /* SegmentTree */,
-				6FE09A952530A49F00FD98C7 /* SortedArray */,
-				6F9ED161252DED130020D7C5 /* PriorityQueue */,
+				6FAF22762582270D002753D1 /* Source */,
 				6F9ED14A252DED0C0020D7C5 /* Algorithms.h */,
 				6FEC5748252F7A7300DE5AB3 /* Defines.h */,
 				6F9ED14B252DED0C0020D7C5 /* Info.plist */,
@@ -284,6 +272,26 @@
 				6FEC573C252F147500DE5AB3 /* Swift */,
 			);
 			path = PriorityQueue;
+			sourceTree = "<group>";
+		};
+		6FAF22762582270D002753D1 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				6FB642FE25658CF600DC6ECE /* LRUCache */,
+				6FFE7C942534B0BF0005477E /* Shared */,
+				6F021E9525499D1A006CE98F /* LinkedList */,
+				6F021E7F25495EDB006CE98F /* Trees */,
+				6FEA951D2541714D0018ADA2 /* OderedSet */,
+				6FC8F260253E056A0099F2D8 /* Trie */,
+				6FC8F25D253E038A0099F2D8 /* SynchrinizedArray */,
+				6F5D4B31253778D300C692A9 /* Stack */,
+				6F5D4B2D2537787500C692A9 /* Queue */,
+				6FFE7C872534611C0005477E /* Extensions */,
+				6FFE7C8025344E960005477E /* SegmentTree */,
+				6FE09A952530A49F00FD98C7 /* SortedArray */,
+				6F9ED161252DED130020D7C5 /* PriorityQueue */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		6FB642FE25658CF600DC6ECE /* LRUCache */ = {
