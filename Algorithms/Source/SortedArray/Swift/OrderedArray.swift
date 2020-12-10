@@ -39,9 +39,8 @@ public struct OrderedArray<T: Keyable> {
     /// - Parameters:
     ///   - array: array (Default: [])
     ///   - comparator: Defines the signature how comparison operations is used. (Default: { $0.key < $1.key })
-    @inlinable
     public init(array: [T] = [], comparator:  ComparatorType = { $0.key < $1.key })  {
-        self._storage = ContiguousArray<T>(array.sorted(by: comparator))
+        _storage = ContiguousArray<T>(array.sorted(by: comparator))
     }
     
     @inlinable

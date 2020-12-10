@@ -12,13 +12,11 @@ public struct SingleLinkedList<Element> {
 extension SingleLinkedList: ExpressibleByArrayLiteral {
     
     /// see LinkedList init()
-    @inlinable
     public init() {
         _storage = Box(value: LinkedList())
     }
     
     /// see LinkedList init(arrayLiteral elements: Element...)
-    @inlinable
     public init(arrayLiteral elements: Element...) {
         let linkedList: LinkedList = LinkedList(elements)
         _storage = Box(value: linkedList)

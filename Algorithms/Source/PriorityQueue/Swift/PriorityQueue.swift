@@ -17,7 +17,6 @@ public struct PriorityQueue<T> {
     /// Description: to create empty priority queue (max-priority queue (a > sort),
     /// or priority queue (a > sort))
     /// - Parameter sort: closure to define max or min priority queue
-    @inlinable
     public init(sort: @escaping (T, T) -> Bool) {
         _heap = Heap(sort: sort)
     }
@@ -26,7 +25,6 @@ public struct PriorityQueue<T> {
     /// - Parameters:
     ///   - array: array data to fill up priority queue;
     ///   - sort: closure to define max or min priority queue
-    @inlinable
     public init(array: [T], sort: @escaping (T, T) -> Bool) {
         _heap = Heap(array: array, sort: sort)
     }

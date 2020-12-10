@@ -21,7 +21,6 @@ public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
     // MARK: - Initialization
     
     /// Description: init as empty OrderedSet
-    @inlinable
     public init() {
         _storage = NSMutableOrderedSet()
     }
@@ -29,7 +28,6 @@ public struct OrderedSet<T: Comparable & Hashable>: ExpressibleByArrayLiteral {
     /// Description: initialize empty set and
     /// reserves enough space to store the specified number of elements.
     /// - Parameter capacity: space of capacity
-    @inlinable
     public init(capacity: Int) {
         _storage = NSMutableOrderedSet(capacity: capacity)
     }

@@ -4,17 +4,16 @@ public struct Heap<T> {
     @usableFromInline
     internal var nodes: ContiguousArray<T> = []
     
-    @usableFromInline
     /// Description: determines how to compare two nodes in the heap.
     /// Use '>' for a max-heap or '<' for a min-heap,
     /// or provide a comparing method if the heap is made
     /// of custom elements, for example tuples
+    @usableFromInline
     internal var orderCriteria: (T, T) -> Bool
     
     /// Description: creates an empty heap.
     /// - Parameter sort: The sort function determines whether this is a min-heap or max-heap.
     /// For comparable data types, '>' makes a max-heap, '<' makes a min-heap.
-    @inlinable
     public init(sort: @escaping (T, T) -> Bool) {
         self.orderCriteria = sort
     }
@@ -24,7 +23,6 @@ public struct Heap<T> {
     /// - Parameters:
     ///   - array: array of elements
     ///   - sort:  The sort function determines whether this is a min-heap or max-heap.
-    @inlinable
     public init(array: [T], sort: @escaping (T, T) -> Bool) {
         self.orderCriteria = sort
         configureHeap(from: array)
