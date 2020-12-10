@@ -2,6 +2,7 @@ import Foundation
 
 /// A node in the trie
  final class TrieNode<T: Hashable> {
+    
     @usableFromInline
     var value: T?
     
@@ -21,7 +22,6 @@ import Foundation
     /// - Parameters:
     ///   - value: The value that goes into the node
     ///   - parentNode: A reference to this node's parent
-    @usableFromInline
     init(value: T? = nil, parentNode: TrieNode? = nil) {
         self.value = value
         self.parentNode = parentNode
@@ -62,33 +62,35 @@ A trie can also be used to replace a hash table, over which it has the following
  - Trie lookup can be slower than hash table lookup, especially if the data is directly accessed on a hard disk drive or some other secondary storage device where the random-access time is high compared to main memory.
  - Some keys, such as floating point numbers, can lead to long chains and prefixes that are not particularly meaningful. Nevertheless, a bitwise trie can handle standard IEEE single and double format floating point numbers.[citation needed]
  - Some tries can require more space than a hash table, as memory may be allocated for each character in the search string, rather than a single chunk of memory for the whole entry, as in most hash tables.*/
-final class Trie: NSObject, NSCoding {
-    typealias Node = TrieNode<Character>
+public final class Trie: NSObject, NSCoding {
+    
+    internal typealias Node = TrieNode<Character>
+    
     ///Description: The number of words in the trie
-    @usableFromInline
-    var count: Int {
+    @inlinable
+    public var count: Int {
         return wordCount
     }
+    
     /// Description: is the trie empty?
-    @usableFromInline
-    var isEmpty: Bool {
+    @inlinable
+    public var isEmpty: Bool {
         return wordCount == 0
     }
+    
     /// Description: all words currently in the trie
-    @usableFromInline
-    var words: [String] {
+    
+    public var words: [String] {
         return wordsInSubtrie(rootNode: root, partialWord: "")
     }
     
-    @usableFromInline
-    let root: Node
+    internal let root: Node
     
     @usableFromInline
-    var wordCount: Int
+    internal var wordCount: Int
     
     /// Description: creates an empty trie.
-    
-    override init() {
+    public override init() {
         root = Node()
         wordCount = 0
         super.init()
@@ -98,7 +100,7 @@ final class Trie: NSObject, NSCoding {
     
     /// Description: initializes the trie with words from an archive
     /// - Parameter decoder: Decodes the archive
-    required convenience init?(coder decoder: NSCoder) {
+    public required convenience init?(coder decoder: NSCoder) {
         self.init()
         let words = decoder.decodeObject(forKey: "words") as? [String]
         for word in words! {
@@ -109,8 +111,7 @@ final class Trie: NSObject, NSCoding {
     /// Description: encodes the words in the trie by putting them in an array then encoding
     /// the array.
     /// - Parameter coder: The object that will encode the array
-    @usableFromInline
-    func encode(with coder: NSCoder) {
+    public func encode(with coder: NSCoder) {
         coder.encode(self.words, forKey: "words")
     }
 }
@@ -121,7 +122,6 @@ extension Trie {
     /// Description: inserts a word into the trie.  If the word is already present,
     /// there is no change.
     /// - Parameter word: the word to be inserted.
-    @inlinable
     public func insert(word: String) {
         guard !word.isEmpty else {
             return
@@ -148,7 +148,6 @@ extension Trie {
     ///   - word: the word to check for
     ///   - matchPrefix: whether the search word should match
     ///   if it is only a prefix of other nodes in the trie
-    @inlinable
     public func contains(word: String, matchPrefix: Bool = false) -> Bool {
         guard !word.isEmpty else {
             return false
@@ -169,8 +168,7 @@ extension Trie {
     /// - Parameter word: the word in question
     /// - Returns: the node where the search ended, nil if the
     /// search failed.
-    @usableFromInline
-    func findLastNodeOf(word: String) -> Node? {
+    private func findLastNodeOf(word: String) -> Node? {
         var currentNode = root
         for character in word.lowercased() {
             guard let childNode = currentNode.children[character] else {
@@ -184,8 +182,7 @@ extension Trie {
     /// Description: attempts to walk to the terminating node of a word.  The
     /// search will fail if the word is not present.
     /// - Parameter word: the word in question
-    @usableFromInline
-    func findTerminalNodeOf(word: String) -> Node? {
+    private func findTerminalNodeOf(word: String) -> Node? {
         if let lastNode = findLastNodeOf(word: word) {
             return lastNode.isTerminating ? lastNode : nil
         }
@@ -197,8 +194,7 @@ extension Trie {
     /// terminating node is found.
     /// - Parameter terminalNode: the node representing the last node
     /// of a word
-    @usableFromInline
-    func deleteNodesForWordEndingWith(terminalNode: Node) {
+    private func deleteNodesForWordEndingWith(terminalNode: Node) {
         var lastNode = terminalNode
         var character = lastNode.value
         while lastNode.isLeaf, let parentNode = lastNode.parentNode {
@@ -218,7 +214,6 @@ extension Trie {
     /// the word has more children, the word is part of other words.
     /// Mark the last node as non-terminating.
     /// - Parameter word: the word to be removed
-    @inlinable
     public func remove(word: String) {
         guard !word.isEmpty else {
             return
@@ -234,32 +229,10 @@ extension Trie {
         wordCount -= 1
     }
     
-    /// Description: returns an array of words in a subtrie of the trie
-    /// - Parameters:
-    ///   - rootNode: the root node of the subtrie
-    ///   - partialWord: the letters collected by traversing to this node
-    @usableFromInline
-    func wordsInSubtrie(rootNode: Node, partialWord: String) -> [String] {
-        var subtrieWords = [String]()
-        var previousLetters = partialWord
-        if let value = rootNode.value {
-            previousLetters.append(value)
-        }
-        if rootNode.isTerminating {
-            subtrieWords.append(previousLetters)
-        }
-        for childNode in rootNode.children.values {
-            let childWords = wordsInSubtrie(rootNode: childNode, partialWord: previousLetters)
-            subtrieWords += childWords
-        }
-        return subtrieWords
-    }
-    
     /// Description: returns an array of words in a subtrie of the trie that start
     /// with given prefix
     /// - Parameters:
     ///   - prefix: the letters for word prefix
-    @inlinable
     public func findWordsWithPrefix(prefix: String) -> [String] {
         var words = [String]()
         let prefixLowerCased = prefix.lowercased()
@@ -273,5 +246,25 @@ extension Trie {
             }
         }
         return words
+    }
+    
+    /// Description: returns an array of words in a subtrie of the trie
+    /// - Parameters:
+    ///   - rootNode: the root node of the subtrie
+    ///   - partialWord: the letters collected by traversing to this node
+    private func wordsInSubtrie(rootNode: Node, partialWord: String) -> [String] {
+        var subtrieWords = [String]()
+        var previousLetters = partialWord
+        if let value = rootNode.value {
+            previousLetters.append(value)
+        }
+        if rootNode.isTerminating {
+            subtrieWords.append(previousLetters)
+        }
+        for childNode in rootNode.children.values {
+            let childWords = wordsInSubtrie(rootNode: childNode, partialWord: previousLetters)
+            subtrieWords += childWords
+        }
+        return subtrieWords
     }
 }
