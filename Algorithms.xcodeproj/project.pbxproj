@@ -6,12 +6,27 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		6FAF22CF2582524D002753D1 /* Aggregator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 6FAF22D22582524D002753D1 /* Build configuration list for PBXAggregateTarget "Aggregator" */;
+			buildPhases = (
+				6FAF22D6258252CB002753D1 /* Build framework */,
+			);
+			dependencies = (
+			);
+			name = Aggregator;
+			productName = Aggregator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		6F021E8125495EF3006CE98F /* RedBlackTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F021E8025495EF3006CE98F /* RedBlackTree.swift */; };
 		6F021E9725499D33006CE98F /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F021E9625499D33006CE98F /* LinkedList.swift */; };
 		6F021E9925499FAC006CE98F /* LinkListTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F021E9825499FAC006CE98F /* LinkListTestCase.swift */; };
 		6F021E9B2549B49A006CE98F /* COW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F021E9A2549B49A006CE98F /* COW.swift */; };
 		6F07073025769DDA001991C8 /* SingleLinkedListTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07072F25769DDA001991C8 /* SingleLinkedListTestCase.swift */; };
+		6F08F98D258256F4006AEFB6 /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB642FF25658D0F00DC6ECE /* LRUCache.swift */; };
 		6F111EED25481738008DEDEF /* OrderedSetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F111EEC25481738008DEDEF /* OrderedSetTestCase.swift */; };
 		6F111EEF25488C22008DEDEF /* PriorityQueueTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F111EEE25488C22008DEDEF /* PriorityQueueTestCase.swift */; };
 		6F130CE5257EB1220033546A /* CppStack.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F130CE3257EB1220033546A /* CppStack.mm */; };
@@ -27,8 +42,6 @@
 		6F9ED158252DED0C0020D7C5 /* Algorithms.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9ED14A252DED0C0020D7C5 /* Algorithms.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FA6A24C25778A5600EB9528 /* CFPriorityQueue+Redefining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA6A24B25778A5600EB9528 /* CFPriorityQueue+Redefining.swift */; };
 		6FAF22B12582333C002753D1 /* BitVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAF22B02582333C002753D1 /* BitVector.swift */; };
-		6FB6430025658D0F00DC6ECE /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB642FF25658D0F00DC6ECE /* LRUCache.swift */; };
-		6FB6430225658DED00DC6ECE /* LRU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB6430125658DED00DC6ECE /* LRU.swift */; };
 		6FB79376256CF8280029BAAF /* Set+Searching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79375256CF8280029BAAF /* Set+Searching.swift */; };
 		6FB7937A256D01FF0029BAAF /* SegmentTreeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79379256D01FF0029BAAF /* SegmentTreeTestCase.swift */; };
 		6FB7937C256D087B0029BAAF /* QueueTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7937B256D087B0029BAAF /* QueueTestCase.swift */; };
@@ -500,6 +513,9 @@
 						CreatedOnToolsVersion = 11.5;
 						LastSwiftMigration = 1150;
 					};
+					6FAF22CF2582524D002753D1 = {
+						CreatedOnToolsVersion = 12.0;
+					};
 				};
 			};
 			buildConfigurationList = 6F9ED141252DED0C0020D7C5 /* Build configuration list for PBXProject "Algorithms" */;
@@ -517,6 +533,7 @@
 			targets = (
 				6F9ED146252DED0C0020D7C5 /* Algorithms */,
 				6F9ED14F252DED0C0020D7C5 /* AlgorithmsTests */,
+				6FAF22CF2582524D002753D1 /* Aggregator */,
 			);
 		};
 /* End PBXProject section */
@@ -538,16 +555,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6FAF22D6258252CB002753D1 /* Build framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build framework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SCHEME_NAME=\"Algorithms\"\nFRAMEWORK_NAME=\"Algorithms\"\nSIMULATOR_ARCHIVE_PATH=\"${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphonesimulator.xcarchive\"\nDEVICE_ARCHIVE_PATH=\"${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphoneos.xcarchive\"\nOUTPUT_DIC=\"./xcframework/\"\n# Simulator xcarchieve\nxcodebuild archive \\\n  -scheme ${SCHEME_NAME} \\\n  -archivePath ${SIMULATOR_ARCHIVE_PATH} \\\n  -sdk iphonesimulator \\\n  SKIP_INSTALL=NO\n# Device xcarchieve\nxcodebuild archive \\\n  -scheme ${SCHEME_NAME} \\\n  -archivePath ${DEVICE_ARCHIVE_PATH} \\\n  -sdk iphoneos \\\n  SKIP_INSTALL=NO\n# Clean up old output directory\nrm -rf \"${OUTPUT_DIC}\"\n# Create xcframwork combine of all frameworks\nxcodebuild -create-xcframework \\\n  -framework ${SIMULATOR_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \\\n  -framework ${DEVICE_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \\\n  -output ${OUTPUT_DIC}/${FRAMEWORK_NAME}.xcframework\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6F9ED143252DED0C0020D7C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FB6430025658D0F00DC6ECE /* LRUCache.swift in Sources */,
 				6FA6A24C25778A5600EB9528 /* CFPriorityQueue+Redefining.swift in Sources */,
 				6FC8F25F253E03CD0099F2D8 /* SynchronizedArray.swift in Sources */,
 				6FFE7C9A2534B9A40005477E /* Array+OptimizedArgMaxMin.swift in Sources */,
 				6F5D4B342537790700C692A9 /* Stack.swift in Sources */,
+				6F08F98D258256F4006AEFB6 /* LRUCache.swift in Sources */,
 				6FF3C3E6254AC84C00CCDCEC /* LinkedList+COW.swift in Sources */,
 				6FFE7C932534A9870005477E /* Array+BinarySearch.swift in Sources */,
 				6F9D5C612539C43900CC3CE6 /* CFPriorityQueue.m in Sources */,
@@ -559,7 +597,6 @@
 				6FE09A9D2530AB3600FD98C7 /* OrderedArray.swift in Sources */,
 				6FB79376256CF8280029BAAF /* Set+Searching.swift in Sources */,
 				6FE1241F256FA1F80049C6AD /* Array+ExponentialSearch.swift in Sources */,
-				6FB6430225658DED00DC6ECE /* LRU.swift in Sources */,
 				6FC8F262253E05780099F2D8 /* Trie.swift in Sources */,
 				6FFE7C982534B6560005477E /* Array+Sort.swift in Sources */,
 				6F5D4B30253778A300C692A9 /* Queue.swift in Sources */,
@@ -728,6 +765,7 @@
 		6F9ED15C252DED0C0020D7C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -754,6 +792,7 @@
 		6F9ED15D252DED0C0020D7C5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -819,6 +858,22 @@
 			};
 			name = Release;
 		};
+		6FAF22D02582524D002753D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6FAF22D12582524D002753D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -845,6 +900,15 @@
 			buildConfigurations = (
 				6F9ED15F252DED0C0020D7C5 /* Debug */,
 				6F9ED160252DED0C0020D7C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6FAF22D22582524D002753D1 /* Build configuration list for PBXAggregateTarget "Aggregator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FAF22D02582524D002753D1 /* Debug */,
+				6FAF22D12582524D002753D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
