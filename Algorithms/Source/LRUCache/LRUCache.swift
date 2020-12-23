@@ -1,130 +1,186 @@
-//##Performance: Time: O(1), Space: O(1) assumes no collisions into the hashtable.
 import Foundation
 
+/// A node in the Double-linked list
 class Node<K, V> {
-    var next: Node?
-    var previous: Node?
-    var key: K
-    var value: V?
+    @usableFromInline
+    var _next: Node?
     
+    @usableFromInline
+    var _previous: Node?
+    
+    @usableFromInline
+    var _key: K
+    
+    @usableFromInline
+    var _value: V?
+    
+    @usableFromInline
     init(key: K, value: V?) {
-        self.key = key
-        self.value = value
+        self._key = key
+        self._value = value
     }
 }
 
-class DoubleLinkedList<K, V> {
+/**
+**Double linked list** is a linked data structure that consists of a set of sequentially linked records called nodes. Each node contains three mandatory fields: two link fields (references to the previous and to the next node in the sequence of nodes) and one data field.
+ 
+**Application**:
+There are various application of doubly linked list in the real world. Some of them can be listed as:
+
+- Doubly linked list can be used in navigation systems where both front and back navigation is required.
+- It is used by browsers to implement backward and forward navigation of visited web pages i.e. back and forward button.
+- It is also used by various application to implement Undo and Redo functionality.
+- It can also be used to represent deck of cards in games.
+- It is also used to represent various states of a game.
+
+**Performance**:
+ - build is O(n);
+ - searching item is O(n);
+ - iterating  item is O(n);
+ - Inserting is O(1);
+ - deleting  item is O(1);
+ 
+**Drawback**:
+ Not many but doubly linked list has few disadvantages also which can be listed below:
+- It uses extra memory when compared to array and singly linked list.
+- Since elements in memory are stored randomly, hence elements are accessed sequentially no direct access is allowed.*/
+final class DoubleLinkedList<K, V> {
+    @usableFromInline
+    var _head: Node<K, V>?
     
-    var head: Node<K, V>?
-    var tail: Node<K, V>?
+    @usableFromInline
+    var _tail: Node<K, V>?
     
     init() {}
     
-    func addToHead(_ node: Node<K, V>) {
-        if self.head == nil  {
-            self.head = node
-            self.tail = node
+    @inlinable
+    public func addToHead(_ node: Node<K, V>) {
+        if self._head == nil  {
+            self._head = node
+            self._tail = node
         } else {
-            let temp = self.head
+            let temp = self._head
             
-            self.head?.previous = node
-            self.head = node
-            self.head?.next = temp
+            self._head?._previous = node
+            self._head = node
+            self._head?._next = temp
         }
     }
     
-    func remove(_ node: Node<K, V>) {
-        if node === self.head {
-            if self.head?.next != nil {
-                self.head = self.head?.next
-                self.head?.previous = nil
+    @inlinable
+    public func remove(_ node: Node<K, V>) {
+        if node === self._head {
+            if self._head?._next != nil {
+                self._head = self._head?._next
+                self._head?._previous = nil
             } else {
-                self.head = nil
-                self.tail = nil
+                self._head = nil
+                self._tail = nil
             }
-        } else if node.next != nil {
-            node.previous?.next = node.next
-            node.next?.previous = node.previous
+        } else if node._next != nil {
+            node._previous?._next = node._next
+            node._next?._previous = node._previous
         } else {
-            node.previous?.next = nil
-            self.tail = node.previous
+            node._previous?._next = nil
+            self._tail = node._previous
         }
     }
     
+    @usableFromInline
     func display() -> String {
         var description = ""
-        var current = self.head
+        var current = _head
         
-        while current != nil {
-            description += "Key: \(current!.key) Value: \(String(describing: current?.value)) \n"
+        while let cur = current {
+            description += "Key: \(cur._key) Value: \(String(describing: cur._value)) \n"
             
-            current = current?.next
+            current = cur._next
         }
         return description
     }
 }
 
+/**
+**LRU Cache** - a Least Recently Used (LRU) Cache organizes items in order of use, allowing you to quickly identify which item hasn't been used for the longest amount of time.
+ 
+**Application**:
+ - Super fast accesses. LRU caches store items in order from most-recently used to least-recently used. That means both can be accessed in **O(1)** time.
 
-class LRUCache<K : Hashable, V> : CustomStringConvertible {
+- Super fast updates. Each time an item is accessed, updating the cache takes **O(1)** time.
+
+**Performance**:
+ - space - O(n);
+ - get least recently used item - O(1);
+ - access item - O(1);
+ 
+**Drawback**:
+- Space heavy. An LRU cache tracking nn items requires a linked list of length nn, and a hash map holding nn items. That's **O(n)** space, but it's still two data structures (as opposed to one).*/
+public class LRUCache<K: Hashable, V> {
     
-    let capacity: Int
-    var length = 0
+    @usableFromInline
+    internal let _capacity: Int
     
-    internal let queue: DoubleLinkedList<K, V>
-    fileprivate var hashtable: [K : Node<K, V>]
+    @usableFromInline
+    internal var _length = 0
+    
+    internal let _queue: DoubleLinkedList<K, V>
+    
+    internal var _hashtable: [K: Node<K, V>]
     
     /**
     Least Recently Used "LRU" Cache, capacity is the number of elements to keep in the Cache.
     */
-    init(capacity: Int) {
-        self.capacity = capacity
+    public init(capacity: Int) {
+        _capacity = capacity
         
-        self.queue = DoubleLinkedList()
-        self.hashtable = [K : Node<K, V>](minimumCapacity: self.capacity)
+        _queue = DoubleLinkedList()
+        _hashtable = [K : Node<K, V>](minimumCapacity: _capacity)
     }
     
-    subscript (key: K) -> V? {
+    public subscript (key: K) -> V? {
         get {
-            if let node = self.hashtable[key] {
-                self.queue.remove(node)
-                self.queue.addToHead(node)
+            if let node = _hashtable[key] {
+                _queue.remove(node)
+                _queue.addToHead(node)
                 
-                return node.value
+                return node._value
             } else {
                 return nil
             }
         }
         
         set(value) {
-            if let node = self.hashtable[key] {
-                node.value = value
+            if let node = _hashtable[key] {
+                node._value = value
                 
-                self.queue.remove(node)
-                self.queue.addToHead(node)
+                _queue.remove(node)
+                _queue.addToHead(node)
             } else {
                 let node = Node(key: key, value: value)
                 
-                if self.length < capacity {
-                    self.queue.addToHead(node)
-                    self.hashtable[key] = node
+                if _length < _capacity {
+                    _queue.addToHead(node)
+                    _hashtable[key] = node
                     
-                    self.length += 1
+                    _length += 1
                 } else {
-                    hashtable.removeValue(forKey: self.queue.tail!.key)
-                    self.queue.tail = self.queue.tail?.previous
+                    _hashtable.removeValue(forKey: _queue._tail!._key)
+                    _queue._tail = _queue._tail?._previous
                     
-                    if let node = self.queue.tail {
-                        node.next = nil
+                    if let node = _queue._tail {
+                        node._next = nil
                     }
                     
-                    self.queue.addToHead(node)
-                    self.hashtable[key] = node
+                    _queue.addToHead(node)
+                    _hashtable[key] = node
                 }
             }
         }
     }
-        
-    var description : String {
-        return "LRU Cache(\(self.length)) \n" + self.queue.display()
+}
+
+extension LRUCache: CustomStringConvertible {
+    public var description : String {
+        return "LRU Cache(\(_length)) \n" + _queue.display()
     }
 }

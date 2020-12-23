@@ -5,11 +5,11 @@
 * - LinkedList is commonly used as part of effiecent algorithms.
  
 * ***Performance**:
-* - build is O(n)
-* - searching item is O(n)
-* - iterating  item is O(n)
-* - Inserting is O(1)
-* - deleting  item is O(1)
+* - build is O(n);
+* - searching item is O(n);
+* - iterating  item is O(n);
+* - Inserting is O(1);
+* - deleting  item is O(1);
 **/
 import Foundation
 

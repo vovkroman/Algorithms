@@ -1,104 +1,30 @@
- //
- // Example
- //
-/*
- import Foundation
-
- //...
-
-         // Create a NSCoding compliant cache with capacity 7
-         let lru = LRU(capacity: 7)
-         lru.put("AAPL", 114.63)
-         lru.put("GOOG", 533.75)
-         lru.put("YHOO", 50.67)
-         lru.put("TWTR", 38.91)
-         lru.put("BABA", 109.89)
-         lru.put("YELP", 55.17)
-         lru.put("BABA", 109.80)
-         lru.put("TSLA", 231.43)
-         lru.put("AAPL", 113.41)
-         lru.put("GOOG", 533.60)
-         lru.put("AAPL", 113.01)
-         
-         //Retrieve
-         if let item = lru.get("AAPL") {
-             print("Key: AAPL Value: \(item)")
-         } else {
-             print("Item not found.")
-         }
-
- /* OUTPUT
-     Key: AAPL Value: 113.01
- */
-         
-         //Describe
-         print(lru)
-         
- /* OUTPUT
-     LRU Cache(7)
-     Key: AAPL Value: Optional(113.01)
-     Key: GOOG Value: Optional(533.6)
-     Key: TSLA Value: Optional(231.43)
-     Key: BABA Value: Optional(109.8)
-     Key: YELP Value: Optional(55.17)
-     Key: TWTR Value: Optional(38.91)
-     Key: YHOO Value: Optional(50.67)
- */
-         
-         // Save to disk
-         let myPathList = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-         let path = (myPathList[0] as NSString).appendingPathComponent("LRU.archive")
-         
-         if NSKeyedArchiver.archiveRootObject(lru, toFile: path) {
-             print("success")
-         } else {
-             print("failed")
-         }
-         
-         // fetch from disk
-         let unarchivedLRU = NSKeyedUnarchiver.unarchiveObject(withFile: path) as! LRU
-         
-         //Describe
-         print(unarchivedLRU)
-
- /* OUTPUT
-     LRU Cache(7)
-     Key: AAPL Value: Optional(113.01)
-     Key: GOOG Value: Optional(533.6)
-     Key: TSLA Value: Optional(231.43)
-     Key: BABA Value: Optional(109.8)
-     Key: YELP Value: Optional(55.17)
-     Key: TWTR Value: Optional(38.91)
-     Key: YHOO Value: Optional(50.67)
- */
-
- //...
- 
- */
-
 import Foundation
-
-class LRU: NSObject, NSCoding {
+/**
+**LRU** a nice wrapper that is NSCoding-compliant via the NSKeyedArchiver. Please checkout  (Example)[LRU_Example.rtf] to support this behavior.
+ */
+ public class LRU: NSObject, NSCoding {
     
-    private let _cache: LRUCache<AnyHashable, Any>
+    @usableFromInline
+    let _cache: LRUCache<AnyHashable, Any>
     
+    @usableFromInline
     var capacity: Int {
-        return self._cache.capacity
+        return _cache._capacity
     }
     
-    var length: Int {
-        return self._cache.length
+    public var length: Int {
+        return _cache._length
     }
     
     // MARK: -
     
-    init(capacity: Int){
-        self._cache = LRUCache(capacity: capacity)
+    public init(capacity: Int){
+        _cache = LRUCache(capacity: capacity)
     }
     
     // MARK: NSCoding
     
-    required init(coder decoder: NSCoder) {
+    public required init(coder decoder: NSCoder) {
         let capacity = decoder.decodeInteger(forKey: "capacity")
         self._cache = LRUCache<AnyHashable, Any>(capacity: capacity)
         
@@ -112,37 +38,38 @@ class LRU: NSObject, NSCoding {
         }
     }
     
-    
-    func encode(with encoder: NSCoder) {
+    public func encode(with encoder: NSCoder) {
         var counter = 0
-        var queueCurrent = self._cache.queue.head
+        var queueCurrent = _cache._queue._head
         
-        while let key = queueCurrent?.key {
-            if let value = queueCurrent!.value {
+        while let key = queueCurrent?._key {
+            if let value = queueCurrent?._value {
                 counter += 1
                 encoder.encode([key: value], forKey: String(counter))
             }
-            queueCurrent = queueCurrent?.next
+            queueCurrent = queueCurrent?._next
         }
         
-        encoder.encode(self._cache.capacity, forKey: "capacity")
+        encoder.encode(self._cache._capacity, forKey: "capacity")
         encoder.encode(counter, forKey: "counter")
     }
     
     // MARK: Printable
     
-    override var description: String {
-        return "LRU Cache(\(self._cache.length)) \n" + self._cache.queue.display()
+    public override var description: String {
+        return "LRU Cache(\(self._cache._length)) \n" + self._cache._queue.display()
     }
     
     // MARK: -
     
-    func put(_ key: AnyHashable, _ value: Any) {
-        self._cache[key] = value
+    @inlinable
+    public func put(_ key: AnyHashable, _ value: Any) {
+        _cache[key] = value
     }
     
-    func get(_ key: AnyHashable) -> Any? {
-        return self._cache[key]
+    @inlinable
+    public func get(_ key: AnyHashable) -> Any? {
+        return _cache[key]
     }
     
-}
+ }

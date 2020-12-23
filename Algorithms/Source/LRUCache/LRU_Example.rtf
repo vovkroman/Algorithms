@@ -1,0 +1,77 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0  //\
+ // Example how LRU can be used in practise\
+ //\
+ /*\
+  // Create a NSCoding compliant cache with capacity 7\
+  let lru = LRU(capacity: 7)\
+  lru.put("AAPL", 114.63)\
+  lru.put("GOOG", 533.75)\
+  lru.put("YHOO", 50.67)\
+  lru.put("TWTR", 38.91)\
+  lru.put("BABA", 109.89)\
+  lru.put("YELP", 55.17)\
+  lru.put("BABA", 109.80)\
+  lru.put("TSLA", 231.43)\
+  lru.put("AAPL", 113.41)\
+  lru.put("GOOG", 533.60)\
+  lru.put("AAPL", 113.01)\
+  \
+  //Retrieve\
+  if let item = lru.get("AAPL") \{\
+  print("Key: AAPL Value: \\(item)")\
+  \} else \{\
+  print("Item not found.")\
+  \}\
+  \
+  /* OUTPUT\
+  Key: AAPL Value: 113.01\
+  */\
+  \
+  //Describe\
+  print(lru)\
+  \
+  /* OUTPUT\
+  LRU Cache(7)\
+  Key: AAPL Value: Optional(113.01)\
+  Key: GOOG Value: Optional(533.6)\
+  Key: TSLA Value: Optional(231.43)\
+  Key: BABA Value: Optional(109.8)\
+  Key: YELP Value: Optional(55.17)\
+  Key: TWTR Value: Optional(38.91)\
+  Key: YHOO Value: Optional(50.67)\
+  */\
+  \
+  // Save to disk\
+  let myPathList = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)\
+  let path = (myPathList[0] as NSString).appendingPathComponent("LRU.archive")\
+  \
+  if NSKeyedArchiver.archiveRootObject(lru, toFile: path) \{\
+  print("success")\
+  \} else \{\
+  print("failed")\
+  \}\
+  \
+  // fetch from disk\
+  let unarchivedLRU = NSKeyedUnarchiver.unarchiveObject(withFile: path) as! LRU\
+  \
+  //Describe\
+  print(unarchivedLRU)\
+  \
+  /* OUTPUT\
+  LRU Cache(7)\
+  Key: AAPL Value: Optional(113.01)\
+  Key: GOOG Value: Optional(533.6)\
+  Key: TSLA Value: Optional(231.43)\
+  Key: BABA Value: Optional(109.8)\
+  Key: YELP Value: Optional(55.17)\
+  Key: TWTR Value: Optional(38.91)\
+  Key: YHOO Value: Optional(50.67)\
+  */\
+  */}
