@@ -56,5 +56,7 @@ Figure below compares searching operation among [Ordered Array](https://github.c
 
 ### Distribution
 
-* It's available as .xcframework (built via 'Aggregator' scheme);
-* It's available through CocoaPods for iOS and macOS;
+* It's available as **.xcframework** (built via 'Aggregator' scheme, currently it's built under **iOS** only);
+* It's available through CocoaPods for iOS;
+
+*In future release, Algorithms.framework will be available for Mac/tvOS platforms*
