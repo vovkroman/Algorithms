@@ -26,7 +26,7 @@ Pod::Spec.new do |spec|
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
 
-  spec.source       = { :git => "https://github.com/vovkroman/Algorithms.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/vovkroman/Algorithms.git", :tag => spec.version.to_s }
 
   spec.source_files  = "Algorithms/Source", "Algorithms/Source/**/*.{h,m,swift}"
   # spec.exclude_files = "Algorithms/Source/Exclude"
