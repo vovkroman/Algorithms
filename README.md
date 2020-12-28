@@ -57,6 +57,26 @@ Figure below compares searching operation among [Ordered Array](https://github.c
 ### Distribution
 
 * It's available as **.xcframework** (built via 'Aggregator' scheme, currently it's built under **iOS** only);
-* It's available through CocoaPods for iOS;
+* It's available through [**CocoaPods**](https://cocoapods.org/) for iOS:
 
-*In future release, Algorithms.framework will be available for Mac/tvOS platforms*
+To integrate Algorithms' core structures into your Xcode project using CocoaPods, specify it in your ```Podfile```:
+
+```
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
+use_frameworks!
+
+pod 'Algorithms', git: 'https://github.com/vovkroman/Algorithms.git'
+
+```
+
+Then, run the following command:
+
+```
+$ pod instal
+```
+
+### TODO
+
+1) To make the framework available for OS X/tv OS platforms;
+2) Expand the list of algorithms;
