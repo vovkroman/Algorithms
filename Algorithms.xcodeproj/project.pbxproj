@@ -265,8 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				6FAF22762582270D002753D1 /* Source */,
-				6F9ED14A252DED0C0020D7C5 /* Algorithms.h */,
-				6FEC5748252F7A7300DE5AB3 /* Defines.h */,
 				6F9ED14B252DED0C0020D7C5 /* Info.plist */,
 			);
 			path = Algorithms;
@@ -297,6 +295,8 @@
 		6FAF22762582270D002753D1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				6FEC5748252F7A7300DE5AB3 /* Defines.h */,
+				6F9ED14A252DED0C0020D7C5 /* Algorithms.h */,
 				6FAF22AF2582333C002753D1 /* BitVector */,
 				6FB642FE25658CF600DC6ECE /* LRUCache */,
 				6FFE7C942534B0BF0005477E /* Shared */,
