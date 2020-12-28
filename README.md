@@ -67,7 +67,6 @@ platform :ios, '10.0'
 use_frameworks!
 
 pod 'Algorithms', git: 'https://github.com/vovkroman/Algorithms.git'
-
 ```
 
 Then, run the following command:
