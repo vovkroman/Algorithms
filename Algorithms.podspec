@@ -11,7 +11,6 @@ Pod::Spec.new do |spec|
   
   spec.author             = { "Roman Vovk" => "roman.vovk.s@gmail.com" }
   spec.homepage           = "https://github.com/vovkroman/Algorithms"
-  spec.social_media_url   = "https://www.linkedin.com/in/roman-vovk-bb6394b2"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -30,9 +29,9 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/vovkroman/Algorithms.git", :tag => "#{spec.version}" }
 
   spec.source_files  = "Algorithms/Source", "Algorithms/Source/**/*.{h,m,swift}"
-  spec.exclude_files = "Algorithms.h", "Algorithms/Source/Stack/Cpp/CppStack.h", "Algorithms/Source/PriorityQueue/ObjC/CFPriorityQueue.h"
+  # spec.exclude_files = "Algorithms/Source/Exclude"
 
-  # spec.public_header_files = "Algorithms/Source/Exclude"
+  spec.public_header_files = "Algorithms.h", "Algorithms/Source/Stack/Cpp/CppStack.h", "Algorithms/Source/PriorityQueue/ObjC/CFPriorityQueue.h"
   spec.swift_version = "4.2"
 
   spec.frameworks = "Foundation", "CoreFoundation"
