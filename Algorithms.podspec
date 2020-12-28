@@ -35,6 +35,6 @@ Pod::Spec.new do |spec|
   # spec.public_header_files = "Algorithms/Source/Exclude"
   spec.swift_version = "4.2"
 
-  s.frameworks = "Foundation", "CoreFoundation"
+  spec.frameworks = "Foundation", "CoreFoundation"
 
 end
