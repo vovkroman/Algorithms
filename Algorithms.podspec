@@ -31,8 +31,7 @@ Pod::Spec.new do |spec|
   spec.source_files  = "Algorithms/Source", "Algorithms/Source/**/*.{h,m,swift}"
   # spec.exclude_files = "Algorithms/Source/Exclude"
 
-  spec.public_header_files = "Algorithms/Algorithms.h", "Algorithms/Source/Stack/Cpp/CppStack.h", "Algorithms/Source/PriorityQueue/ObjC/CFPriorityQueue.h"
-  spec.private_header_files = "Algorithms/Defines.h"
+  spec.public_header_files = "Algorithms/Algorithms.h", "Algorithms/Source/Stack/Cpp/CppStack.h", "Algorithms/Source/PriorityQueue/ObjC/CFPriorityQueue.h", "Algorithms/Defines.h"
   spec.swift_version = "4.2"
 
   spec.frameworks = "Foundation", "CoreFoundation"
