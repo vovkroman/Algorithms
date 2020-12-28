@@ -2,16 +2,16 @@ Pod::Spec.new do |spec|
 
   spec.name         = "Algorithms"
   spec.version      = "0.0.1"
-  spec.summary      = "Algorithms is a framework including all algorithms and data structures + some extensions for embedded Swift Collection (see. below) that commonl"
+  spec.summary      = "Algorithms is a framework including all algorithms and data structures."
 
-  spec.description  = <<-DESC
-                   DESC
+  spec.description  = "Algorithms is a framework including all algorithms and data structures + some extensions for embedded Swift Collection (see. below) that commonly used for iOS/Mac/tvOS development."
 
   spec.screenshots  = "https://github.com/vovkroman/Algorithms/blob/master/Images/searching_plot.png"
   spec.license      = "MIT"
   
   spec.author             = { "Roman Vovk" => "roman.vovk.s@gmail.com" }
-  spec.social_media_url   = "https://www.linkedin.com/in/roman-vovk-bb6394b2/"
+  spec.homepage           = "https://github.com/vovkroman/Algorithms"
+  spec.social_media_url   = "https://www.linkedin.com/in/roman-vovk-bb6394b2"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -33,6 +33,8 @@ Pod::Spec.new do |spec|
   spec.exclude_files = "Algorithms.h", "Algorithms/Source/Stack/Cpp/CppStack.h", "Algorithms/Source/PriorityQueue/ObjC/CFPriorityQueue.h"
 
   # spec.public_header_files = "Algorithms/Source/Exclude"
-
   spec.swift_version = "4.2"
+
+  s.frameworks = "Foundation", "CoreFoundation"
+
 end
