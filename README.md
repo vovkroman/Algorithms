@@ -72,7 +72,7 @@ pod 'Algorithms', git: 'https://github.com/vovkroman/Algorithms.git'
 Then, run the following command:
 
 ```
-$ pod instal
+$ pod install
 ```
 
 ### TODO

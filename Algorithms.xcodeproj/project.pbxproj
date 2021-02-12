@@ -27,6 +27,7 @@
 		6F021E9B2549B49A006CE98F /* COW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F021E9A2549B49A006CE98F /* COW.swift */; };
 		6F07073025769DDA001991C8 /* SingleLinkedListTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07072F25769DDA001991C8 /* SingleLinkedListTestCase.swift */; };
 		6F08F98D258256F4006AEFB6 /* LRUCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB642FF25658D0F00DC6ECE /* LRUCache.swift */; };
+		6F1073CB25A39A4A00E5C80D /* MemoryAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1073CA25A39A4A00E5C80D /* MemoryAddress.swift */; };
 		6F111EED25481738008DEDEF /* OrderedSetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F111EEC25481738008DEDEF /* OrderedSetTestCase.swift */; };
 		6F111EEF25488C22008DEDEF /* PriorityQueueTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F111EEE25488C22008DEDEF /* PriorityQueueTestCase.swift */; };
 		6F130CE5257EB1220033546A /* CppStack.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F130CE3257EB1220033546A /* CppStack.mm */; };
@@ -87,6 +88,7 @@
 		6F021E9825499FAC006CE98F /* LinkListTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkListTestCase.swift; sourceTree = "<group>"; };
 		6F021E9A2549B49A006CE98F /* COW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COW.swift; sourceTree = "<group>"; };
 		6F07072F25769DDA001991C8 /* SingleLinkedListTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLinkedListTestCase.swift; sourceTree = "<group>"; };
+		6F1073CA25A39A4A00E5C80D /* MemoryAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryAddress.swift; sourceTree = "<group>"; };
 		6F111EEC25481738008DEDEF /* OrderedSetTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedSetTestCase.swift; sourceTree = "<group>"; };
 		6F111EEE25488C22008DEDEF /* PriorityQueueTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueueTestCase.swift; sourceTree = "<group>"; };
 		6F130CE3257EB1220033546A /* CppStack.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CppStack.mm; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				6FFE7C7E253448B50005477E /* ParkBenchTimer.swift */,
+				6F1073CA25A39A4A00E5C80D /* MemoryAddress.swift */,
 			);
 			path = Additionals;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				6FB7937A256D01FF0029BAAF /* SegmentTreeTestCase.swift in Sources */,
 				6F021E9925499FAC006CE98F /* LinkListTestCase.swift in Sources */,
 				6F111EEF25488C22008DEDEF /* PriorityQueueTestCase.swift in Sources */,
+				6F1073CB25A39A4A00E5C80D /* MemoryAddress.swift in Sources */,
 				6FFE7C7F253448B50005477E /* ParkBenchTimer.swift in Sources */,
 				6FB7937E256D10D50029BAAF /* StackTestCase.swift in Sources */,
 				6F07073025769DDA001991C8 /* SingleLinkedListTestCase.swift in Sources */,

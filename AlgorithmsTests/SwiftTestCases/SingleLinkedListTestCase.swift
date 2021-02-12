@@ -18,4 +18,13 @@ class SingleLinkedListTestCase: XCTestCase {
         XCTAssertTrue(linkedList.pop() == Optional(10))
         XCTAssertTrue(linkedList.pop() == nil)
     }
+    
+    func testSingleLinkedListCow() {
+        var list_1 = SingleLinkedList<Int>()
+        list_1.push(10)
+        list_1.push(20)
+        list_1.push(30)
+        var list_2 = list_1
+        XCTAssertTrue(MemoryAddress(of: &list_1._storage).intValue == MemoryAddress(of: &list_2._storage).intValue)
+    }
 }
