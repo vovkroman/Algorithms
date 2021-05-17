@@ -32,6 +32,7 @@
 		6F111EEF25488C22008DEDEF /* PriorityQueueTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F111EEE25488C22008DEDEF /* PriorityQueueTestCase.swift */; };
 		6F130CE5257EB1220033546A /* CppStack.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F130CE3257EB1220033546A /* CppStack.mm */; };
 		6F130CE6257EB1230033546A /* CppStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F130CE4257EB1220033546A /* CppStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6F211EAE264BB2ED00B7DFC7 /* Heap_NIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F211EAD264BB2ED00B7DFC7 /* Heap_NIO.swift */; };
 		6F5D4B30253778A300C692A9 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4B2F253778A300C692A9 /* Queue.swift */; };
 		6F5D4B342537790700C692A9 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4B332537790700C692A9 /* Stack.swift */; };
 		6F65C2E62593AD8200BC87A4 /* LRU_Example.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6F65C2E52593AD8200BC87A4 /* LRU_Example.rtf */; };
@@ -93,6 +94,7 @@
 		6F111EEE25488C22008DEDEF /* PriorityQueueTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueueTestCase.swift; sourceTree = "<group>"; };
 		6F130CE3257EB1220033546A /* CppStack.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CppStack.mm; sourceTree = "<group>"; };
 		6F130CE4257EB1220033546A /* CppStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CppStack.h; sourceTree = "<group>"; };
+		6F211EAD264BB2ED00B7DFC7 /* Heap_NIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap_NIO.swift; sourceTree = "<group>"; };
 		6F5D4B2F253778A300C692A9 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		6F5D4B332537790700C692A9 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		6F65C2E52593AD8200BC87A4 /* LRU_Example.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = LRU_Example.rtf; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 			children = (
 				6FEC573F252F14B600DE5AB3 /* PriorityQueue.swift */,
 				6FEC573D252F149900DE5AB3 /* Heap.swift */,
+				6F211EAD264BB2ED00B7DFC7 /* Heap_NIO.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				6FFE7C982534B6560005477E /* Array+Sort.swift in Sources */,
 				6F5D4B30253778A300C692A9 /* Queue.swift in Sources */,
 				6F021E8125495EF3006CE98F /* RedBlackTree.swift in Sources */,
+				6F211EAE264BB2ED00B7DFC7 /* Heap_NIO.swift in Sources */,
 				6FEC573E252F149900DE5AB3 /* Heap.swift in Sources */,
 				6FFE7C962534B0D20005477E /* Shared.swift in Sources */,
 				6FEC5740252F14B700DE5AB3 /* PriorityQueue.swift in Sources */,
